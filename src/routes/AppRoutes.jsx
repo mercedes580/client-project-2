@@ -4,7 +4,7 @@ import HomePage from '../pages/HomePage'
 const AppRoutes = () => {
 
     return (
-        <div className="AppRouteS">
+        <div className="AppRoutes">
             <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='/productos' element={<h1>productos</h1>} />
@@ -13,6 +13,8 @@ const AppRoutes = () => {
                 <Route path='/sobre-nosotros' element={<h1>sobre nosotros</h1>} />
                 <Route path='/productos/añadir' element={<h1>producto a añadir</h1>} />
                 <Route path='/productos/editar/:id' element={<h1>editar producto</h1>} />
+
+                <Route path='*' element={<h1>404</h1>} />
             </Routes>
         </div>
     )
