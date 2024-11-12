@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom"
+
+
 const Header = () => {
 
     return (
@@ -5,8 +8,10 @@ const Header = () => {
             <div className="container">
                 <div className="row header-inner align-items-center sub_sub_menu">
                     <div className="col-xl-2 col-lg-6 col-sm-6 header-left">
-                        <div id="logo"> <a href="index-2.html">
-                        </a>
+                        <div id="logo">
+                            <Link to={'/'}><a>
+                                <img src="../assets/images/logo.png" alt="" />
+                            </a></Link>
                         </div>
                     </div>
                     <div
@@ -40,59 +45,32 @@ const Header = () => {
                                                         data-transition="slide"
                                                         data-animationtime="500">
                                                         <li className="home">
-                                                            <a
-                                                                href="index-2.html">
-                                                                <span><strong>Home</strong></span>
-                                                            </a>
+
+                                                            <Link to={'/'}> <span><strong>Home</strong></span></Link>
+
                                                         </li>
                                                         <li class>
-                                                            <p className="close-menu"></p>
-                                                            <a href="#" className="clearfix">
-                                                                <strong>
-                                                                    Shop
-                                                                </strong>
-                                                            </a>
+
+                                                            <Link to={'/productos'}> <span><strong>
+                                                                Productos
+                                                            </strong></span></Link>
+
                                                         </li>
                                                         <li class>
-                                                            <p className="close-menu"></p>
-                                                            <a href="#" className="clearfix">
-                                                                <strong>
-                                                                    Categories
-                                                                </strong>
-                                                            </a>
+
+                                                            <Link to={'/contacto'}><span><strong>
+                                                                Contacto
+                                                            </strong></span></Link>
+
                                                         </li>
                                                         <li class>
-                                                            <p className="close-menu"></p>
-                                                            <a href="#" className="clearfix">
-                                                                <strong>
-                                                                    Product
-                                                                </strong>
-                                                            </a>
+
+                                                            <Link to={'/sobre-nosotros'}> <span><strong>
+                                                                Sobre nosotros
+                                                            </strong></span></Link>
+
                                                         </li>
-                                                        <li class>
-                                                            <p className="close-menu"></p>
-                                                            <a href="#" className="clearfix">
-                                                                <strong>
-                                                                    Pages
-                                                                </strong>
-                                                            </a>
-                                                        </li>
-                                                        <li class>
-                                                            <p className="close-menu"></p>
-                                                            <a href="#" className="clearfix">
-                                                                <strong>
-                                                                    Brand
-                                                                </strong>
-                                                            </a>
-                                                        </li>
-                                                        <li class>
-                                                            <p className="close-menu"></p>
-                                                            <a href="#" className="clearfix">
-                                                                <strong>
-                                                                    Blog
-                                                                </strong>
-                                                            </a>
-                                                        </li>
+
                                                     </ul>
                                                 </div>
                                             </div>

@@ -1,8 +1,10 @@
 const HomePage = () => {
 
     return (
+        <div className="BakeryCard">
+            <h1>hola</h1>
 
-        <h1>hola</h1>
+        </div>
     )
 }
 

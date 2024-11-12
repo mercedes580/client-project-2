@@ -41,7 +41,7 @@ ul.themability_megamenu>li>a {
     background-position: bottom;
     padding: 15px 0;
     text-transform: capitalize;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
 ul.themability_megamenu>li>a strong {
@@ -860,14 +860,14 @@ ul.themability_megamenu ul.subcategory {
         visibility: hidden;
         -webkit-transform: translate3d(-280px, 0, 0);
         transform: translate3d(-280px, 0, 0);
-        -webkit-transition: all 0.5s ease-in-out 0s;
-        transition: all 0.5s ease-in-out 0s;
+        -webkit-transition: all 0.3s ease-in-out 0s;
+        transition: all 0.3s ease-in-out 0s;
         max-height: 700px;
         border: 1px solid var(--border-color);
     }
 
     .themability_megamenu-style-dev .navbar-default .navbar-toggle span {
-        transition: 0.5s;
+        transition: 0.3s;
     }
 
     .vertical #menuHeading {
