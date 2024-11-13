@@ -3,6 +3,7 @@ import HomePage from '../pages/HomePage'
 import ProductsPage from '../pages/ProductsPage'
 import AboutPage from '../pages/AboutPage'
 import ContactPage from '../pages/ContactPage'
+import BakeryDetails from '../components/BakeryDetails/BakeryDetails'
 
 const AppRoutes = () => {
 
@@ -11,7 +12,7 @@ const AppRoutes = () => {
             <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='/productos' element={<ProductsPage />} />
-                <Route path='/productos/:id' element={<h1>detalle producto</h1>} />
+                <Route path='/productos/:id' element={<h1><BakeryDetails /></h1>} />
                 <Route path='/sobre-nosotros' element={<AboutPage />} />
                 <Route path='/contacto' element={<ContactPage />} />
                 <Route path='/productos/añadir' element={<h1>producto a añadir</h1>} />
