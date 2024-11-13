@@ -49,7 +49,7 @@ const BakeryList = () => {
 
                     <div className="row">
                         {products.map(elm => (
-                            <BakeryCard key={elm.id} title={elm.title} description={elm.description} price={elm.price} gallery={elm.gallery[0]} />
+                            <BakeryCard key={elm.id} id={elm.id} title={elm.title} description={elm.description} price={elm.price} gallery={elm.gallery[0]} />
                         ))}
                     </div>
                 </div>
