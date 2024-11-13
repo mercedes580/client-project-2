@@ -1,6 +1,5 @@
 const HomePage = () => {
     return (
-<<<<<<< HEAD
         <div className="index page">
             <header>
                 <h1>MPD BAKERY SHOP</h1>
@@ -26,11 +25,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-=======
-        <div className="HomePage">
-        </div>
-    )
-}
-
-export default HomePage
->>>>>>> b76890274d6114751b5f6cc222742b13a93bd2e6
