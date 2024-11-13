@@ -1,4 +1,4 @@
-import BakeryList from "../components/BakeryList"
+import BakeryList from "../components/BakeryList/BakeryList"
 
 
 const ProductsPage = () => {
