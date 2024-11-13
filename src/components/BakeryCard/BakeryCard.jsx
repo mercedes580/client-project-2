@@ -1,26 +1,33 @@
+import { Link } from 'react-router-dom'
 import './BakeryCard.css'
 
-const BakeryCard = ({ title, description, price, gallery }) => {
+const BakeryCard = ({ id, title, description, price, gallery }) => {
 
     return (
         <div className="col single-column">
             <div className="card product-card">
                 <div className="product-image">
-                    <a href="product.html">
-                        <img src={gallery} alt={title} className="image-content" />
-                    </a>
+                    <Link to={`/productos/${id}`}>
+                        <a>
+                            <img src={gallery} alt={title} className="image-content" />
+                        </a>
+                    </Link>
                     <div className="product-button-group">
                         <button title="Add to wishlist" className="wishlist-button">
                             <i className="fas fa-heart"></i>
                         </button>
-                        <button title="Quickview" className="quickview-button">
-                            <i className="fas fa-eye"></i>
-                        </button>
+                        <Link to={`/productos/${id}`}>
+                            <button title="Quickview" className="quickview-button">
+                                <i className="fas fa-eye"></i>
+                            </button>
+                        </Link>
                     </div>
                 </div>
                 <div className="product-description">
                     <h4 className="product-title">
-                        <a href="product.html">{title}</a>
+                        <Link to={`/productos/${id}`}>
+                            <a>{title}</a>
+                        </Link>
                     </h4>
                     <div className="price-rating">
                         <div className="price">
