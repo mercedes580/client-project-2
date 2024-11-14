@@ -1,12 +1,4 @@
-import { Link } from "react-router-dom"
-
-const Header = () => {
-
-    const iconStyle = {
-        fontSize: 30,
-        cursor: 'pointer',
-        color: '#333333'
-    }
+const Navbar = () => {
 
     return (
         <header>
@@ -52,4 +44,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Navbar
