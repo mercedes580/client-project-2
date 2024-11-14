@@ -4,7 +4,7 @@ import { Card, Button, Form, Row, Col } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-const API_URL = 'http://localhost:5005/'
+const API_URL = 'http://localhost:5005'
 
 const BakeryDetails = () => {
     const { id } = useParams()
@@ -20,15 +20,21 @@ const BakeryDetails = () => {
     }, [])
 
     const fetchBakery = () => {
-        axios.get(`${API_URL}products/${id}`).then(response => {
-            setBakery(response.data)
-        })
+        axios
+            .get(`${API_URL}/products/${id}`)
+            .then(response => {
+                setBakery(response.data)
+            })
+            .catch(err => console.log(err))
     }
 
     const fetchBakeryComments = () => {
-        axios.get(`${API_URL}comments?productId=${id}`).then(response => {
-            setComments(response.data)
-        })
+        axios
+            .get(`${API_URL}/comments?productId=${id}`)
+            .then(response => {
+                setComments(response.data)
+            })
+            .catch(err => console.log(err))
     }
 
     const handleEdit = () => {
@@ -36,12 +42,14 @@ const BakeryDetails = () => {
     }
 
     const handleDelete = () => {
-        axios.delete(`${API_URL}products/${id}`).then(() => {
-            alert("Producto eliminado con éxito");
-            navigate('/productos');
-        }).catch(error => {
-            console.error("Error al eliminar el producto:", error)
-        });
+        axios
+            .delete(`${API_URL}products/${id}`)
+            .then(() => {
+                navigate('/productos');
+            })
+            .catch(error => {
+                console.error("Error al eliminar el producto:", error)
+            });
     };
 
     const handleBack = () => {
@@ -78,7 +86,8 @@ const BakeryDetails = () => {
             .then(() => {
                 alert("Comentario eliminado con éxito")
                 fetchBakeryComments()
-            }).catch(error => {
+            })
+            .catch(error => {
                 console.error("Error al eliminar el comentario:", error)
             });
     };
@@ -165,52 +174,53 @@ const BakeryDetails = () => {
                 <Card.Body>
                     <Card.Title>Comentarios</Card.Title>
 
-                    {comments.map((comment, idx) => (
-                        <Card
-                            key={comment.id}
-                            className="mb-3">
+                    {
+                        comments.map((comment, idx) => (
+                            <Card
+                                key={comment.id}
+                                className="mb-3">
 
-                            <Card.Header
-                                className="d-flex justify-content-between align-items-center">
-                                N° Comentario: {idx + 1}
+                                <Card.Header
+                                    className="d-flex justify-content-between align-items-center">
+                                    N° Comentario: {idx + 1}
 
-                                <div>
-                                    <Button
-                                        variant="warning"
-                                        size="sm" onClick={() =>
-                                            handleEditComment(comment.id)}>
-                                        <i className='fas fa-pencil'></i>
-                                    </Button>{' '}
+                                    <div>
+                                        <Button
+                                            variant="warning"
+                                            size="sm" onClick={() =>
+                                                handleEditComment(comment.id)}>
+                                            <i className='fas fa-pencil'></i>
+                                        </Button>{' '}
 
-                                    <Button
-                                        variant="danger"
-                                        size="sm" onClick={() =>
-                                            handleDeleteComment(comment.id)}>
-                                        <i className='fa fa-trash'></i>
-                                    </Button>
-                                </div>
+                                        <Button
+                                            variant="danger"
+                                            size="sm" onClick={() =>
+                                                handleDeleteComment(comment.id)}>
+                                            <i className='fa fa-trash'></i>
+                                        </Button>
+                                    </div>
 
-                            </Card.Header>
+                                </Card.Header>
 
-                            <Card.Body>
-                                <Card.Text>
-                                    <strong>Puntuación:</strong>
-                                    {comment.rating}/10
-                                </Card.Text>
+                                <Card.Body>
+                                    <Card.Text>
+                                        <strong>Puntuación:</strong>
+                                        {comment.rating}/10
+                                    </Card.Text>
 
-                                <Card.Text>
-                                    <strong>Comentario:</strong>
-                                    {comment.comment}
-                                </Card.Text>
+                                    <Card.Text>
+                                        <strong>Comentario:</strong>
+                                        {comment.comment}
+                                    </Card.Text>
 
-                            </Card.Body>
+                                </Card.Body>
 
-                            <Card.Footer>
-                                <strong>Fecha Registro:</strong>
-                                &nbsp;{new Date(comment.date).toLocaleDateString()}
-                            </Card.Footer>
-                        </Card>
-                    ))}
+                                <Card.Footer>
+                                    <strong>Fecha Registro:</strong>
+                                    &nbsp;{new Date(comment.date).toLocaleDateString()}
+                                </Card.Footer>
+                            </Card>
+                        ))}
                 </Card.Body>
             </Card>
 

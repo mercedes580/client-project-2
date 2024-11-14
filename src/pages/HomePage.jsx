@@ -20,7 +20,8 @@ const HomePage = () => {
             <section className="about-us">
                 <h3>Sobre Nosotros</h3>
                 <p>En MPD BAKERY SHOP, te encantara probar los dulces con la mejor calidad posible y no solament eso sino con los mejores productos </p>
-            </section> </div>
+            </section>
+        </div>
     );
 };
 

@@ -11,19 +11,19 @@ const ProductsEditform = () => {
     const [isLoading, setLoading] = useState([true])
 
     useEffect(() => {
-        axios.get(`http://localhost:5005/products/${id}`)
+        axios.get(`${API_URL}/products/${id}`)
             .then(response => {
-                setLoading(false),
-                    setBakery(response.data)
+                setLoading(false)
+                setBakery(response.data)
             })
-            .catch(error => console.error("Error 404 pastelitos not done yet :", error));
+            .catch(error => console.error(error));
     }, [id])
 
     const fetchProducts = () => {
         axios
             .put(`${API_URL}/products/${id}`, bakery)
-        alert("Actualizado :3")
-
+            .then(() => alert("Actualizado :3"))
+            .catch(err => console.log(err))
     }
 
 
@@ -61,11 +61,8 @@ const ProductsEditform = () => {
     }
 
     const handleFormSubmit = e => {
-
         e.preventDefault()
-
         fetchProducts()
-
     }
 
     return (
