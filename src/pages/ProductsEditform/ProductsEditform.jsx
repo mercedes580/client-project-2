@@ -2,7 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 
-const EditFormProduct = () => {
+const ProductsEditform = () => {
 
     const API_URL = "http://localhost:5005"
 
@@ -69,7 +69,7 @@ const EditFormProduct = () => {
     }
 
     return (
-        <div className="EditFormProduct">
+        <div className="ProductsEditform">
 
             <form onSubmit={handleFormSubmit}>
 
@@ -149,4 +149,4 @@ const EditFormProduct = () => {
     )
 }
 
-export default EditFormProduct
+export default ProductsEditform
