@@ -1,8 +1,10 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
+import { Form, Row, Col, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
-const ProductsEditform = () => {
+const EditProductForm = () => {
 
     const API_URL = "http://localhost:5005"
 
@@ -23,6 +25,9 @@ const ProductsEditform = () => {
         axios
             .put(`${API_URL}/products/${id}`, bakery)
             .then(() => alert("Actualizado :3"))
+            .then(response => {
+                Navigate(`/productos/${response.data.id}`)
+            })
             .catch(err => console.log(err))
     }
 
@@ -66,7 +71,7 @@ const ProductsEditform = () => {
     }
 
     return (
-        <div className="ProductsEditform">
+        <div className="EditProductForm ">
             <Form onSubmit={handleFormSubmit}>
                 <Form.Group className="mb-3">
                     <Form.Label htmlFor="titleField">Producto</Form.Label>
@@ -103,7 +108,7 @@ const ProductsEditform = () => {
                         value={bakery.description}
                         onChange={handleProductChange}
                         name="description"
-                        id="descriptionField"
+                        id="description.field"
                     />
                 </Form.Group>
 
@@ -164,7 +169,7 @@ const ProductsEditform = () => {
                         onChange={handleProductChange}
                         name="gluten"
                         id="glutenField"
-                        label="Contiene gluten"
+                        label="tiene  gluten"
                     />
                 </Form.Group>
 
@@ -174,4 +179,4 @@ const ProductsEditform = () => {
     );
 }
 
-export default ProductsEditform;
+export default EditProductForm;
