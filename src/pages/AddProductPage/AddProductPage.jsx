@@ -1,20 +1,13 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
-
-const AddNewProductPage = () => {
 
 
-    const API_URL = "http://localhost:5005"
+import axios from "axios";
+import { useState } from "react";
+import "./AddProductPage.css";
+import { Navigate } from "react-router-dom";
 
+const AddProductPage = () => {
 
-
-    const fetchProducts = () => {
-        axios
-            .post(`${API_URL}/products`, productData)
-        alert("Creado")
-
-    }
-
+    const API_URL = "http://localhost:5005";
     const [productData, setProductData] = useState({
         title: "",
         description: "",
@@ -26,17 +19,16 @@ const AddNewProductPage = () => {
         gluten: false
     })
 
-    const handleProductChange = e => {
+    const handleProductChange = (e) => {
         const { name, value, checked, type } = e.target
         const result = type === "checkbox" ? checked : value
         setProductData({ ...productData, [name]: result })
-
     }
 
     const handleGalleryChange = (e, idx) => {
         const { value } = e.target
         const galleryCopy = [...productData.gallery]
-        galleryCopy[idx] = value
+        galleryCopy[idx] = value;
         setProductData({ ...productData, gallery: galleryCopy })
     }
 
@@ -47,7 +39,7 @@ const AddNewProductPage = () => {
     }
 
     const handleAllergensChange = (e, idx) => {
-        const { value } = e.target
+        const { value } = e.target;
         const allergensCopy = [...productData.allergens]
         allergensCopy[idx] = value
         setProductData({ ...productData, allergens: allergensCopy })
@@ -59,90 +51,148 @@ const AddNewProductPage = () => {
         setProductData({ ...productData, allergens: allergensCopy })
     }
 
-    const handleFormSubmit = e => {
-
-        e.preventDefault()
-
-        fetchProducts()
-
+    const handleIngredentChange = (e, idx) => {
+        const { value } = e.target;
+        const ingredientCopy = [...productData.ingredients]
+        ingredientCopy[idx] = value
+        setProductData({ ...productData, ingredients: ingredientCopy })
+    }
+    const addNewIngredient = () => {
+        const ingredientCopy = [...productData.ingredients]
+        ingredientCopy.push("")
+        setProductData({ ...productData, ingredients: ingredientCopy })
     }
 
+    const handleFormSubmit = (e) => {
+        e.preventDefault()
+        fetchProducts()
+    }
+    const fetchProducts = () => {
+        axios
+            .post(`${API_URL}/products`, productData)
+            .then(() => {
+                alert("Producto creado")
+
+                setProductData({
+                    title: "",
+                    description: "",
+                    price: 0,
+                    ingredients: [""],
+                    allergens: [""],
+                    gallery: [""],
+                    stock: 0,
+                    gluten: false
+                })
+            })
+    }
     return (
-        <div className="NewProductForm">
+        <div className="AddProductPage">
 
-            <form onSubmit={handleFormSubmit}>
+            <h2>Crea un nuevo producto</h2>
 
-                Producto
-                <input type="text" value={productData.title} onChange={handleProductChange}
-                    name={"title"} controlId="titleField" />
-                <br />
+            <form onSubmit={handleFormSubmit} className="form-content">
 
-                Imagen/es
-                {
-                    productData.gallery.map((eachGallery, idx) => {
-                        return (
-                            <input
-                                type="text"
-                                value={productData.gallery[idx]}
-                                onChange={event => handleGalleryChange(event, idx)}
-                                key={idx} />
-                        )
-                    })
+                <div className="Product">
+                    <label>Producto</label>
+                    <br />
+                    <input type="text" value={productData.title} onChange={handleProductChange} name="title" />
+                </div>
 
-                }
+                <div className="Images">
+                    <label>Imagen/es</label>
+                    <br />
+                    {
+                        productData.gallery.map((eachGallery, idx) => {
 
-                <button onClick={addNewImage}>Añadir otra imagen</button>
+                            return (
+                                <input
+                                    type="text"
+                                    value={productData.gallery[idx]}
+                                    onChange={(event) => handleGalleryChange(event, idx)}
+                                    key={idx}
+                                />
+                            )
+                        })
+                    }
 
-                <br />
+                    <br />
+                    <button type="button" onClick={addNewImage} className="add-btn">Añadir otra imagen</button>
+                </div>
 
-                Descripción
-                <input type="text" value={productData.description} onChange={handleProductChange}
-                    name={"description"} controlId="descriptionField" />
-                <br />
+                <div className="Description">
+                    <label>Descripción</label>
+                    <br />
+                    <input type="text" value={productData.description} onChange={handleProductChange} name="description" />
 
-                Ingredientes
-                <input type="text" value={productData.ingredients} onChange={handleProductChange}
-                    name={"ingredients"} controlId="ingredientsField" />
-                <br />
+                </div>
 
-                Precio
-                <input type="number" value={productData.price} onChange={handleProductChange}
-                    name={"price"} controlId="priceField" />
-                <br />
+                <div className="Ingredients">
+                    <label>Ingredientes</label>
+                    <br />
+                    {
+                        productData.ingredients.map((eachIngredient, idx) => {
 
-                Alérgenos
-                {
-                    productData.allergens.map((eachAllergen, idx) => {
-                        return (
-                            <input type="text"
-                                value={productData.allergens[idx]}
-                                onChange={event => handleAllergensChange(event, idx)}
-                                key={idx} />
-                        )
-                    })
+                            return (
+                                <input
+                                    type="text"
+                                    value={productData.ingredients[idx]}
+                                    onChange={(event) => handleIngredentChange(event, idx)}
+                                    key={idx}
+                                />
+                            )
+                        })
+                    }
+                    < br />
+                    <button type="button" onClick={addNewIngredient} className="add-btn">Añadir otro ingrediente</button>
 
-                }
+                </div>
 
-                <button onClick={addNewAllergen}>Añadir otro alérgeno</button>
+                <div className="Price">
+                    <label>Precio</label>
+                    <br />
+                    <input type="number" value={productData.price} onChange={handleProductChange} name="price" />
+                </div>
 
-                <br />
+                <div className="Allergens">
+                    <label>Alérgenos</label>
+                    <br />
+                    {
+                        productData.allergens.map((eachAllergen, idx) => {
 
-                Stock
-                <input type="number" value={productData.stock} onChange={handleProductChange}
-                    name={"stock"} controlId="stockField" />
-                <br />
+                            return (
+                                <input
+                                    type="text"
+                                    value={productData.allergens[idx]}
+                                    onChange={(event) => handleAllergensChange(event, idx)}
+                                    key={idx}
+                                />
+                            )
+                        })
+                    }
 
-                Gluten
-                <input type="checkbox" checked={productData.gluten} onChange={handleProductChange}
-                    name={"gluten"} controlId="glutenField" />
-                <br />
 
-                <input type="submit" value={"Crear nuevo producto"} />
+                    <br />
+                    <button type="button" onClick={addNewAllergen} className="add-btn">Añadir otro alérgeno</button>
+                </div>
+
+                <div className="Stock">
+                    <label>Stock</label>
+                    <br />
+                    <input type="number" value={productData.stock} onChange={handleProductChange} name="stock" />
+                </div>
+
+                <div className="Gluten">
+                    <label>Gluten</label>
+                    <br />
+                    <input type="checkbox" checked={productData.gluten} onChange={handleProductChange} name="gluten" />
+                </div>
+
+                <div className="CreateFormButton">
+                    <input type="submit" value="Crear nuevo producto" className="submit-btn" />
+                </div>
+
             </form>
         </div>
-
-
-    )
-}
-
-export default AddNewProductPage
+    );
+};
+export default AddProductPage

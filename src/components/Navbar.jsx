@@ -1,28 +1,46 @@
 const Navbar = () => {
 
     return (
-        <nav id="top">
+        <header>
             <div className="container">
-                <div className="row">
-                    <div className="col col-lg-4 contact-info">
-                        <a href="tel:+1238425733">
-                            <i className="fa fa-phone"></i>
-                            <span> (+34) 987 89 56 98</span>
-                        </a>
+                <div className="header-inner">
+                    {/* Logo Section */}
+                    <div id="logo">
+                        <a href="/"><img src="../assets/images/logo.png" alt="Logo" /></a>
                     </div>
-                    <div className="col col-lg-4 address-info">
-                        <i class="fas fa-location"></i>
-                        <span>123 Main Street, City</span>
+
+                    {/* Navigation Center */}
+                    <div className="header-center">
+                        <nav>
+                            <ul>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/productos">Productos</a></li>
+                                <li><a href="/sobre-nosotros">Sobre nosotros</a></li>
+                                <li><a href="/contacto">Contacto</a></li>
+                            </ul>
+                        </nav>
                     </div>
-                    <div className="col col-lg-4 social-icons">
-                        <a href="#"><i className="fab fa-facebook"></i></a>
-                        <a href="#"><i className="fab fa-twitter"></i></a>
-                        <a href="#"><i className="fab fa-instagram"></i></a>
-                        <a href="#"><i className="fab fa-linkedin"></i></a>
+
+                    {/* Header Right Section */}
+                    <div className="header-right">
+                        <div className="search-btn-outer">
+                            <i className="fas fa-search"></i>
+                        </div>
+                        <div className="dropdown">
+                            <a href="#" className="btn-link">
+                                <i className="fas fa-user"></i>
+                            </a>
+                        </div>
+                        <div className="cart-content">
+                            <button type="button">
+                                <i className="fa-solid fa-cart-shopping"></i>
+                                <span>3</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </nav>
+        </header>
     )
 }
 
