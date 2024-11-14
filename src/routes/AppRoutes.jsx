@@ -4,7 +4,7 @@ import ProductsPage from '../pages/ProductsPage'
 import AboutPage from '../pages/AboutPage/AboutPage'
 import ContactPage from '../pages/ContactPage/ContactPage'
 import AddNewProductPage from '../pages/AddProductPage/AddProductPage'
-import BakeryDetails from '../components/BakeryDetails/BakeryDetails'
+import BakeryDetails from '../pages/BakeryDetails/BakeryDetails'
 const AppRoutes = () => {
     return (
         <div className="AppRoutes">
