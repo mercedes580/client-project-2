@@ -5,6 +5,8 @@ import AboutPage from '../pages/AboutPage/AboutPage'
 import ContactPage from '../pages/ContactPage/ContactPage'
 import AddNewProductPage from '../pages/AddProductPage/AddProductPage'
 import BakeryDetails from '../pages/BakeryDetails/BakeryDetails'
+import ProductEditForm from '../pages/ProductsEditform/ProductsEditform'
+
 const AppRoutes = () => {
     return (
         <div className="AppRoutes">
@@ -15,7 +17,7 @@ const AppRoutes = () => {
                 <Route path='/sobre-nosotros' element={<AboutPage />} />
                 <Route path='/contacto' element={<ContactPage />} />
                 <Route path='/productos/añadir' element={<AddNewProductPage />} />
-                <Route path='/productos/editar/:id' element={<h1>editar producto</h1>} />
+                <Route path='/productos/editar/:id' element={<ProductEditForm />} />
                 <Route path='*' element={<h1>404</h1>} />
             </Routes>
         </div>
