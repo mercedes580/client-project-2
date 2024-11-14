@@ -2,11 +2,11 @@ import axios from "axios";
 import { useState } from "react";
 import "./AddProductForm.css";
 import { useNavigate } from "react-router-dom";
+import { Form, Row, Col, Button } from "react-bootstrap";
 
+const API_URL = "http://localhost:5005"
 
 const AddProductForm = () => {
-
-    const API_URL = "http://localhost:5005";
 
     const navigate = useNavigate()
 
@@ -79,100 +79,135 @@ const AddProductForm = () => {
             })
             .catch(err => console.log(err))
     }
+
     return (
         <div className="AddProductForm">
 
-            <form onSubmit={handleFormSubmit} className="form-content row g-3 form-container">
-                <div className="col-md-12">
-                    <label className="form-label">Producto</label>
-                    <input type="text" className="form-control" value={productData.title}
-                        onChange={handleProductChange} name="title" />
-                </div>
+            <Form onSubmit={handleFormSubmit} className="form-container">
+                <Row className="g-3">
 
-                <div className="col-md-12">
-                    <label className="form-label">Imagen/es</label>
-                    {
-                        productData.gallery.map((eachGallery, idx) => (
-                            <input
+                    <Form.Group controlId="productTitle">
+                        <Form.Label>Producto</Form.Label>
+                        <Form.Control
+                            type="text"
+                            value={productData.title}
+                            onChange={handleProductChange}
+                            name="title"
+                        />
+                    </Form.Group>
+
+                    <Form.Group controlId="productImages">
+                        <Form.Label>Imagen/es</Form.Label>
+                        {productData.gallery.map((eachGallery, idx) => (
+                            <Form.Control
                                 type="text"
                                 key={idx}
-                                className="form-control"
-                                value={productData.gallery[idx]}
+                                value={eachGallery}
                                 onChange={(event) => handleGalleryChange(event, idx)}
+                                className="mb-2"
                             />
-                        ))
-                    }
-                    <button type="button" onClick={addNewImage}
-                        className="btn btn-secondary mt-2">Añadir otra imagen</button>
-                </div>
+                        ))}
+                        <Button variant="secondary" onClick={addNewImage} className="mt-2">Añadir otra imagen</Button>
+                    </Form.Group>
 
-                <div className="col-12">
-                    <label className="form-label">Descripción</label>
-                    <input type="text" className="form-control" value={productData.description}
-                        onChange={handleProductChange} name="description" />
-                </div>
+                    <Form.Group controlId="productDescription">
+                        <Form.Label>Descripción</Form.Label>
+                        <Form.Control
+                            type="text"
+                            value={productData.description}
+                            onChange={handleProductChange}
+                            name="description"
+                        />
+                    </Form.Group>
 
-                <div className="col-12">
-                    <label className="form-label">Ingredientes</label>
-                    {
-                        productData.ingredients.map((eachIngredient, idx) => (
-                            <input
+                    <Form.Group controlId="productIngredients">
+                        <Form.Label>Ingredientes</Form.Label>
+                        {
+                            productData.ingredients.map((eachIngredient, idx) => (
+                                <Form.Control
+                                    type="text"
+                                    key={idx}
+                                    value={eachIngredient}
+                                    onChange={(event) => handleIngredentChange(event, idx)}
+                                    className="mb-2"
+                                />
+                            ))
+                        }
+
+                        <Button
+                            variant="secondary"
+                            onClick={addNewIngredient}
+                            className="mt-2"
+                        >Añadir otro ingrediente
+                        </Button>
+
+                    </Form.Group>
+
+                    <Row className="g-2">
+
+                        <Col md>
+                            <Form.Group controlId="productPrice">
+                                <Form.Label>Precio</Form.Label>
+                                <Form.Control
+                                    type="number"
+                                    value={productData.price}
+                                    onChange={handleProductChange}
+                                    name="price"
+                                />
+                            </Form.Group>
+                        </Col>
+
+                        <Col md>
+                            <Form.Group controlId="productStock">
+                                <Form.Label>Stock</Form.Label>
+                                <Form.Control
+                                    type="number"
+                                    value={productData.stock}
+                                    onChange={handleProductChange}
+                                    name="stock"
+                                />
+                            </Form.Group>
+                        </Col>
+                    </Row>
+
+                    <Form.Group controlId="productAllergens">
+                        <Form.Label>Alérgenos</Form.Label>
+                        {productData.allergens.map((eachAllergen, idx) => (
+                            <Form.Control
                                 type="text"
                                 key={idx}
-                                className="form-control"
-                                value={productData.ingredients[idx]}
-                                onChange={(event) => handleIngredentChange(event, idx)}
-                            />
-                        ))
-                    }
-                    <button type="button" onClick={addNewIngredient}
-                        className="btn btn-secondary mt-2">Añadir otro ingrediente</button>
-                </div>
-
-                <div className="col-md-6">
-                    <label className="form-label">Precio</label>
-                    <input type="number" className="form-control" value={productData.price}
-                        onChange={handleProductChange} name="price" />
-                </div>
-
-                <div className="col-md-6">
-                    <label className="form-label">Stock</label>
-                    <input type="number" className="form-control" value={productData.stock}
-                        onChange={handleProductChange} name="stock" />
-                </div>
-
-                <div className="col-12">
-                    <label className="form-label">Alérgenos</label>
-                    {
-                        productData.allergens.map((eachAllergen, idx) => (
-                            <input
-                                type="text"
-                                key={idx}
-                                className="form-control"
-                                value={productData.allergens[idx]}
+                                value={eachAllergen}
                                 onChange={(event) => handleAllergensChange(event, idx)}
+                                className="mb-2"
                             />
-                        ))
-                    }
-                    <button type="button" onClick={addNewAllergen}
-                        className="btn btn-secondary mt-2">Añadir otro alérgeno</button>
-                </div>
+                        ))}
+                        <Button
+                            variant="secondary"
+                            onClick={addNewAllergen}
+                            className="mt-2">
+                            Añadir otro alérgeno
+                        </Button>
+                    </Form.Group>
 
-                <div className="col-md-6">
-                    <label className="form-label">Gluten</label>
-                    <input type="checkbox" className="form-check-input" checked={productData.gluten}
-                        onChange={handleProductChange} name="gluten" />
-                </div>
+                    <Form.Group controlId="productGluten" className="form-check">
+                        <Form.Check
+                            type="checkbox"
+                            checked={productData.gluten}
+                            onChange={handleProductChange}
+                            name="gluten"
+                            label="Gluten"
+                        />
+                    </Form.Group>
 
-                <div className="col-12">
-                    <button type="submit" className="btn btn-success rotate-container">
-                        <i className="fas fa-plus rotate-on-hover"></i>&nbsp;Crear nuevo producto</button>
-                </div>
+                    <Button type="submit" variant="success" className="rotate-container">
+                        <i className="fas fa-plus rotate-on-hover"></i>&nbsp;Crear nuevo producto
+                    </Button>
 
-            </form>
+                </Row>
+            </Form>
         </div>
-
-
     )
+
 }
+
 export default AddProductForm

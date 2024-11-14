@@ -1,6 +1,5 @@
-import './BakeryList.css'
-import axios from "axios"
 import { useEffect, useState } from "react"
+import axios from "axios"
 import BakeryCard from "../BakeryCard/BakeryCard"
 import { Row } from 'react-bootstrap'
 
@@ -24,11 +23,13 @@ const BakeryList = () => {
     return (
 
         <Row>
+
             {
                 products.map(elm => (
                     <BakeryCard key={elm.id} {...elm} />
                 ))
             }
+
         </Row>
 
     )
