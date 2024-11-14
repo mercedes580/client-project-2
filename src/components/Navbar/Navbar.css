@@ -1,0 +1,144 @@
+header {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+header .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header #logo {
+    max-width: 150px;
+    display: flex;
+    align-items: center;
+}
+
+header #logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+.header-center nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.header-center nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+}
+
+.header-center nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 8px 15px;
+    transition: color 0.3s;
+}
+
+.header-center nav ul li a:hover {
+    color: #FF5733;
+}
+
+/* Header Right */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.header-right .search-btn-outer,
+.header-right .dropdown,
+.header-right .cart-content {
+    display: inline-block;
+}
+
+.header-right .fa-cart-shopping {
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.header-right .fa-search,
+.header-right .fa-user {
+    padding: 1;
+    cursor: pointer;
+    font-size: 2em;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.header-right .fa-search:hover,
+.header-right .fa-user:hover,
+.header-right .fa-cart-shopping:hover {
+    color: #FF5733;
+}
+
+.header-right .cart-content button {
+    position: relative;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    transition: color 0.3s;
+}
+
+.header-right .cart-content button:hover {
+    color: #FF5733;
+}
+
+.header-right .cart-content span {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #FF5733;
+    color: #fff;
+    font-size: 0.75em;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+    min-width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+
+    .header-center nav ul {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: #333;
+        font-size: 1.5em;
+        cursor: pointer;
+    }
+
+    .menu-toggle.active+.header-center nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        background-color: #fff;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .header-right {
+        gap: 10px;
+    }
+}
