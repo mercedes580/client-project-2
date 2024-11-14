@@ -67,83 +67,111 @@ const ProductsEditform = () => {
 
     return (
         <div className="ProductsEditform">
+            <Form onSubmit={handleFormSubmit}>
+                <Form.Group className="mb-3">
+                    <Form.Label htmlFor="titleField">Producto</Form.Label>
+                    <Form.Control
+                        type="text"
+                        value={bakery.title}
+                        onChange={handleProductChange}
+                        name="title"
+                        id="titleField"
+                    />
+                </Form.Group>
 
-            <form onSubmit={handleFormSubmit}>
+                <Form.Group className="mb-3">
+                    <Form.Label>Imagen/es</Form.Label>
+                    {isLoading ? (
+                        <h1>Cargando....</h1>
+                    ) : (
+                        bakery.gallery.map((eachGallery, idx) => (
+                            <Form.Control
+                                key={idx}
+                                type="text"
+                                value={bakery.gallery[idx]}
+                                onChange={(event) => handleGalleryChange(event, idx)}
+                            />
+                        ))
+                    )}
+                    <Button variant="secondary" onClick={addNewImage}>Añadir otra imagen</Button>
+                </Form.Group>
 
-                Producto
-                <input type="text" value={bakery.title} onChange={handleProductChange}
-                    name={"title"} controlId="titleField" />
-                <br />
+                <Form.Group classNameName="mb-3">
+                    <Form.Label htmlFor="descriptionField">Descripción</Form.Label>
+                    <Form.Control
+                        type="text"
+                        value={bakery.description}
+                        onChange={handleProductChange}
+                        name="description"
+                        id="descriptionField"
+                    />
+                </Form.Group>
 
-                Imagen/es
-                {
-                    isLoading ? <h1>CArgando....</h1> :
-                        bakery.gallery.map((eachGallery, idx) => {
-                            return (
-                                <input
-                                    type="text"
-                                    value={bakery.gallery[idx]}
-                                    onChange={event => handleGalleryChange(event, idx)}
-                                    key={idx} />
-                            )
-                        })
+                <Form.Group className="mb-3">
+                    <Form.Label htmlFor="ingredientsField">Ingredientes</Form.Label>
+                    <Form.Control
+                        type="text"
+                        value={bakery.ingredients}
+                        onChange={handleProductChange}
+                        name="ingredients"
+                        id="ingredientsField"
+                    />
+                </Form.Group>
 
-                }
+                <Form.Group className="mb-3">
+                    <Form.Label htmlFor="priceField">Precio</Form.Label>
+                    <Form.Control
+                        type="number"
+                        value={bakery.price}
+                        onChange={handleProductChange}
+                        name="price"
+                        id="priceField"
+                    />
+                </Form.Group>
 
+                <Form.Group className="mb-3">
+                    <Form.Label>alergenos</Form.Label>
+                    {isLoading ? (
+                        <h1>Cargando....</h1>
+                    ) : (
+                        bakery.allergens.map((eachAllergen, idx) => (
+                            <Form.Control
+                                key={idx}
+                                type="text"
+                                value={bakery.allergens[idx]}
+                                onChange={(event) => handleAllergensChange(event, idx)}
+                            />
+                        ))
+                    )}
+                    <Button variant="secondary" onClick={addNewAllergen}>Añadir otro alérgeno</Button>
+                </Form.Group>
 
-                <button onClick={addNewImage}>Añadir otra imagen</button>
+                <Form.Group className="mb-3">
+                    <Form.Label htmlFor="stockField">Stock</Form.Label>
+                    <Form.Control
+                        type="number"
+                        value={bakery.stock}
+                        onChange={handleProductChange}
+                        name="stock"
+                        id="stockField"
+                    />
+                </Form.Group>
 
-                <br />
+                <Form.Group className="mb-3">
+                    <Form.Check
+                        type="checkbox"
+                        checked={bakery.gluten}
+                        onChange={handleProductChange}
+                        name="gluten"
+                        id="glutenField"
+                        label="Contiene gluten"
+                    />
+                </Form.Group>
 
-                Descripción
-                <input type="text" value={bakery.description} onChange={handleProductChange}
-                    name={"description"} controlId="descriptionField" />
-                <br />
-
-                Ingredientes
-                <input type="text" value={bakery.ingredients} onChange={handleProductChange}
-                    name={"ingredients"} controlId="ingredientsField" />
-                <br />
-
-                Precio
-                <input type="number" value={bakery.price} onChange={handleProductChange}
-                    name={"price"} controlId="priceField" />
-                <br />
-
-                Alérgenos
-                {
-                    isLoading ? <h1>CArgando....</h1> :
-                        bakery.allergens.map((eachAllergen, idx) => {
-                            return (
-                                <input type="text"
-                                    value={bakery.allergens[idx]}
-                                    onChange={event => handleAllergensChange(event, idx)}
-                                    key={idx} />
-                            )
-                        })
-
-                }
-
-                <button onClick={addNewAllergen}>Añadir otro alérgeno</button>
-
-                <br />
-
-                Stock
-                <input type="number" value={bakery.stock} onChange={handleProductChange}
-                    name={"stock"} controlId="stockField" />
-                <br />
-
-                Gluten
-                <input type="checkbox" checked={bakery.gluten} onChange={handleProductChange}
-                    name={"gluten"} controlId="glutenField" />
-                <br />
-
-                <input type="submit" value={"Editar producto"} />
-            </form>
+                <Button type="submit">Editar producto</Button>
+            </Form>
         </div>
-
-
-    )
+    );
 }
 
-export default ProductsEditform
+export default ProductsEditform;
