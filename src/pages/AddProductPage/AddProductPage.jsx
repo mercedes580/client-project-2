@@ -1,9 +1,7 @@
-
-
 import axios from "axios";
 import { useState } from "react";
 import "./AddProductPage.css";
-import { Navigate } from "react-router-dom";
+
 
 const AddProductPage = () => {
 
@@ -87,112 +85,99 @@ const AddProductPage = () => {
     }
     return (
         <div className="AddProductPage">
-
             <h2>Crea un nuevo producto</h2>
 
-            <form onSubmit={handleFormSubmit} className="form-content">
-
-                <div className="Product">
-                    <label>Producto</label>
-                    <br />
-                    <input type="text" value={productData.title} onChange={handleProductChange} name="title" />
+            <form onSubmit={handleFormSubmit} className="form-content row g-3 form-container">
+                <div className="col-md-12">
+                    <label className="form-label">Producto</label>
+                    <input type="text" className="form-control" value={productData.title}
+                        onChange={handleProductChange} name="title" />
                 </div>
 
-                <div className="Images">
-                    <label>Imagen/es</label>
-                    <br />
+                <div className="col-md-12">
+                    <label className="form-label">Imagen/es</label>
                     {
-                        productData.gallery.map((eachGallery, idx) => {
-
-                            return (
-                                <input
-                                    type="text"
-                                    value={productData.gallery[idx]}
-                                    onChange={(event) => handleGalleryChange(event, idx)}
-                                    key={idx}
-                                />
-                            )
-                        })
+                        productData.gallery.map((eachGallery, idx) => (
+                            <input
+                                type="text"
+                                key={idx}
+                                className="form-control"
+                                value={productData.gallery[idx]}
+                                onChange={(event) => handleGalleryChange(event, idx)}
+                            />
+                        ))
                     }
-
-                    <br />
-                    <button type="button" onClick={addNewImage} className="add-btn">Añadir otra imagen</button>
+                    <button type="button" onClick={addNewImage}
+                        className="btn btn-secondary mt-2">Añadir otra imagen</button>
                 </div>
 
-                <div className="Description">
-                    <label>Descripción</label>
-                    <br />
-                    <input type="text" value={productData.description} onChange={handleProductChange} name="description" />
-
+                <div className="col-12">
+                    <label className="form-label">Descripción</label>
+                    <input type="text" className="form-control" value={productData.description}
+                        onChange={handleProductChange} name="description" />
                 </div>
 
-                <div className="Ingredients">
-                    <label>Ingredientes</label>
-                    <br />
+                <div className="col-12">
+                    <label className="form-label">Ingredientes</label>
                     {
-                        productData.ingredients.map((eachIngredient, idx) => {
-
-                            return (
-                                <input
-                                    type="text"
-                                    value={productData.ingredients[idx]}
-                                    onChange={(event) => handleIngredentChange(event, idx)}
-                                    key={idx}
-                                />
-                            )
-                        })
+                        productData.ingredients.map((eachIngredient, idx) => (
+                            <input
+                                type="text"
+                                key={idx}
+                                className="form-control"
+                                value={productData.ingredients[idx]}
+                                onChange={(event) => handleIngredentChange(event, idx)}
+                            />
+                        ))
                     }
-                    < br />
-                    <button type="button" onClick={addNewIngredient} className="add-btn">Añadir otro ingrediente</button>
-
+                    <button type="button" onClick={addNewIngredient}
+                        className="btn btn-secondary mt-2">Añadir otro ingrediente</button>
                 </div>
 
-                <div className="Price">
-                    <label>Precio</label>
-                    <br />
-                    <input type="number" value={productData.price} onChange={handleProductChange} name="price" />
+                <div className="col-md-6">
+                    <label className="form-label">Precio</label>
+                    <input type="number" className="form-control" value={productData.price}
+                        onChange={handleProductChange} name="price" />
                 </div>
 
-                <div className="Allergens">
-                    <label>Alérgenos</label>
-                    <br />
+                <div className="col-md-6">
+                    <label className="form-label">Stock</label>
+                    <input type="number" className="form-control" value={productData.stock}
+                        onChange={handleProductChange} name="stock" />
+                </div>
+
+                <div className="col-12">
+                    <label className="form-label">Alérgenos</label>
                     {
-                        productData.allergens.map((eachAllergen, idx) => {
-
-                            return (
-                                <input
-                                    type="text"
-                                    value={productData.allergens[idx]}
-                                    onChange={(event) => handleAllergensChange(event, idx)}
-                                    key={idx}
-                                />
-                            )
-                        })
+                        productData.allergens.map((eachAllergen, idx) => (
+                            <input
+                                type="text"
+                                key={idx}
+                                className="form-control"
+                                value={productData.allergens[idx]}
+                                onChange={(event) => handleAllergensChange(event, idx)}
+                            />
+                        ))
                     }
-
-
-                    <br />
-                    <button type="button" onClick={addNewAllergen} className="add-btn">Añadir otro alérgeno</button>
+                    <button type="button" onClick={addNewAllergen}
+                        className="btn btn-secondary mt-2">Añadir otro alérgeno</button>
                 </div>
 
-                <div className="Stock">
-                    <label>Stock</label>
-                    <br />
-                    <input type="number" value={productData.stock} onChange={handleProductChange} name="stock" />
+                <div className="col-md-6">
+                    <label className="form-label">Gluten</label>
+                    <input type="checkbox" className="form-check-input" checked={productData.gluten}
+                        onChange={handleProductChange} name="gluten" />
                 </div>
 
-                <div className="Gluten">
-                    <label>Gluten</label>
-                    <br />
-                    <input type="checkbox" checked={productData.gluten} onChange={handleProductChange} name="gluten" />
-                </div>
-
-                <div className="CreateFormButton">
-                    <input type="submit" value="Crear nuevo producto" className="submit-btn" />
+                <div className="col-12">
+                    <button type="submit" className="btn btn-success rotate-container">
+                        <i className="fas fa-plus rotate-on-hover"></i>&nbsp;Crear nuevo producto</button>
                 </div>
 
             </form>
         </div>
-    );
-};
+
+
+    )
+}
 export default AddProductPage
