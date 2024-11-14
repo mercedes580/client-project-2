@@ -17,9 +17,8 @@ const ContactForm = () => {
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        // Aquí puedes agregar la lógica para enviar el formulario
-        console.log(formData);
+        e.preventDefault()
+        console.log(formData)
     };
 
     return (
