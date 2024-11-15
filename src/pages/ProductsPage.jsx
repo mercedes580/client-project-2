@@ -30,6 +30,9 @@ const ProductsPage = () => {
                         <Button variant="primary" className="CreateButton">
                             <i className="fas fa-plus icon-margin"></i>&nbsp;Crear nuevo producto
                         </Button>
+                        <Button type="button" class="btn btn-primary" data-toggle="modal" data-target="examplemodal">
+
+                        </Button>
 
                     </Link>
 

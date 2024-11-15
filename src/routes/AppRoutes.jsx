@@ -19,6 +19,7 @@ const AppRoutes = () => {
                 <Route path='/productos/añadir' element={<AddNewProductPage />} />
                 <Route path='/productos/editar/:id' element={<EditProductForm />} />
                 <Route path='*' element={<h1>404</h1>} />
+
             </Routes>
         </div>
     )
