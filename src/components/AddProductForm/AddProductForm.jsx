@@ -98,15 +98,17 @@ const AddProductForm = () => {
 
                     <Form.Group controlId="productImages">
                         <Form.Label>Imagen/es</Form.Label>
-                        {productData.gallery.map((eachGallery, idx) => (
-                            <Form.Control
-                                type="text"
-                                key={idx}
-                                value={eachGallery}
-                                onChange={(event) => handleGalleryChange(event, idx)}
-                                className="mb-2"
-                            />
-                        ))}
+                        {
+                            productData.gallery.map((eachGallery, idx) => (
+                                <Form.Control
+                                    type="text"
+                                    key={idx}
+                                    value={eachGallery}
+                                    onChange={(event) => handleGalleryChange(event, idx)}
+                                    className="mb-2"
+                                />
+                            ))
+                        }
                         <Button variant="secondary" onClick={addNewImage} className="mt-2">Añadir otra imagen</Button>
                     </Form.Group>
 
@@ -172,15 +174,17 @@ const AddProductForm = () => {
 
                     <Form.Group controlId="productAllergens">
                         <Form.Label>Alérgenos</Form.Label>
-                        {productData.allergens.map((eachAllergen, idx) => (
-                            <Form.Control
-                                type="text"
-                                key={idx}
-                                value={eachAllergen}
-                                onChange={(event) => handleAllergensChange(event, idx)}
-                                className="mb-2"
-                            />
-                        ))}
+                        {
+                            productData.allergens.map((eachAllergen, idx) => (
+                                <Form.Control
+                                    type="text"
+                                    key={idx}
+                                    value={eachAllergen}
+                                    onChange={(event) => handleAllergensChange(event, idx)}
+                                    className="mb-2"
+                                />
+                            ))
+                        }
                         <Button
                             variant="secondary"
                             onClick={addNewAllergen}

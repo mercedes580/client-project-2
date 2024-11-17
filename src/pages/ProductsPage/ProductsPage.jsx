@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import BakeryList from "../components/BakeryList/BakeryList"
+import BakeryList from "../../components/BakeryList/BakeryList"
 import { Container, Row, Col, Button } from "react-bootstrap"
 
 const ProductsPage = () => {

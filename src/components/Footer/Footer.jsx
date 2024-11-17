@@ -6,7 +6,7 @@ const Footer = () => {
         <footer>
             <div className="FooterContainer">
                 <div>
-                    <p>© 2024 Bakery Delight - All Rights Reserved.</p>
+                    <p>© 2024 3SOME BAKERY - ALL RIGHTS RESERVED.</p>
                 </div>
 
                 <div className="footer-section social-icons">
