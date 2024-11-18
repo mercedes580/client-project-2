@@ -1,8 +1,9 @@
 import './BakeryDetails.css'
 import axios from 'axios';
-import { Card, Button, Form, Row, Col } from 'react-bootstrap';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Card, Button, Form, Row, Col, Modal } from 'react-bootstrap';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import EditProductForm from '../../components/EditProductForm/EditProductForm';
 
 const API_URL = 'http://localhost:5005'
 
@@ -12,6 +13,11 @@ const BakeryDetails = () => {
     const [comments, setComments] = useState([])
     const [newComment, setNewComment] = useState('')
     const [newRating, setNewRating] = useState(0)
+    const [showModal, setShowModal] = useState(false)
+    const handleClose = () => setShowModal(false)
+
+    const handleShow = () => setShowModal(true)
+
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -31,7 +37,7 @@ const BakeryDetails = () => {
     const fetchBakeryComments = () => {
         axios
             .get(`${API_URL}/comments?productId=${id}`)
-            .then(response => {
+            .then((response) => {
                 setComments(response.data)
             })
             .catch(err => console.log(err))
@@ -151,7 +157,7 @@ const BakeryDetails = () => {
 
                                 <Button
                                     variant="warning"
-                                    onClick={handleEdit}
+                                    onClick={handleShow}
                                     className='m-1'>
                                     <i className='fas fa-pencil'>
                                     </i>&nbsp;Editar
@@ -267,6 +273,24 @@ const BakeryDetails = () => {
                     </Form>
                 </Card.Body>
             </Card>
+            <Modal show={showModal} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>formulario</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <EditProductForm />
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Cerrar
+                    </Button>
+                    {/* <Link to="/productos/guardar">
+                        <Button variant="primary" onClick={handleClose}>
+                            Guardar cambios
+                        </Button>
+                    </Link> */}
+                </Modal.Footer>
+            </Modal>
         </div>
     )
 }
