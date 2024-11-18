@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Row, Col, Button, Modal } from 'react-bootstrap'
-import BakeryList from '../components/BakeryList/BakeryList'
-import AddProductForm from '../components/AddProductForm/AddProductForm'
+import AddProductForm from '../../components/AddProductForm/AddProductForm'
+import BakeryList from '../../components/BakeryList/BakeryList'
 
 const ProductsPage = () => {
     const [showModal, setShowModal] = useState(false)
