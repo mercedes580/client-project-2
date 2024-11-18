@@ -75,10 +75,14 @@ const AddProductForm = () => {
         axios
             .post(`${API_URL}/products`, productData)
             .then(response => {
-                navigate(`/productos/${response.data.id}`)
+
+                navigate(`/productos/${response.data.id}`);
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err);
+            });
     }
+
 
     return (
         <div className="AddProductForm">
@@ -109,7 +113,13 @@ const AddProductForm = () => {
                                 />
                             ))
                         }
-                        <Button variant="secondary" onClick={addNewImage} className="mt-2">Añadir otra imagen</Button>
+                        <Button
+                            variant="secondary"
+                            onClick={addNewImage}
+                            className="mt-2">
+                            <i className="fas fa-plus"></i>
+                            &nbsp;Añadir otra imagen
+                        </Button>
                     </Form.Group>
 
                     <Form.Group controlId="productDescription">
@@ -140,7 +150,9 @@ const AddProductForm = () => {
                             variant="secondary"
                             onClick={addNewIngredient}
                             className="mt-2"
-                        >Añadir otro ingrediente
+                        >
+                            <i className="fas fa-plus"></i>
+                            &nbsp;Añadir otro ingrediente
                         </Button>
 
                     </Form.Group>
@@ -189,7 +201,8 @@ const AddProductForm = () => {
                             variant="secondary"
                             onClick={addNewAllergen}
                             className="mt-2">
-                            Añadir otro alérgeno
+                            <i className="fas fa-plus"></i>
+                            &nbsp;Añadir otro alérgeno
                         </Button>
                     </Form.Group>
 

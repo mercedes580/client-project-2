@@ -1,0 +1,33 @@
+.discount-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.discount-form div {
+    margin-bottom: 5px;
+}
+
+.discount-form label {
+    margin-bottom: 20px;
+}
+
+.discount-form input,
+.discount-form textarea {
+    padding: 5%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.submit-button {
+    background-color: #4CAF50;
+
+    color: rgb(12, 0, 0);
+    border: none;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #eff6ef;
+
+}

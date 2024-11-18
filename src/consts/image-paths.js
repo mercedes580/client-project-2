@@ -1,0 +1,2 @@
+export const ABOUT_BUSSINNES = 'https://res.cloudinary.com/dbq56vg5g/image/upload/v1731938921/qodpw0ggwanobios82cx.jpg'
+export const USER_COMMENT = 'https://res.cloudinary.com/dbq56vg5g/image/upload/v1731939861/z4ghnpdspps7chtogmxg.png'

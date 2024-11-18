@@ -11,6 +11,8 @@ const EditProductForm = () => {
     const { id } = useParams()
     const [bakery, setBakery] = useState([])
     const [isLoading, setLoading] = useState([true])
+    const Navigate = useNavigate()
+
 
     useEffect(() => {
         axios.get(`${API_URL}/products/${id}`)
@@ -24,9 +26,8 @@ const EditProductForm = () => {
     const fetchProducts = () => {
         axios
             .put(`${API_URL}/products/${id}`, bakery)
-            .then(() => alert("Actualizado :3"))
-            .then(response => {
-                Navigate(`/productos/${response.data.id}`)
+            .then(() => {
+                Navigate(`/productos/${id}`)
             })
             .catch(err => console.log(err))
     }
@@ -101,7 +102,7 @@ const EditProductForm = () => {
                     <Button variant="secondary" onClick={addNewImage}>Añadir otra imagen</Button>
                 </Form.Group>
 
-                <Form.Group classNameName="mb-3">
+                <Form.Group className="mb-3">
                     <Form.Label htmlFor="descriptionField">Descripción</Form.Label>
                     <Form.Control
                         type="text"

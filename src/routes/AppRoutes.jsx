@@ -1,12 +1,11 @@
 import { Routes, Route } from 'react-router-dom'
-import HomePage from '../pages/HomePage/HomePage'
 import ProductsPage from '../pages/ProductsPage/ProductsPage'
 import AboutPage from '../pages/AboutPage/AboutPage'
 import ContactPage from '../pages/ContactPage/ContactPage'
 import AddNewProductPage from '../pages/AddProductPage/AddProductPage'
 import BakeryDetails from '../pages/BakeryDetails/BakeryDetails'
 import EditProductForm from '../components/EditProductForm/EditProductForm'
-import NotFoundPage from '../pages/NotFoundPage/NotFoundPage'
+import HomePage from '../pages/HomePage/HomePage'
 
 const AppRoutes = () => {
     return (
@@ -19,8 +18,7 @@ const AppRoutes = () => {
                 <Route path='/contacto' element={<ContactPage />} />
                 <Route path='/productos/añadir' element={<AddNewProductPage />} />
                 <Route path='/productos/editar/:id' element={<EditProductForm />} />
-
-                <Route path='*' element={<NotFoundPage />} />
+                <Route path='*' element={<h1>404</h1>} />
             </Routes>
         </div>
     )

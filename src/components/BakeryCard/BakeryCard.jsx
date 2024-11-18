@@ -1,32 +1,48 @@
-import { Link } from 'react-router-dom'
-import { Card, Button, Col } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
+import { Card, Button } from 'react-bootstrap';
+import './BakeryCard.css';
 
 const BakeryCard = ({ id, title, price, gallery }) => {
-
     return (
         <div className="BakeryCard">
             <Card className="product-card h-100">
 
-                <Link to={`/productos/${id}`}>
+                <div className="position-relative">
+                    <Link to={`/productos/${id}`}>
+                        <Card.Img
+                            variant="top"
+                            src={gallery[0]}
+                            alt={title}
+                            className="image-content"
+                        />
+                    </Link>
 
-                    <Card.Img
-                        variant="top"
-                        src={gallery[0]}
-                        alt={title}
-                        className="image-content" />
+                    <div className="action-buttons">
+                        <Button
+                            variant="light"
+                            title="Add to wishlist"
+                            className="wishlist-button">
+                            <i className="fas fa-heart"></i>
+                        </Button>
 
-                </Link>
+                        <Link to={`/productos/${id}`}>
+                            <Button
+                                variant="light"
+                                title="Quickview"
+                                className="quickview-button">
+                                <i className="fas fa-eye"></i>
+                            </Button>
+                        </Link>
+                    </div>
+                </div>
 
                 <Card.Body>
-
                     <Card.Title>
-
                         <Link
                             to={`/productos/${id}`}
-                            className="text-decoration-none text-dark">
+                            className="title-product">
                             {title}
                         </Link>
-
                     </Card.Title>
 
                     <Card.Text className="price-rating">
@@ -40,34 +56,10 @@ const BakeryCard = ({ id, title, price, gallery }) => {
                             <i className="fa-regular fa-star text-warning"></i>
                         </div>
                     </Card.Text>
-
                 </Card.Body>
-
-                <Card.Footer className="d-flex">
-
-                    <Button
-                        variant="outline-danger"
-                        title="Add to wishlist"
-                        className="wishlist-button m-1">
-                        <i className="fas fa-heart"></i>
-                    </Button>
-
-                    <Link to={`/productos/${id}`}>
-                        <Button
-                            variant="outline-secondary"
-                            title="Quickview"
-                            className="quickview-button m-1">
-                            <i className="fas fa-eye"></i>
-                        </Button>
-                    </Link>
-
-                </Card.Footer>
-
             </Card>
-
         </div>
-    )
+    );
+};
 
-}
-
-export default BakeryCard
+export default BakeryCard;
