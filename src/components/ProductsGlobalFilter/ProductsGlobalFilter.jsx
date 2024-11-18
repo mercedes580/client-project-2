@@ -44,6 +44,11 @@ const ProductsGlobalFilter = () => {
                     value={filterValue}
                     onChange={handleFilterChange}
                 />
+                <div className="search-icon">
+
+                    <i className="fa-solid fa-search"></i>
+
+                </div>
             </div>
 
             <div className="list-filtered">

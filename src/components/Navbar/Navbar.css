@@ -1,31 +1,53 @@
 header {
+    /* background: linear-gradient(to bottom, #F5F4F0 60%, #F5F4F000); */
+    font-family: Helvetica, sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    z-index: 1000;
+}
 
-    background-color: #F5F4F0;
+.container {
+    padding: 0;
+    margin: 0;
+    width: 100%;
 }
 
 header .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
+    margin: 0;
 }
 
 header #logo {
-    margin-top: -10px;
-    max-width: 150px;
+    padding: 10px;
+    margin-left: 30px;
+    margin-top: 30px;
+    max-width: 100px;
     display: flex;
     align-items: center;
+    mix-blend-mode: darken;
 }
 
 header #logo img {
-    max-width: 100%;
+    max-width: 230%;
     height: auto;
 }
 
 .header-right {
-    margin-top: -10px;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
     gap: 10px;
+    margin: 0;
+    margin-top: 30px;
+    padding: 0;
+    position: absolute;
+    right: 30px;
 }
 
 .header-right .search-btn-outer,
@@ -36,18 +58,10 @@ header #logo img {
 .header-right .fa-cart-shopping {
     cursor: pointer;
     font-size: .7em;
-    color: #333;
+    color: #232323;
     transition: color 0.3s;
 }
 
-.header-right .fa-search {
-    cursor: pointer;
-    font-size: .7em;
-    color: #333;
-    transition: color 0.3s;
-}
-
-.header-right .fa-search:hover,
 .header-right .fa-cart-shopping:hover {
     color: #FF5733;
 }
@@ -58,7 +72,7 @@ header #logo img {
     background: none;
     border: none;
     font-size: 1.5em;
-    color: #333;
+    color: #212121;
     cursor: pointer;
     outline: none;
     transition: color 0.3s;
@@ -75,7 +89,7 @@ header #logo img {
     background-color: #FF5733;
     color: #fff;
     font-size: 0.5em;
-    padding: .5px 4px;
+    padding: .4px 4px;
     border-radius: 50%;
     min-width: 20px;
     height: 20px;
@@ -91,7 +105,7 @@ header #logo img {
 
 .container .menu-button {
     background: none;
-    color: black;
+    color: #212121;
     border: none;
     font-size: 1.1em;
     font-weight: 500;
@@ -105,6 +119,95 @@ header #logo img {
     border: none;
 }
 
+.menu-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0s linear 0.5s;
+}
+
+.menu-container.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.2s ease, visibility 0s linear 0s;
+}
+
+.menu {
+    flex-direction: column;
+    display: flex;
+    list-style: none;
+    padding: 0;
+    align-items: center;
+    text-align: center;
+    font-size: 24px;
+    color: #ebebeb;
+}
+
+.close-button-container {
+    position: absolute;
+    top: 40px;
+    right: 45px;
+    font-size: 1.5em;
+}
+
+.close-button {
+    color: #ebebeb;
+    background: none;
+    border: none;
+    font-size: .75em;
+    transition: color 0.3s;
+}
+
+.close-button:hover {
+    color: #FF5733;
+}
+
+.menu-links a {
+    text-decoration: none;
+}
+
+.menu-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+}
+
+.menu-links li {
+    font-family: Helvetica, sans-serif;
+    list-style: none;
+    color: #ebebeb;
+    font-size: 7em;
+    font-weight: bold;
+    margin: 10px 0;
+    transition: color 0.3s;
+}
+
+.menu-links li:hover {
+    color: #FF5733;
+}
+
+.logo-menu {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo-menu img {
+    width: 15.8%;
+    height: auto;
+}
 
 @media (max-width: 768px) {
 

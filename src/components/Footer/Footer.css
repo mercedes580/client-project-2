@@ -1,43 +1,40 @@
 .FooterContainer {
+    position: fixed;
+    bottom: 0;
     width: 100%;
-    max-width: 1200px;
+    height: 80px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 1000;
 }
 
 footer {
-    background-color: #F5F4F0;
-    color: #333;
-    padding: 40px 0;
+    color: #232323;
     display: flex;
+}
+
+.FooterContainer p {
+    margin-top: 40px;
+    font-size: 1em;
 }
 
 footer .social-icons {
+    margin-top: 30px;
     display: flex;
     gap: 10px;
-    margin-top: 10px;
 }
 
 footer .social-icons a {
-    color: #333;
+    color: #232323;
     font-size: 1.5em;
     transition: color 0.3s;
 }
 
 footer .social-icons a:hover {
     color: #FF5733;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 20px;
-    font-size: 0.8em;
-    color: #333;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    margin-top: 20px;
 }
 
 @media (max-width: 768px) {

@@ -1,16 +1,19 @@
 .searcher input {
     margin-top: 0;
     width: 300px;
-    height: 25px;
+    height: 23px;
     border: none;
 }
 
 .searcher input::placeholder {
-    color: #ababab;
+    font-family: Helvetica, sans-serif;
+    color: #c3c1c1;
+    font-size: .9em;
 }
 
 .list-filtered {
     position: absolute;
+    font-family: Helvetica, sans-serif;
     width: 300px;
 
 }
@@ -22,5 +25,27 @@
 }
 
 .searcher .form-control:focus {
-    box-shadow: 0 0 0 0.1em #FF5733;
+    box-shadow: 0 0 0 0.2em #FF5733;
+}
+
+.searcher {
+    position: relative;
+}
+
+.searcher .search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    padding: 0;
+}
+
+.searcher .search-icon i {
+    font-size: 1em;
+    color: #c3c1c1;
+}
+
+.searcher input {
+    padding-right: 30px;
 }
