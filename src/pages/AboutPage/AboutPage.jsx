@@ -1,5 +1,5 @@
-import React from 'react';
-import './AboutPage.css'; // Importa el archivo CSS
+import React from 'react'
+import './AboutPage.css'
 
 const AboutPage = () => {
     return (
@@ -11,12 +11,12 @@ const AboutPage = () => {
                 <div className="text-content">
                     <h2>Nuestra Misión</h2>
                     <p>
-                        Somos una empresa dedicada a proporcionar productos de alta calidad con el objetivo de satisfacer las necesidades de nuestros clientes. 
+                        Somos una empresa dedicada a proporcionar productos de alta calidad con el objetivo de satisfacer las necesidades de nuestros clientes.
                         Trabajamos incansablemente para ofrecer un servicio excepcional y una experiencia única.
                     </p>
                     <h2>Nuestra Visión</h2>
                     <p>
-                        Nos visualizamos como líderes en nuestro sector, ofreciendo soluciones innovadoras y accesibles para todos. Buscamos expandir nuestra presencia 
+                        Nos visualizamos como líderes en nuestro sector, ofreciendo soluciones innovadoras y accesibles para todos. Buscamos expandir nuestra presencia
                         global mientras mantenemos nuestros valores fundamentales.
                     </p>
                     <h2>Valores</h2>

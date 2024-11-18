@@ -1,44 +1,57 @@
+import { Link } from 'react-router-dom'
 import './Navbar.css'
+import { Button, Modal } from 'react-bootstrap'
+import ProductsGlobalFilter from './../ProductsGlobalFilter/ProductsGlobalFilter'
+import { useState } from 'react'
 
 const Navbar = () => {
+
+    const [showModal, setShowModal] = useState(false)
 
     return (
         <header>
             <div className="container">
                 <div className="header-inner">
-                    {/* Logo Section */}
+
                     <div id="logo">
-                        <a href="/"><img src="../assets/images/logo.png" alt="Logo" /></a>
+                        <Link to={"/"}><img src="../assets/images/logo.png" alt="Logo" /></Link>
                     </div>
 
-                    {/* Navigation Center */}
-                    <div className="header-center">
-                        <nav>
-                            <ul>
-                                <li><a href="/">Home</a></li>
-                                <li><a href="/productos">Productos</a></li>
-                                <li><a href="/sobre-nosotros">Sobre nosotros</a></li>
-                                <li><a href="/contacto">Contacto</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-
-                    {/* Header Right Section */}
                     <div className="header-right">
-                        <div className="search-btn-outer">
-                            <i className="fas fa-search"></i>
-                        </div>
-                        <div className="dropdown">
-                            <a href="#" className="btn-link">
-                                <i className="fas fa-user"></i>
-                            </a>
-                        </div>
+
+                        <ProductsGlobalFilter />
+
                         <div className="cart-content">
-                            <button type="button">
-                                <i className="fa-solid fa-cart-shopping"></i>
-                                <span>3</span>
+                            <button>
+                                <i className="fa-solid fa-search"></i>
                             </button>
                         </div>
+
+                        <div className="cart-content">
+                            <button type="cartButton">
+                                <i className="fa-solid fa-cart-shopping"></i>
+                                {/* <span>3</span> */}
+                            </button>
+                        </div>
+
+                        <nav>
+
+                            <Button
+                                className="menu-button"
+                                onClick={() => setShowModal(true)}>MENÚ
+                            </Button>
+
+                        </nav>
+
+                        <Modal show={showModal} onHide={() => setShowModal(false)}>
+                            <Modal.Header closeButton></Modal.Header>
+                            <Modal.Body>
+                                <li><a href="/productos">PRODUCTOS</a></li>
+                                <li><a href="/sobre-nosotros">SOBRE NOSOTROS</a></li>
+                                <li><a href="/contacto">CONTACTO</a></li>
+                            </Modal.Body>
+                        </Modal>
+
                     </div>
                 </div>
             </div>

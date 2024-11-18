@@ -1,11 +1,20 @@
+.FooterContainer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 footer {
-    background-color: #FF5733;
-    color: #fff;
+    background-color: #F5F4F0;
+    color: #333;
     padding: 40px 0;
     display: flex;
 }
 
-/* Social icons */
 footer .social-icons {
     display: flex;
     gap: 10px;
@@ -13,20 +22,20 @@ footer .social-icons {
 }
 
 footer .social-icons a {
-    color: #ddd;
+    color: #333;
     font-size: 1.5em;
     transition: color 0.3s;
 }
 
 footer .social-icons a:hover {
-    color: #fff;
+    color: #FF5733;
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 20px;
     font-size: 0.8em;
-    color: #ddd;
+    color: #333;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     margin-top: 20px;
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import BakeryCard from "../BakeryCard/BakeryCard"
-import { Row } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 
 const API_URL = "http://localhost:5005"
 
@@ -26,7 +26,12 @@ const BakeryList = () => {
 
             {
                 products.map(elm => (
-                    <BakeryCard key={elm.id} {...elm} />
+
+                    <Col xs={12} md={6} lg={4} className='p-3' key={elm.id} >
+
+                        <BakeryCard  {...elm} />
+
+                    </Col>
                 ))
             }
 

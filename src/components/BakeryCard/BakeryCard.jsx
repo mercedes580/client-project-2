@@ -4,8 +4,7 @@ import { Card, Button, Col } from 'react-bootstrap'
 const BakeryCard = ({ id, title, price, gallery }) => {
 
     return (
-        <Col xs={12} md={6} lg={4} className='BakeryCard p-3'>
-
+        <div className="BakeryCard">
             <Card className="product-card h-100">
 
                 <Link to={`/productos/${id}`}>
@@ -66,9 +65,9 @@ const BakeryCard = ({ id, title, price, gallery }) => {
 
             </Card>
 
-        </Col>
+        </div>
     )
-    
+
 }
 
 export default BakeryCard

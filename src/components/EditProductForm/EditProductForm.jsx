@@ -8,8 +8,8 @@ const EditProductForm = () => {
 
     const API_URL = "http://localhost:5005"
 
-    const { id } = useParams();
-    const [bakery, setBakery] = useState([]);
+    const { id } = useParams()
+    const [bakery, setBakery] = useState([])
     const [isLoading, setLoading] = useState([true])
     const Navigate = useNavigate()
 

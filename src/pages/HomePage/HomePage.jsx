@@ -1,3 +1,5 @@
+import "./HomePage.css"
+
 const HomePage = () => {
     return (
         <div className="index page">
@@ -19,9 +21,10 @@ const HomePage = () => {
             </section>
             <section className="about-us">
                 <h3>Sobre Nosotros</h3>
-                <p>En MPD BAKERY SHOP, te encantara probar los dulces con la mejor calidad posible y no solament eso sino con los mejores productos </p>
-            </section> </div>
-    );
-};
+                <p>En MPD BAKERY SHOP, te encantara probar los dulces con la mejor calidad posible y no solamente eso sino con los mejores productos </p>
+            </section>
+        </div>
+    )
+}
 
-export default HomePage;
+export default HomePage
