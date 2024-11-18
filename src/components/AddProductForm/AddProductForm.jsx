@@ -75,10 +75,14 @@ const AddProductForm = () => {
         axios
             .post(`${API_URL}/products`, productData)
             .then(response => {
-                navigate(`/productos/${response.data.id}`)
+
+                navigate(`/productos/${response.data.id}`);
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err);
+            });
     }
+
 
     return (
         <div className="AddProductForm">
