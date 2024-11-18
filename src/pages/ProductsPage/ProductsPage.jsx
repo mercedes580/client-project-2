@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Container, Row, Col, Button, Modal } from 'react-bootstrap'
 import AddProductForm from '../../components/AddProductForm/AddProductForm'
 import BakeryList from '../../components/BakeryList/BakeryList'
+import './ProductsPage.css'
 
 const ProductsPage = () => {
     const [showModal, setShowModal] = useState(false)
@@ -14,9 +15,18 @@ const ProductsPage = () => {
         <Container className="ProductsPage">
             <Row>
                 <Col>
-                    <div className="text-center mt-4">
-                        <h3>Nuestros productos</h3>
+                    <div className="products-title">
+
+                        <h3>Nuestros Productos</h3>
+
+                        <p className="about-title-content-up">
+                            ¡Si te gusta uno... imagínate dos!
+                        </p>
+
                     </div>
+
+                    {/* <div class="separator-products"></div> */}
+
                     <div className="mt-5">
                         <BakeryList />
                     </div>
@@ -27,7 +37,7 @@ const ProductsPage = () => {
                 <Col>
                     <Button
                         variant="primary"
-                        className="CreateButton"
+                        className="product-new-button"
                         onClick={handleShow}
                     >
                         <i className="fas fa-plus icon-margin"></i> Crear nuevo producto
@@ -40,16 +50,16 @@ const ProductsPage = () => {
                         <Modal.Body>
                             <AddProductForm />
                         </Modal.Body>
-                        <Modal.Footer>
+                        {/* <Modal.Footer>
                             <Button variant="secondary" onClick={handleClose}>
                                 close
                             </Button>
-                            {/* <Link to="/productos/añadir">
+                            <Link to="/productos/añadir">
                                 <Button variant="primary" onClick={handleClose}>
                                     save changes
                                 </Button>
-                            </Link> */}
-                        </Modal.Footer>
+                            </Link>
+                        </Modal.Footer> */}
                     </Modal>
 
                 </Col>
