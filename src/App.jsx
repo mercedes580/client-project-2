@@ -1,9 +1,9 @@
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import './index.css'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
 import AppRoutes from './routes/AppRoutes'
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
