@@ -1,4 +1,5 @@
 import "./HomePage.css"
+import * as IMAGE_PATHS from "../../consts/image-paths"
 
 const HomePage = () => {
     return (
@@ -16,7 +17,9 @@ const HomePage = () => {
             </section> */}
 
             <section className="welcome-img">
-                <img src="../../assets/images/welcome-test.png" alt="" />
+                <img
+                    src={IMAGE_PATHS.WELCOME_IMAGE}
+                    alt="welcome" />
             </section>
 
             <section className="scroll-message">

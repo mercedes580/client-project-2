@@ -3,6 +3,7 @@ import './Navbar.css';
 import { Button, CloseButton } from 'react-bootstrap';
 import ProductsGlobalFilter from './../ProductsGlobalFilter/ProductsGlobalFilter';
 import { useState } from 'react';
+import * as IMAGE_PATHS from "../../consts/image-paths"
 
 const Navbar = () => {
     const [showMenu, setShowMenu] = useState(false)
@@ -12,7 +13,7 @@ const Navbar = () => {
             <div className="container">
                 <div className="header-inner">
                     <div id="logo">
-                        <Link to={"/"}><img src="../assets/images/logosmooth-grey.png" alt="Logo" /></Link>
+                        <Link to={"/"}><img src={IMAGE_PATHS.LOGO_IMAGE} alt="Logo" /></Link>
                     </div>
 
                     <div className="header-right">
@@ -49,7 +50,7 @@ const Navbar = () => {
                 </div>
 
                 <div className="logo-menu">
-                    <img src="./../../assets/images/logo-white.png" alt="logo" />
+                    <img src={IMAGE_PATHS.LOGO_WHITE} alt="logo" />
                 </div>
             </div>
         </header>
