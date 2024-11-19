@@ -34,7 +34,7 @@ const ProductsPage = () => {
             <Row className="mt-4">
                 <Col>
                     <Button
-                        variant="primary"
+                        variant="success"
                         className="product-new-button"
                         onClick={handleShow}
                     >
