@@ -22,10 +22,6 @@ const HomePage = () => {
                     alt="welcome" />
             </section>
 
-            <section className="scroll-message">
-                <h4>SCROLL PARA DESCUBRIR</h4>
-            </section>
-
             <section className="little-message1">
                 <h4>( BARCELONA ) <br />
                     BAKERY DESIGN<br />

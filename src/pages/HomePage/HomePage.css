@@ -6,71 +6,35 @@ body {
     background-color: #F5F4F0;
 }
 
-.welcome {
-    margin-top: 150vh;
-}
-
-.welcome-video video {
-    width: 100%;
-    height: auto;
+.welcome-img {
+    position: relative;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .welcome-img img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 105vh;
 }
 
-.scroll-message {
-    color: black;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
-    z-index: 999;
-}
-
-.scroll-message h4 {
-    font-size: 1em;
-    color: #212121;
-}
 
 .little-message1 {
     position: relative;
-    top: 5vh;
+    top: 9vh;
     width: 100%;
     text-align: center;
-}
-
-.little-message1 h4 {
-    font-size: .8em;
-}
-
-.homepage-header {
-    position: relative;
-    width: 70%;
-    top: 40vh;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    padding: 50px 20px;
-    font-family: "Instrument Serif", serif;
-}
-
-.homepage-header h1 {
-    font-size: 6em;
-    font-weight: 500;
 }
 
 .little-message2 {
     position: relative;
-    top: 15vh;
+    top: 19vh;
     width: 100%;
     text-align: center;
-}
-
-.little-message2 h4 {
-    font-size: .8em;
 }
 
 .little-message3 {
@@ -84,8 +48,26 @@ body {
     text-align: center;
 }
 
+.little-message1 h4,
+.little-message2 h4,
 .little-message3 h4 {
-    font-size: .8em;
+    font-size: 0.8em;
+}
+
+.homepage-header {
+    position: relative;
+    width: 70%;
+    top: 44vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 50px 20px;
+    font-family: "Instrument Serif", serif;
+}
+
+.homepage-header h1 {
+    font-size: 6em;
+    font-weight: 500;
 }
 
 .products {
@@ -105,4 +87,39 @@ body {
 
 .products li {
     text-decoration: none;
+}
+
+@media (min-width: 400px) and (max-width: 767.98px) {
+    .homepage-header {
+        width: 90%;
+        padding: 30px 15px;
+        top: 32vh;
+    }
+
+    .homepage-header h1 {
+        font-size: 3em;
+    }
+
+    .little-message1 h4,
+    .little-message2 h4,
+    .little-message3 h4 {
+        font-size: .6em;
+    }
+
+    .welcome-img img {
+        height: 100vh;
+        width: auto;
+    }
+
+    .little-message3 {
+        padding: 0 20px;
+    }
+
+    .products {
+        padding-bottom: 100px;
+    }
+
+    .products ul {
+        font-size: 3em;
+    }
 }
