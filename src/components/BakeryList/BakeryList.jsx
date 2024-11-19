@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import BakeryCard from "../BakeryCard/BakeryCard"
 import { Row, Col } from 'react-bootstrap'
+import './BakeryList.css'
 
 const API_URL = "http://localhost:5005"
 

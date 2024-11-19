@@ -1,3 +1,14 @@
+.ProductsPage {
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+    gap: 30px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
 .products-title {
     text-align: center;
     font-family: "Pacifico", Sans-serif;
