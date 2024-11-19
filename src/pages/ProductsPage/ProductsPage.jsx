@@ -50,7 +50,7 @@ const ProductsPage = () => {
                         <Modal.Body>
                             <AddProductForm />
                         </Modal.Body>
-                        {/* <Modal.Footer>
+                        <Modal.Footer>
                             <Button variant="secondary" onClick={handleClose}>
                                 close
                             </Button>
@@ -59,7 +59,7 @@ const ProductsPage = () => {
                                     save changes
                                 </Button>
                             </Link>
-                        </Modal.Footer> */}
+                        </Modal.Footer>
                     </Modal>
 
                 </Col>
