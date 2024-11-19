@@ -5,8 +5,9 @@
       align-items: center;
       padding: 40px;
       max-width: 1200px;
-      margin: 0 auto;
+      margin: auto;
       gap: 30px;
+      margin-top: 70px;
   }
 
   .about-left {
@@ -113,8 +114,9 @@
   }
 
   .slider-container {
-      padding: 50px 20px;
+      padding: 50px 70px;
       text-align: center;
+      margin-bottom: 70px;
   }
 
   .slider-title {

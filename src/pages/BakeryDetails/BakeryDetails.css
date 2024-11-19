@@ -1,11 +1,11 @@
-/* General Layout */
-.bakery-details {
-    display: flex;
+.BakeryDetails {
     flex-direction: column;
     padding: 2rem;
     background-color: #f4f4f4;
     font-family: 'Arial', sans-serif;
     color: #333;
+    margin-top: 70px;
+    margin-bottom: 50px;
 }
 
 .bakery-header {
