@@ -27,9 +27,7 @@ const ProductsPage = () => {
 
                     {/* <div class="separator-products"></div> */}
 
-                    <div className="mt-5">
-                        <BakeryList />
-                    </div>
+                    <BakeryList />
                 </Col>
             </Row>
 
@@ -45,12 +43,12 @@ const ProductsPage = () => {
 
                     <Modal show={showModal} onHide={handleClose}>
                         <Modal.Header closeButton>
-                            <Modal.Title>Añadir Producto:</Modal.Title>
+                            <Modal.Title>Añadir Producto</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
                             <AddProductForm />
                         </Modal.Body>
-                        {/* <Modal.Footer>
+                        <Modal.Footer>
                             <Button variant="secondary" onClick={handleClose}>
                                 close
                             </Button>
@@ -59,7 +57,7 @@ const ProductsPage = () => {
                                     save changes
                                 </Button>
                             </Link>
-                        </Modal.Footer> */}
+                        </Modal.Footer>
                     </Modal>
 
                 </Col>

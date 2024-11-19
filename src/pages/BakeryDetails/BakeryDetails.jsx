@@ -43,13 +43,9 @@ const BakeryDetails = () => {
             .catch(err => console.log(err))
     }
 
-    const handleEdit = () => {
-        navigate(`/productos/editar/${id}`);
-    }
-
     const handleDelete = () => {
         axios
-            .delete(`${API_URL}products/${id}`)
+            .delete(`${API_URL}/products/${id}`)
             .then(() => {
                 navigate('/productos');
             })
@@ -74,7 +70,7 @@ const BakeryDetails = () => {
         };
 
         axios
-            .post(`${API_URL}comments`, commentData)
+            .post(`${API_URL}/comments`, commentData)
             .then(() => {
                 alert("Comentario registrado con éxito")
                 fetchBakeryComments()
@@ -88,7 +84,7 @@ const BakeryDetails = () => {
 
     const handleDeleteComment = (commentId) => {
         axios
-            .delete(`${API_URL}comments/${commentId}`)
+            .delete(`${API_URL}/comments/${commentId}`)
             .then(() => {
                 alert("Comentario eliminado con éxito")
                 fetchBakeryComments()
@@ -97,13 +93,14 @@ const BakeryDetails = () => {
                 console.error("Error al eliminar el comentario:", error)
             });
     };
+    
 
     if (!bakery) {
         return <p>Cargando detalles...</p>
     }
 
     return (
-        <div className="BakeryDetails p-3">
+        <div className="BakeryDetails">
             <Card className="mb-4">
                 <Card.Body>
                     <Row>
@@ -115,7 +112,7 @@ const BakeryDetails = () => {
                         </Col>
 
                         <Col md={8}>
-                            <Card.Title>{bakery.title}</Card.Title>
+                            <Card.Title><strong>{bakery.title}</strong></Card.Title>
 
                             <Card.Text>{bakery.description}</Card.Text>
 
@@ -126,24 +123,22 @@ const BakeryDetails = () => {
 
                             <Card.Text>
                                 <strong>Ingredientes:</strong>
-                                {bakery.ingredients.join(', ')}
+                                &nbsp;{bakery.ingredients.join(', ')}
                             </Card.Text>
 
                             <Card.Text>
                                 <strong>Alérgenos:</strong>
-                                {bakery.allergens.join(', ')}
+                                &nbsp;{bakery.allergens.join(', ')}
                             </Card.Text>
 
-                            <Card.Text
-                                className='text-success'>
+                            <Card.Text>
                                 <strong>Disponibilidad:</strong>
-                                {bakery.stock} unidades
+                                &nbsp;{bakery.stock} unidades
                             </Card.Text>
 
-                            <Card.Text
-                                className='text-warning'>
+                            <Card.Text>
                                 <strong>Gluten:</strong>
-                                {bakery.gluten ? "Contiene gluten" : "Sin gluten"}
+                                &nbsp;{bakery.gluten ? "Contiene gluten" : "Sin gluten"}
                             </Card.Text>
 
                             <div className="d-flex">
@@ -275,21 +270,21 @@ const BakeryDetails = () => {
             </Card>
             <Modal show={showModal} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>formulario</Modal.Title>
+                    <Modal.Title>Editar Producto</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <EditProductForm />
+                    <EditProductForm fetchBakery={fetchBakery} handleClose={handleClose} />
                 </Modal.Body>
-                <Modal.Footer>
+                {/* <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Cerrar
                     </Button>
-                    {/* <Link to="/productos/guardar">
+                    <Link to="/productos/guardar">
                         <Button variant="primary" onClick={handleClose}>
                             Guardar cambios
                         </Button>
-                    </Link> */}
-                </Modal.Footer>
+                    </Link>
+                </Modal.Footer> */}
             </Modal>
         </div>
     )
