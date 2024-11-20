@@ -1,8 +1,16 @@
 import { Link } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
 import './BakeryCard.css';
+import { useState } from 'react';
 
 const BakeryCard = ({ id, title, price, gallery }) => {
+
+    const [isActive, setIsActive] = useState(false)
+
+    const handleFocus = () => {
+        setIsActive(!isActive)
+    }
+
     return (
         <div className="BakeryCard">
             <Card className="product-card h-100">
@@ -21,7 +29,14 @@ const BakeryCard = ({ id, title, price, gallery }) => {
                         <Button
                             variant="light"
                             title="Add to wishlist"
-                            className="wishlist-button">
+                            className="wishlist-button"
+                            onClick={handleFocus}
+                            style={{
+                                cursor: 'pointer',
+                                backgroundColor: isActive ? 'rgba(217, 83, 79, 0.9)' : 'rgba(255, 255, 255, 0.8)',
+                                color: isActive ? '#fff' : '#343a40'
+                            }}>
+
                             <i className="fas fa-heart"></i>
                         </Button>
 

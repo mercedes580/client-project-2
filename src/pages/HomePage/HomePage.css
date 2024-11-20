@@ -6,50 +6,48 @@ body {
     background-color: #F5F4F0;
 }
 
-.welcome {
-    margin-top: 150vh;
-}
-
-.welcome-video video {
-    width: 100%;
-    height: auto;
+.welcome-img {
+    position: relative;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .welcome-img img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 105vh;
 }
 
-.scroll-message {
-    color: black;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
-    z-index: 999;
-}
-
-.scroll-message h4 {
-    font-size: 1em;
-    color: #212121;
-}
 
 .little-message1 {
     position: relative;
-    top: 5vh;
+    top: 9vh;
     width: 100%;
     text-align: center;
 }
 
-.little-message1 h4 {
-    font-size: .8em;
+.little-message2 {
+    position: relative;
+    top: 19vh;
+    width: 100%;
+    text-align: center;
+}
+
+.little-message1 h4,
+.little-message2 h4,
+.little-message3 h4,
+.little-message4 h4 {
+    font-size: 0.8em;
 }
 
 .homepage-header {
     position: relative;
     width: 70%;
-    top: 40vh;
+    top: 43vh;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -62,37 +60,21 @@ body {
     font-weight: 500;
 }
 
-.little-message2 {
-    position: relative;
-    top: 15vh;
-    width: 100%;
-    text-align: center;
-}
-
-.little-message2 h4 {
-    font-size: .8em;
-}
-
 .little-message3 {
     position: relative;
     display: flex;
     justify-content: space-between;
     padding-left: 50px;
     padding-right: 50px;
-    top: 30vh;
+    top: 35vh;
     width: 100%;
     text-align: center;
-}
-
-.little-message3 h4 {
-    font-size: .8em;
 }
 
 .products {
     position: relative;
     top: 38vh;
     text-align: center;
-    padding-bottom: 140px;
 }
 
 .products ul {
@@ -105,4 +87,50 @@ body {
 
 .products li {
     text-decoration: none;
+}
+
+.little-message4 {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 50px;
+    top: 50vh;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 60px;
+}
+
+@media (max-width: 575.98px) {
+
+    .homepage-header {
+        width: 100%;
+        top: 43vh;
+    }
+
+    .homepage-header h1 {
+        font-size: 4em;
+    }
+
+    .little-message1 h4,
+    .little-message2 h4,
+    .little-message3 h4,
+    .little-message4 h4 {
+        font-size: 0.7em;
+    }
+
+    .little-message3 {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .little-message4 {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 90px;
+    }
+
+    .products ul {
+        font-size: 4em;
+    }
 }

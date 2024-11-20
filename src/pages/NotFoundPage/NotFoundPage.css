@@ -1,3 +1,18 @@
 body {
     background-color: #F5F4F0;
 }
+
+.not-found-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.not-found-message h1 {
+    color: #a9a9a9;
+    font-size: 74em;
+    font-family: "Instrument Serif", serif;
+    user-select: none;
+}

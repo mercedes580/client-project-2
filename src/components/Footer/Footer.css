@@ -1,8 +1,9 @@
 .FooterContainer {
+    background: linear-gradient(to top, #F5F4F0 60%, transparent 100%);
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 80px;
+    height: 65px;
     margin: 0 auto;
     padding: 0 50px;
     display: flex;
@@ -17,13 +18,14 @@ footer {
 }
 
 .FooterContainer p {
-    margin-top: 40px;
+    margin-top: 30px;
     font-size: 1em;
+    user-select: none;
 }
 
 footer .social-icons {
-    margin-top: 30px;
     display: flex;
+    margin-top: 10px;
     gap: 10px;
 }
 
@@ -37,13 +39,10 @@ footer .social-icons a:hover {
     color: #FF5733;
 }
 
-@media (max-width: 768px) {
-    footer .footer-container {
-        flex-direction: column;
-        text-align: center;
+@media (max-width: 575.98px) {
+
+    .FooterContainer {
+        padding: 0 20px;
     }
 
-    footer .footer-section {
-        padding: 10px 0;
-    }
 }

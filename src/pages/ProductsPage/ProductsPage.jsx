@@ -6,6 +6,7 @@ import BakeryList from '../../components/BakeryList/BakeryList'
 import './ProductsPage.css'
 import { AuthContext } from '../../components/Contexts/Auth.Context'
 
+import Loader from '../../components/Loader/Loader'
 
 const ProductsPage = () => {
     const [showModal, setShowModal] = useState(false)
@@ -20,30 +21,35 @@ const ProductsPage = () => {
         return <Navigate to="/" />
     }
 
+    const addToWishlist = (product) => {
+        setWishlist(wishlist => [...wishlist, product])
+    }
+
+    const removeFromWishlist = (productId) => {
+        setWishlist(wishlist => wishlist.filter(product => product.id !== productId))
+    }
+
     return (
         <Container className="ProductsPage">
+            <Loader />
             <Row>
                 <Col>
                     <div className="products-title">
 
                         <h3>Nuestros Productos</h3>
 
-                        <p className="about-title-content-up">
-                            ¡Si te gusta uno... imagínate dos!
-                        </p>
-
                     </div>
 
                     {/* <div class="separator-products"></div> */}
 
-                    <BakeryList />
+                    <BakeryList addToWishlist={addToWishlist} />
                 </Col>
             </Row>
 
             <Row className="mt-4">
                 <Col>
                     <Button
-                        variant="primary"
+                        variant="success"
                         className="product-new-button"
                         onClick={handleShow}
                     >
