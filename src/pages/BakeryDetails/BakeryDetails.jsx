@@ -4,6 +4,7 @@ import { Card, Button, Form, Row, Col, Modal, Toast } from 'react-bootstrap';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import EditProductForm from '../../components/EditProductForm/EditProductForm';
+import Loader from '../../components/Loader/Loader';
 
 const API_URL = 'http://localhost:5005'
 
@@ -14,14 +15,18 @@ const BakeryDetails = () => {
     const [newComment, setNewComment] = useState('')
     const [newRating, setNewRating] = useState(0)
     const [showModal, setShowModal] = useState(false)
+<<<<<<< HEAD
     const [showToast, setShowToast] = useState(false)
 
     const handleShowToast = () => setShowToast(true)
     const handleCloseToast = () => setShowToast(false)
+=======
+    const [editingCommentId, setEditingCommentId] = useState(null);
+    const [editedComments, setEditedComments] = useState({});
+>>>>>>> e0b5e93a1f5185062974e57e4b2b691e070d1406
 
     const handleClose = () => setShowModal(false)
     const handleShow = () => setShowModal(true)
-
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -33,7 +38,9 @@ const BakeryDetails = () => {
         axios
             .get(`${API_URL}/products/${id}`)
             .then(response => {
-                setBakery(response.data)
+                setTimeout(() => {
+                    setBakery(response.data);
+                }, 2000);
             })
             .catch(err => console.log(err))
     }
@@ -51,11 +58,9 @@ const BakeryDetails = () => {
         axios
             .delete(`${API_URL}/products/${id}`)
             .then(() => {
-                navigate('/productos');
+                navigate('/productos')
             })
-            .catch(error => {
-                console.error("Error al eliminar el producto:", error)
-            });
+            .catch(err => console.log(err))
     };
 
     const handleBack = () => {
@@ -81,9 +86,7 @@ const BakeryDetails = () => {
                 setNewComment('')
                 setNewRating(0)
             })
-            .catch(error => {
-                console.error("Error al agregar el comentario:", error)
-            });
+            .catch(err => console.log(err))
     };
 
     const handleDeleteComment = (commentId) => {
@@ -93,14 +96,45 @@ const BakeryDetails = () => {
                 alert("Comentario eliminado con éxito")
                 fetchBakeryComments()
             })
-            .catch(error => {
-                console.error("Error al eliminar el comentario:", error)
-            });
+            .catch(err => console.log(err))
     };
 
+<<<<<<< HEAD
+=======
+    const handleEditComment = (commentId) => {
+        setEditingCommentId(commentId);
+        const commentToEdit = comments.find(comment => comment.id === commentId);
+        setEditedComments({
+            ...editedComments,
+            [commentId]: {
+                rating: commentToEdit?.rating || 0,
+                comment: commentToEdit?.comment || '',
+            }
+        });
+    };
+
+    const handleSaveComment = (commentId) => {
+        const updatedComment = {
+            productId: id,
+            rating: editedComments[commentId]?.rating,
+            comment: editedComments[commentId]?.comment,
+            date: new Date().toISOString()
+        };
+
+        axios
+            .put(`${API_URL}/comments/${commentId}`, updatedComment)
+            .then(() => {
+                alert("Comentario actualizado con éxito");
+                fetchBakeryComments();
+                setEditingCommentId(null);
+            })
+            .catch(err => console.log(err))
+    };
+
+>>>>>>> e0b5e93a1f5185062974e57e4b2b691e070d1406
 
     if (!bakery) {
-        return <p>Cargando detalles...</p>
+        return <Loader />
     }
 
     return (
@@ -181,51 +215,105 @@ const BakeryDetails = () => {
 
                     {
                         comments.map((comment, idx) => (
-                            <Card
-                                key={comment.id}
-                                className="mb-3">
-
-                                <Card.Header
-                                    className="d-flex justify-content-between align-items-center">
+                            <Card key={comment.id} className="mb-3">
+                                <Card.Header className="d-flex justify-content-between align-items-center">
                                     N° Comentario: {idx + 1}
-
                                     <div>
-                                        <Button
-                                            variant="warning"
-                                            size="sm" onClick={() =>
-                                                handleEditComment(comment.id)}>
-                                            <i className='fas fa-pencil'></i>
-                                        </Button>{' '}
-
-                                        <Button
-                                            variant="danger"
-                                            size="sm" onClick={() =>
-                                                handleDeleteComment(comment.id)}>
-                                            <i className='fa fa-trash'></i>
-                                        </Button>
+                                        {editingCommentId === comment.id ? (
+                                            <>
+                                                <Button
+                                                    variant="success"
+                                                    size="sm"
+                                                    onClick={() => handleSaveComment(comment.id)}>
+                                                    <i class="fa fa-refresh" aria-hidden="true"></i>
+                                                    &nbsp;Actualizar
+                                                </Button>{' '}
+                                                <Button
+                                                    variant="secondary"
+                                                    size="sm"
+                                                    onClick={() => setEditingCommentId(null)}>
+                                                    <i class="fas fa-window-close"></i>
+                                                    &nbsp;Cancelar
+                                                </Button>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Button
+                                                    variant="warning"
+                                                    size="sm"
+                                                    onClick={() => handleEditComment(comment.id)}>
+                                                    <i className='fas fa-pencil'></i>
+                                                </Button>{' '}
+                                                <Button
+                                                    variant="danger"
+                                                    size="sm"
+                                                    onClick={() => handleDeleteComment(comment.id)}>
+                                                    <i className='fas fa-trash'></i>
+                                                </Button>
+                                            </>
+                                        )}
                                     </div>
-
                                 </Card.Header>
 
                                 <Card.Body>
-                                    <Card.Text>
-                                        <strong>Puntuación:</strong>
-                                        {comment.rating}/10
-                                    </Card.Text>
+                                    {editingCommentId === comment.id ? (
+                                        <>
+                                            <Form.Group className="mb-3" controlId={`editRating-${comment.id}`}>
+                                                <Form.Label>Rating (0-10)</Form.Label>
+                                                <Form.Control
+                                                    type="number"
+                                                    min="0"
+                                                    max="10"
+                                                    value={editedComments[comment.id]?.rating || 0}
+                                                    onChange={(e) =>
+                                                        setEditedComments({
+                                                            ...editedComments,
+                                                            [comment.id]: {
+                                                                ...editedComments[comment.id],
+                                                                rating: e.target.value,
+                                                            },
+                                                        })
+                                                    }
+                                                />
+                                            </Form.Group>
 
-                                    <Card.Text>
-                                        <strong>Comentario:</strong>
-                                        {comment.comment}
-                                    </Card.Text>
-
+                                            <Form.Group className="mb-3" controlId={`editComment-${comment.id}`}>
+                                                <Form.Label>Comentario</Form.Label>
+                                                <Form.Control
+                                                    as="textarea"
+                                                    rows={3}
+                                                    value={editedComments[comment.id]?.comment || ''}
+                                                    onChange={(e) =>
+                                                        setEditedComments({
+                                                            ...editedComments,
+                                                            [comment.id]: {
+                                                                ...editedComments[comment.id],
+                                                                comment: e.target.value,
+                                                            },
+                                                        })
+                                                    }
+                                                    placeholder="Escribe tu comentario..."
+                                                />
+                                            </Form.Group>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <Card.Text>
+                                                <strong>Puntuación:</strong> {comment.rating}/10
+                                            </Card.Text>
+                                            <Card.Text>
+                                                <strong>Comentario:</strong> {comment.comment}
+                                            </Card.Text>
+                                        </>
+                                    )}
                                 </Card.Body>
 
                                 <Card.Footer>
-                                    <strong>Fecha Registro:</strong>
-                                    &nbsp;{new Date(comment.date).toLocaleDateString()}
+                                    <strong>Fecha Registro:</strong> {new Date(comment.date).toLocaleDateString()}
                                 </Card.Footer>
                             </Card>
-                        ))}
+                        ))
+                    }
                 </Card.Body>
             </Card>
 
@@ -262,7 +350,7 @@ const BakeryDetails = () => {
                         </Form.Group>
 
                         <Button
-                            variant="primary"
+                            variant="success"
                             type="submit"
                             className="rotate-container">
                             <i className="fas fa-plus rotate-on-hover">
@@ -328,6 +416,7 @@ const BakeryDetails = () => {
                         handleClose={handleClose} />
                 </Modal.Body>
             </Modal>
+
         </div>
     )
 }

@@ -4,6 +4,7 @@ import { Container, Row, Col, Button, Modal } from 'react-bootstrap'
 import AddProductForm from '../../components/AddProductForm/AddProductForm'
 import BakeryList from '../../components/BakeryList/BakeryList'
 import './ProductsPage.css'
+import Loader from '../../components/Loader/Loader'
 
 const ProductsPage = () => {
     const [showModal, setShowModal] = useState(false)
@@ -21,6 +22,7 @@ const ProductsPage = () => {
 
     return (
         <Container className="ProductsPage">
+            <Loader />
             <Row>
                 <Col>
                     <div className="products-title">
@@ -38,7 +40,7 @@ const ProductsPage = () => {
             <Row className="mt-4">
                 <Col>
                     <Button
-                        variant="primary"
+                        variant="success"
                         className="product-new-button"
                         onClick={handleShow}
                     >
@@ -50,7 +52,7 @@ const ProductsPage = () => {
                             <Modal.Title>Añadir Producto</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            <AddProductForm />
+                            <AddProductForm/>
                         </Modal.Body>
                         <Modal.Footer>
                             <Button variant="secondary" onClick={handleClose}>
