@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import * as IMAGE_PATHS from "../../consts/image-paths"
 
 const Loader = () => {
     const [showLoader, setShowLoader] = useState(true);
@@ -15,10 +16,17 @@ const Loader = () => {
     return (
         <div
             className="d-flex justify-content-center align-items-center vh-100 bg-dark"
-            style={{ position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 1050 }}
+            style={
+                {
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    zIndex: 1050
+                }}
         >
             <img
-                src="https://res.cloudinary.com/dbq56vg5g/image/upload/v1732008659/assets/images/wnh3xpyyiaeqvkzeueln.png"
+                src={IMAGE_PATHS.LOGO_WHITE}
                 alt="Logo"
                 style={{
                     width: '100px',
