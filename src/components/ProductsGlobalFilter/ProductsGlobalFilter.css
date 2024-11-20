@@ -15,8 +15,8 @@
 .list-filtered {
     position: absolute;
     font-family: Helvetica, sans-serif;
+    font-size: .9em;
     width: 300px;
-
 }
 
 .list-filtered img {
@@ -50,6 +50,23 @@
 
 .searcher input {
     padding-right: 30px;
+}
+
+@media (max-width: 991.98px) {
+    .searcher input {
+        width: 220px;
+        height: 30px;
+    }
+
+    .list-filtered {
+        position: absolute;
+        font-family: Helvetica, sans-serif;
+        width: 220px;
+    }
+
+    .list-filtered img {
+        width: 50px;
+    }
 }
 
 @media (max-width: 768px) {

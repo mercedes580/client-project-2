@@ -46,7 +46,7 @@ const Navbar = () => {
                             <Button
                                 className="menu-button"
                                 onClick={() => setShowMenu(true)}>
-                                MENÚ
+                                MENU
                             </Button>
                         </nav>
 
@@ -68,13 +68,13 @@ const Navbar = () => {
             <div className={`menu-container ${showMenu ? 'active' : ''}`} >
 
                 <div className="menu-links">
-                    <Link to={"/productos"} onClick={() => setShowMenu(false)}><li>PRODUCTOS</li></Link>
-                    <Link to={"/sobre-nosotros"} onClick={() => setShowMenu(false)}><li>SOBRE NOSOTROS</li></Link>
-                    <Link to={"/contacto"} onClick={() => setShowMenu(false)}><li>CONTACTO</li></Link>
+                    <Link to={"/productos"} onClick={() => setShowMenu(false)}><li>PRODUCTS</li></Link>
+                    <Link to={"/sobre-nosotros"} onClick={() => setShowMenu(false)}><li>ABOUT US</li></Link>
+                    <Link to={"/contacto"} onClick={() => setShowMenu(false)}><li>CONTACT</li></Link>
                 </div>
 
                 <div className="close-button-container" onClick={() => setShowMenu(false)}>
-                    <button className="close-button">CERRAR</button>
+                    <button className="close-button">CLOSE</button>
                 </div>
 
                 <div className="mobile-close-button-container">

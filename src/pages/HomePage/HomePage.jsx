@@ -1,6 +1,7 @@
 import "./HomePage.css"
-import * as IMAGE_PATHS from "../../consts/image-paths"
 import Loader from "../../components/Loader/Loader"
+import HomePageGallery from "../../components/HomePageGallery/HomePageGallery"
+import * as IMAGE_PATHS from "../../consts/image-paths"
 
 const HomePage = () => {
     return (
@@ -50,14 +51,7 @@ const HomePage = () => {
                 <h4>NUESTRAS ESPECIALIDADES</h4>
             </section>
 
-            <section className="products">
-
-                <ul>
-                    <li>Brownies de suchard</li>
-                    <li>Cupcakes de fresa</li>
-                    <li>Tarta de zanahoria</li>
-                </ul>
-            </section>
+            <HomePageGallery />
 
             <section className="little-message4">
                 <h4>NUESTRAS ESPECIALIDADES</h4>

@@ -16,10 +16,6 @@ const ProductsPage = () => {
         setWishlist(wishlist => [...wishlist, product])
     }
 
-    const removeFromWishlist = (productId) => {
-        setWishlist(wishlist => wishlist.filter(product => product.id !== productId))
-    }
-
     return (
         <Container className="ProductsPage">
             <Loader />
@@ -27,11 +23,9 @@ const ProductsPage = () => {
                 <Col>
                     <div className="products-title">
 
-                        <h3>Nuestros Productos</h3>
+                        <h3>Our products</h3>
 
                     </div>
-
-                    {/* <div class="separator-products"></div> */}
 
                     <BakeryList addToWishlist={addToWishlist} />
                 </Col>
@@ -44,30 +38,29 @@ const ProductsPage = () => {
                         className="product-new-button"
                         onClick={handleShow}
                     >
-                        <i className="fas fa-plus icon-margin"></i> Crear nuevo producto
+                        <i className="fas fa-plus icon-margin"></i> Create new product
                     </Button>
-
-                    <Modal show={showModal} onHide={handleClose}>
-                        <Modal.Header closeButton>
-                            <Modal.Title>Añadir Producto</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <AddProductForm/>
-                        </Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="secondary" onClick={handleClose}>
-                                close
-                            </Button>
-                            <Link to="/productos/añadir">
-                                <Button variant="primary" onClick={handleClose}>
-                                    save changes
-                                </Button>
-                            </Link>
-                        </Modal.Footer>
-                    </Modal>
 
                 </Col>
             </Row>
+
+            <Modal
+                className="create-modal dark-modal"
+                show={showModal}
+                onHide={handleClose}
+            >
+                <Modal.Header>
+                    <Modal.Title>Add new product</Modal.Title>
+                    <Button
+                        className="custom-button">
+                        <i className='fa-solid fa-xmark'></i>
+                    </Button>
+                </Modal.Header>
+                <Modal.Body>
+                    <AddProductForm />
+                </Modal.Body>
+            </Modal>
+
         </Container>
     )
 }

@@ -66,6 +66,7 @@ header #logo img {
     cursor: pointer;
     outline: none;
     transition: color 0.3s;
+    margin-top: 2px;
 }
 
 .header-right .cart-content button:hover {
@@ -94,6 +95,7 @@ header #logo img {
     background: none;
     font-size: 1.1em;
     transition: color 0.3s;
+    margin-top: 2px;
 }
 
 .header-right .wishlist-content button:hover {
@@ -106,6 +108,7 @@ header #logo img {
     background: none;
     font-size: 1.1em;
     transition: color 0.3s;
+    margin-top: 2px;
 }
 
 .header-right .user-content button:hover {
@@ -120,7 +123,7 @@ header #logo img {
     font-weight: 500;
     margin-left: -12px;
     display: block;
-
+    margin-top: 2px;
 }
 
 .container .menu-button:hover {
@@ -137,6 +140,7 @@ header #logo img {
     display: none;
     position: relative;
     right: 9px;
+    margin-top: 4px;
 }
 
 .mobile-menu-button:hover {
@@ -186,9 +190,9 @@ header #logo img {
 
 .close-button-container {
     position: absolute;
-    top: 40px;
-    right: 50px;
-    font-size: 1.2em;
+    top: 42px;
+    right: 60px;
+    font-size: 1.1em;
     display: block;
 }
 
@@ -212,6 +216,11 @@ header #logo img {
 
 .mobile-close-button {
     font-size: 2em;
+    transition: color 0.3s;
+}
+
+.mobile-close-button:hover {
+    color: #FF5733;
 }
 
 .menu-links a {
@@ -290,8 +299,23 @@ header #logo img {
 
 @media (max-width: 991.98px) {
 
+    .header-right .cart-content button,
+    .header-right .wishlist-content button,
+    .header-right .user-content button {
+        font-size: 1.4em;
+    }
+
+    .container .menu-button {
+        font-size: 1.7em;
+    }
+
+    .close-button-container {
+        top: 38px;
+        right: 60px;
+    }
+
     .close-button {
-        font-size: .7em;
+        font-size: 1.3em;
     }
 
     .menu-links li {
