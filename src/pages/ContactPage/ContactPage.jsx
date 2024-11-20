@@ -2,6 +2,7 @@ import './ContactPage.css';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import DiscountForm from './DiscountForm';
 
+
 const ContactPage = () => {
     const handleButtonClick = () => {
         alert("¡Qué haces pulsando, curiosito!");

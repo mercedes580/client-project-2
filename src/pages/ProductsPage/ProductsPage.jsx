@@ -1,9 +1,11 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useContext, useState } from 'react'
+import { Link, Navigate } from 'react-router-dom'
 import { Container, Row, Col, Button, Modal } from 'react-bootstrap'
 import AddProductForm from '../../components/AddProductForm/AddProductForm'
 import BakeryList from '../../components/BakeryList/BakeryList'
 import './ProductsPage.css'
+import { AuthContext } from '../../components/Contexts/Auth.Context'
+
 import Loader from '../../components/Loader/Loader'
 
 const ProductsPage = () => {
@@ -11,10 +13,7 @@ const ProductsPage = () => {
 
     const handleClose = () => setShowModal(false)
     const handleShow = () => setShowModal(true)
-
-    const addToWishlist = (product) => {
-        setWishlist(wishlist => [...wishlist, product])
-    }
+    const { loggedUser } = useContext(AuthContext)
 
     return (
         <Container className="ProductsPage">
@@ -27,19 +26,34 @@ const ProductsPage = () => {
 
                     </div>
 
-                    <BakeryList addToWishlist={addToWishlist} />
+                    <BakeryList />
+
                 </Col>
             </Row>
 
             <Row className="mt-4">
                 <Col>
-                    <Button
-                        variant="success"
-                        className="product-new-button"
-                        onClick={handleShow}
-                    >
-                        <i className="fas fa-plus icon-margin"></i> Create new product
-                    </Button>
+                    {
+                        loggedUser &&
+                        <>
+                            <Button
+                                variant="success"
+                                className="product-new-button"
+                                onClick={handleShow}
+                            >
+                                <i className="fas fa-plus icon-margin"></i> Crear nuevo producto
+                            </Button>
+                        </>
+                    }
+
+                    <Modal show={showModal} onHide={handleClose}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Añadir Producto</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <AddProductForm />
+                        </Modal.Body>
+                    </Modal>
 
                 </Col>
             </Row>
