@@ -8,10 +8,14 @@ import EditProductForm from '../components/EditProductForm/EditProductForm'
 import HomePage from '../pages/HomePage/HomePage'
 import LoginForm from '../components/LoginForm/LoginForm'
 import NotFoundPage from '../pages/NotFoundPage/NotFoundPage'
+import ShopPage from '../components/ShopPage/ShopPage'
 
 const AppRoutes = () => {
+
     return (
+
         <div className="AppRoutes">
+
             <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='/productos' element={<ProductsPage />} />
@@ -21,13 +25,14 @@ const AppRoutes = () => {
                 <Route path='/productos/añadir' element={<AddNewProductPage />} />
                 <Route path='/productos/editar/:id' element={<EditProductForm />} />
                 <Route path='/login' element={<LoginForm />} />
-                <Route path='*' element={<h1>404</h1>} />
-
-
+                <Route path='/shop/:id' element={<ShopPage />} />
                 <Route path='*' element={<NotFoundPage />} />
             </Routes>
 
         </div>
+
     )
+
 }
+
 export default AppRoutes
