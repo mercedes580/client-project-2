@@ -10,9 +10,9 @@ function Header() {
             {loggedUser ? (
                 <div >
                     <span>Hola, caracola {loggedUser.username}</span>
-                    <button onClick={logout} style={{
+                    <button onClick={logout}
 
-                    }}>Cerrar sesión</button>
+                    >Cerrar sesión</button>
                 </div>
             ) : (
                 <span >Inicie sesión para probar nuestras delicias</span>

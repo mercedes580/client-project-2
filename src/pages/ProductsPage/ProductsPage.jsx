@@ -1,15 +1,24 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useContext, useState } from 'react'
+import { Link, Navigate } from 'react-router-dom'
 import { Container, Row, Col, Button, Modal } from 'react-bootstrap'
 import AddProductForm from '../../components/AddProductForm/AddProductForm'
 import BakeryList from '../../components/BakeryList/BakeryList'
 import './ProductsPage.css'
+import { AuthContext } from '../../components/Contexts/Auth.Context'
+
 
 const ProductsPage = () => {
     const [showModal, setShowModal] = useState(false)
 
     const handleClose = () => setShowModal(false)
     const handleShow = () => setShowModal(true)
+    const { loggedUser } = useContext(AuthContext)
+
+
+
+    if (!loggedUser) {
+        return <Navigate to="/" />
+    }
 
     return (
         <Container className="ProductsPage">

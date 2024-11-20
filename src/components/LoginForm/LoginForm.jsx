@@ -1,9 +1,13 @@
 import { useContext, useState } from "react"
 import { Form, Button } from "react-bootstrap"
 import { AuthContext } from "../Contexts/Auth.Context"
+import './LoginForm.css'
+import { useNavigate } from "react-router-dom"
 
 const LoginForm = () => {
     const { login } = useContext(AuthContext)
+
+    const navigate = useNavigate()
 
     const [loginData, setLoginData] = useState({
         email: '',
@@ -20,8 +24,9 @@ const LoginForm = () => {
 
         const { email, password } = loginData
 
-        if (email === "admin@3SOME.com" && password === 'pastelito123') {
+        if (email === "admin@admin.com" && password === 'devora') {
             loginUser()
+            navigate('/productos')
         } else {
             alert('incorrecto')
         }
