@@ -4,6 +4,7 @@ import { Card, Button, Form, Row, Col, Modal } from 'react-bootstrap';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import EditProductForm from '../../components/EditProductForm/EditProductForm';
+import Loader from '../../components/Loader/Loader';
 
 const API_URL = 'http://localhost:5005'
 
@@ -30,7 +31,9 @@ const BakeryDetails = () => {
         axios
             .get(`${API_URL}/products/${id}`)
             .then(response => {
-                setBakery(response.data)
+                setTimeout(() => {
+                    setBakery(response.data);
+                }, 2000);
             })
             .catch(err => console.log(err))
     }
@@ -121,7 +124,7 @@ const BakeryDetails = () => {
 
 
     if (!bakery) {
-        return <p>Cargando detalles...</p>
+        return <Loader />
     }
 
     return (

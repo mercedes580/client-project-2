@@ -1,9 +1,12 @@
 import "./HomePage.css"
 import * as IMAGE_PATHS from "../../consts/image-paths"
+import Loader from "../../components/Loader/Loader"
 
 const HomePage = () => {
     return (
         <div className="index-page">
+
+            <Loader />
 
             {/* <section className="welcome-video">
                 <video
