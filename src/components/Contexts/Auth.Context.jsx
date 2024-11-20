@@ -10,11 +10,12 @@ function AuthProviderWrapper(props) {
         setLoggedUser(null);
 
     };
+    const isAdmin = loggedUser && loggedUser.role === 'admin';
 
     console.log(loggedUser)
 
     return (
-        <AuthContext.Provider value={{ loggedUser, login, logout }}>
+        <AuthContext.Provider value={{ loggedUser, isAdmin, login, logout }}>
             {props.children}
         </AuthContext.Provider>
     );

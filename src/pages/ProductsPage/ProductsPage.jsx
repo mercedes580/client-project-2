@@ -15,20 +15,6 @@ const ProductsPage = () => {
     const handleShow = () => setShowModal(true)
     const { loggedUser } = useContext(AuthContext)
 
-
-
-    if (!loggedUser) {
-        return <Navigate to="/" />
-    }
-
-    const addToWishlist = (product) => {
-        setWishlist(wishlist => [...wishlist, product])
-    }
-
-    const removeFromWishlist = (productId) => {
-        setWishlist(wishlist => wishlist.filter(product => product.id !== productId))
-    }
-
     return (
         <Container className="ProductsPage">
             <Loader />
@@ -40,21 +26,25 @@ const ProductsPage = () => {
 
                     </div>
 
-                    {/* <div class="separator-products"></div> */}
+                    <BakeryList />
 
-                    <BakeryList addToWishlist={addToWishlist} />
                 </Col>
             </Row>
 
             <Row className="mt-4">
                 <Col>
-                    <Button
-                        variant="success"
-                        className="product-new-button"
-                        onClick={handleShow}
-                    >
-                        <i className="fas fa-plus icon-margin"></i> Crear nuevo producto
-                    </Button>
+                    {
+                        loggedUser &&
+                        <>
+                            <Button
+                                variant="success"
+                                className="product-new-button"
+                                onClick={handleShow}
+                            >
+                                <i className="fas fa-plus icon-margin"></i> Crear nuevo producto
+                            </Button>
+                        </>
+                    }
 
                     <Modal show={showModal} onHide={handleClose}>
                         <Modal.Header closeButton>
@@ -63,16 +53,6 @@ const ProductsPage = () => {
                         <Modal.Body>
                             <AddProductForm />
                         </Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="secondary" onClick={handleClose}>
-                                close
-                            </Button>
-                            <Link to="/productos/añadir">
-                                <Button variant="primary" onClick={handleClose}>
-                                    save changes
-                                </Button>
-                            </Link>
-                        </Modal.Footer>
                     </Modal>
 
                 </Col>

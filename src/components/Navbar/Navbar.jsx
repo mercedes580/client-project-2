@@ -1,12 +1,15 @@
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import { Button, CloseButton } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import ProductsGlobalFilter from './../ProductsGlobalFilter/ProductsGlobalFilter';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import * as IMAGE_PATHS from "../../consts/image-paths"
+import { AuthContext } from '../../components/Contexts/Auth.Context'
 
 const Navbar = () => {
-    const [showMenu, setShowMenu] = useState(false)
+
+    const { loggedUser, logout } = useContext(AuthContext)
+    const [showMenu, setShowMenu] = useState(false);
 
     return (
         <header>
@@ -35,9 +38,10 @@ const Navbar = () => {
                         </div>
 
                         <div className="user-content">
-                            <Link to={"/login"}>
-                                <button type="userButton">
-                                    <i className="fa-solid fa-user-alt"></i>
+
+                            <Link to={loggedUser ? "/" : "/login"}>
+                                <button loggedUsertype="userButton" onClick={loggedUser ? logout : null}>
+                                    <i className={`fa-solid ${loggedUser ? 'fa-user-alt-slash' : 'fa-user-alt'}`}></i>
                                 </button>
                             </Link>
                         </div>
@@ -106,8 +110,8 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-        </header>
+        </header >
     );
 };
 
-export default Navbar
+export default Navbar;
