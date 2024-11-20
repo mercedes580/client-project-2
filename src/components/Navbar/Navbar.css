@@ -1,5 +1,4 @@
 header {
-    /* background: linear-gradient(to bottom, #F5F4F0 60%, #F5F4F000); */
     font-family: Helvetica, sans-serif;
     position: fixed;
     top: 0;
@@ -24,8 +23,7 @@ header .header-inner {
 }
 
 header #logo {
-    padding: 10px;
-    margin-left: 30px;
+    margin-left: 45px;
     margin-top: 30px;
     max-width: 100px;
     display: flex;
@@ -43,36 +41,27 @@ header #logo img {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 10px;
-    margin: 0;
+    gap: 15px;
     margin-top: 30px;
+    margin-right: 5px;
     padding: 0;
     position: absolute;
     right: 30px;
 }
 
 .header-right .search-btn-outer,
-.header-right .cart-content {
+.header-right .cart-content,
+.header-right .wishlist-content,
+.header-right .user-content {
     display: inline-block;
 }
 
-.header-right .fa-cart-shopping {
-    cursor: pointer;
-    font-size: .7em;
-    color: #232323;
-    transition: color 0.3s;
-}
-
-.header-right .fa-cart-shopping:hover {
-    color: #FF5733;
-}
-
 .header-right .cart-content button {
-    top: -3px;
+    margin-right: 5px;
     position: relative;
     background: none;
     border: none;
-    font-size: 1.5em;
+    font-size: 1.1em;
     color: #212121;
     cursor: pointer;
     outline: none;
@@ -89,15 +78,38 @@ header #logo img {
     right: -10px;
     background-color: #FF5733;
     color: #fff;
-    font-size: 0.5em;
-    padding: .4px 4px;
+    font-size: 0.6em;
     border-radius: 50%;
-    min-width: 20px;
-    height: 20px;
+    min-width: 17px;
+    height: 17px;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.header-right .wishlist-content button {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+.header-right .wishlist-content button:hover {
+    color: #FF5733;
+}
+
+.header-right .user-content button {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+.header-right .user-content button:hover {
+    color: #FF5733;
 }
 
 .container .menu-button {
@@ -107,6 +119,7 @@ header #logo img {
     font-size: 1.1em;
     font-weight: 500;
     margin-left: -12px;
+    display: block;
 
 }
 
@@ -116,13 +129,36 @@ header #logo img {
     border: none;
 }
 
+.mobile-menu-button {
+    background: none;
+    border: none;
+    color: #212121;
+    font-size: 1.6em;
+    display: none;
+    position: relative;
+    right: 9px;
+}
+
+.mobile-menu-button:hover {
+    background: none;
+    color: #FF5733;
+    border: none;
+}
+
+.mobile-menu-button:focus,
+.mobile-menu-button:active {
+    background: none;
+    outline: none;
+    color: #FF5733;
+}
+
 .menu-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     z-index: 10;
     display: flex;
     justify-content: center;
@@ -145,27 +181,37 @@ header #logo img {
     padding: 0;
     align-items: center;
     text-align: center;
-    font-size: 24px;
     color: #ebebeb;
 }
 
 .close-button-container {
     position: absolute;
     top: 40px;
-    right: 45px;
-    font-size: 1.5em;
+    right: 50px;
+    font-size: 1.2em;
+    display: block;
 }
 
 .close-button {
     color: #ebebeb;
     background: none;
     border: none;
-    font-size: .75em;
     transition: color 0.3s;
 }
 
 .close-button:hover {
     color: #FF5733;
+}
+
+.mobile-close-button-container {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    display: none;
+}
+
+.mobile-close-button {
+    font-size: 2em;
 }
 
 .menu-links a {
@@ -185,7 +231,7 @@ header #logo img {
     font-family: Helvetica, sans-serif;
     list-style: none;
     color: #ebebeb;
-    font-size: 7em;
+    font-size: 6em;
     font-weight: bold;
     margin: 10px 0;
     transition: color 0.3s;
@@ -197,20 +243,123 @@ header #logo img {
 
 .logo-menu {
     position: absolute;
-    top: 40px;
-    left: 40px;
+    left: 45px;
+    top: 30px;
 }
 
 .logo-menu img {
-    width: 15.8%;
+    width: 230px;
     height: auto;
 }
 
-@media (max-width: 768px) {
+.menu-footer {
+    color: #ebebeb;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 65px;
+    margin: 0 auto;
+    padding: 0 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 900;
+}
 
-    .header-right {
-        gap: 10px;
+.menu-footer p {
+    margin-top: 30px;
+    font-size: 1em;
+    user-select: none;
+}
+
+.menu-footer .social-icons {
+    display: flex;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.menu-footer .social-icons a {
+    color: #ebebeb;
+    font-size: 1.5em;
+    transition: color 0.3s;
+}
+
+.menu-footer .social-icons a:hover {
+    color: #FF5733;
+}
+
+@media (max-width: 991.98px) {
+
+    .close-button {
+        font-size: .7em;
     }
 
+    .menu-links li {
+        font-size: 3.5em;
+    }
+}
+
+@media (max-width: 575.98px) {
+
+    header #logo {
+        margin-left: 30px;
+    }
+
+    header #logo img {
+        max-width: 150px;
+        height: auto;
+    }
+
+    .header-right {
+        margin-right: -20px;
+    }
+
+    .header-right .cart-content button {
+        font-size: 1.4em;
+    }
+
+    .header-right .wishlist-content button {
+        font-size: 1.4em;
+    }
+
+    .header-right .user-content button {
+        font-size: 1.4em;
+    }
+
+    .container .menu-button {
+        display: none;
+    }
+
+    .mobile-menu-button {
+        display: block;
+    }
+
+    .close-button-container {
+        top: 30px;
+        right: 25px;
+        display: none;
+    }
+
+    .mobile-close-button-container {
+
+        display: block;
+    }
+
+    .logo-menu {
+        left: 30px;
+    }
+
+    .logo-menu img {
+        width: 150px;
+        height: auto;
+    }
+
+    .menu-links li {
+        font-size: 2em;
+    }
+
+    .menu-footer {
+        padding: 0 20px;
+    }
 
 }

@@ -6,6 +6,7 @@ import AddNewProductPage from '../pages/AddProductPage/AddProductPage'
 import BakeryDetails from '../pages/BakeryDetails/BakeryDetails'
 import EditProductForm from '../components/EditProductForm/EditProductForm'
 import HomePage from '../pages/HomePage/HomePage'
+import NotFoundPage from '../pages/NotFoundPage/NotFoundPage'
 
 const AppRoutes = () => {
     return (
@@ -18,7 +19,8 @@ const AppRoutes = () => {
                 <Route path='/contacto' element={<ContactPage />} />
                 <Route path='/productos/añadir' element={<AddNewProductPage />} />
                 <Route path='/productos/editar/:id' element={<EditProductForm />} />
-                <Route path='*' element={<h1>404</h1>} />
+
+                <Route path='*' element={<NotFoundPage />} />
             </Routes>
         </div>
     )

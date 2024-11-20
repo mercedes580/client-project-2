@@ -26,11 +26,39 @@ const Navbar = () => {
                             </button>
                         </div>
 
+                        <div className="wishlist-content">
+                            <Link to={"/wishlist"}>
+                                <button type='wishlistButton'>
+                                    <i className="fa-solid fa-heart"></i>
+                                </button>
+                            </Link>
+                        </div>
+
+                        <div className="user-content">
+                            <Link to={"/login"}>
+                                <button type="userButton">
+                                    <i className="fa-solid fa-user-alt"></i>
+                                </button>
+                            </Link>
+                        </div>
+
                         <nav>
                             <Button
                                 className="menu-button"
                                 onClick={() => setShowMenu(true)}>
                                 MENÚ
+                            </Button>
+                        </nav>
+
+                        <nav>
+                            <Button
+                                className="mobile-menu-button"
+                                style={{
+                                    background: "none",
+                                    border: "none",
+                                }}
+                                onClick={() => setShowMenu(true)}>
+                                <i className="fa-solid fa-bars"></i>
                             </Button>
                         </nav>
                     </div>
@@ -49,8 +77,33 @@ const Navbar = () => {
                     <button className="close-button">CERRAR</button>
                 </div>
 
+                <div className="mobile-close-button-container">
+                    <Button
+                        className="mobile-close-button"
+                        style={{
+                            background: "none",
+                            border: "none",
+                        }}
+                        onClick={() => setShowMenu(false)}>
+                        <i className='fa-solid fa-xmark'></i>
+                    </Button>
+                </div>
+
                 <div className="logo-menu">
-                    <img src={IMAGE_PATHS.LOGO_WHITE} alt="logo" />
+                    <Link to={"/"} onClick={() => setShowMenu(false)}><img src={IMAGE_PATHS.LOGO_WHITE} alt="logo" /></Link>
+                </div>
+
+                <div className="menu-footer">
+                    <div>
+                        <p>© 2024 3SOME BAKERY</p>
+                    </div>
+
+                    <div className="footer-section social-icons">
+                        <a href="#"><i className="fab fa-facebook"></i></a>
+                        <a href="#"><i className="fab fa-twitter"></i></a>
+                        <a href="#"><i className="fab fa-instagram"></i></a>
+                        <a href="#"><i className="fab fa-linkedin"></i></a>
+                    </div>
                 </div>
             </div>
         </header>

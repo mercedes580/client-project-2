@@ -11,6 +11,14 @@ const ProductsPage = () => {
     const handleClose = () => setShowModal(false)
     const handleShow = () => setShowModal(true)
 
+    const addToWishlist = (product) => {
+        setWishlist(wishlist => [...wishlist, product])
+    }
+
+    const removeFromWishlist = (productId) => {
+        setWishlist(wishlist => wishlist.filter(product => product.id !== productId))
+    }
+
     return (
         <Container className="ProductsPage">
             <Row>
@@ -19,15 +27,11 @@ const ProductsPage = () => {
 
                         <h3>Nuestros Productos</h3>
 
-                        <p className="about-title-content-up">
-                            ¡Si te gusta uno... imagínate dos!
-                        </p>
-
                     </div>
 
                     {/* <div class="separator-products"></div> */}
 
-                    <BakeryList />
+                    <BakeryList addToWishlist={addToWishlist} />
                 </Col>
             </Row>
 

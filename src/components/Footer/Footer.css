@@ -20,10 +20,12 @@ footer {
 .FooterContainer p {
     margin-top: 30px;
     font-size: 1em;
+    user-select: none;
 }
 
 footer .social-icons {
     display: flex;
+    margin-top: 10px;
     gap: 10px;
 }
 
@@ -37,20 +39,10 @@ footer .social-icons a:hover {
     color: #FF5733;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 575.98px) {
 
     .FooterContainer {
-        padding: 0 15px;
+        padding: 0 20px;
     }
 
-
-    .FooterContainer p {
-        margin-top: 15px;
-        font-size: .6em;
-    }
-
-    footer .social-icons a {
-        margin-top: 0;
-        font-size: .9em;
-    }
 }

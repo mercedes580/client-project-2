@@ -1,6 +1,6 @@
 import './BakeryDetails.css'
 import axios from 'axios';
-import { Card, Button, Form, Row, Col, Modal } from 'react-bootstrap';
+import { Card, Button, Form, Row, Col, Modal, Toast } from 'react-bootstrap';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import EditProductForm from '../../components/EditProductForm/EditProductForm';
@@ -14,8 +14,12 @@ const BakeryDetails = () => {
     const [newComment, setNewComment] = useState('')
     const [newRating, setNewRating] = useState(0)
     const [showModal, setShowModal] = useState(false)
-    const handleClose = () => setShowModal(false)
+    const [showToast, setShowToast] = useState(false)
 
+    const handleShowToast = () => setShowToast(true)
+    const handleCloseToast = () => setShowToast(false)
+
+    const handleClose = () => setShowModal(false)
     const handleShow = () => setShowModal(true)
 
     const navigate = useNavigate()
@@ -93,7 +97,7 @@ const BakeryDetails = () => {
                 console.error("Error al eliminar el comentario:", error)
             });
     };
-    
+
 
     if (!bakery) {
         return <p>Cargando detalles...</p>
@@ -160,7 +164,7 @@ const BakeryDetails = () => {
 
                                 <Button
                                     variant="danger"
-                                    onClick={handleDelete}
+                                    onClick={handleShowToast}
                                     className='m-1'>
                                     <i className='fa fa-trash'>
                                     </i>&nbsp;Eliminar
@@ -268,23 +272,61 @@ const BakeryDetails = () => {
                     </Form>
                 </Card.Body>
             </Card>
-            <Modal show={showModal} onHide={handleClose}>
+
+            <div className="toast-top-center">
+                <Toast
+                    show={showToast}
+                    onClose={handleCloseToast}
+                    className="bg-dark text-white">
+
+                    <Toast.Header
+                        closeButton className="bg-dark text-white"
+                        closeVariant="white">
+                        <strong
+                            className="me-auto">
+                            Eliminar producto
+                        </strong>
+                    </Toast.Header>
+
+                    <Toast.Body>
+                        ¿Estás seguro que quieres borrar el producto?
+
+                        <div className="toast-buttons">
+                            <div className="mt-3 text-center">
+                                <Button
+                                    variant="secondary"
+                                    onClick={handleDelete}>
+                                    Aceptar
+                                </Button>
+                            </div>
+
+                            <div className="mt-3 text-center">
+                                <Button
+                                    variant="light"
+                                    onClick={handleCloseToast}>
+                                    Cancelar
+                                </Button>
+                            </div>
+                        </div>
+                    </Toast.Body>
+                </Toast>
+            </div>
+
+            <Modal
+                show={showModal}
+                onHide={handleClose}>
+
                 <Modal.Header closeButton>
-                    <Modal.Title>Editar Producto</Modal.Title>
+                    <Modal.Title>
+                        Editar Producto
+                    </Modal.Title>
                 </Modal.Header>
+
                 <Modal.Body>
-                    <EditProductForm fetchBakery={fetchBakery} handleClose={handleClose} />
+                    <EditProductForm
+                        fetchBakery={fetchBakery}
+                        handleClose={handleClose} />
                 </Modal.Body>
-                {/* <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Cerrar
-                    </Button>
-                    <Link to="/productos/guardar">
-                        <Button variant="primary" onClick={handleClose}>
-                            Guardar cambios
-                        </Button>
-                    </Link>
-                </Modal.Footer> */}
             </Modal>
         </div>
     )
