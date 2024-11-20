@@ -15,15 +15,12 @@ const BakeryDetails = () => {
     const [newComment, setNewComment] = useState('')
     const [newRating, setNewRating] = useState(0)
     const [showModal, setShowModal] = useState(false)
-<<<<<<< HEAD
     const [showToast, setShowToast] = useState(false)
 
     const handleShowToast = () => setShowToast(true)
     const handleCloseToast = () => setShowToast(false)
-=======
     const [editingCommentId, setEditingCommentId] = useState(null);
     const [editedComments, setEditedComments] = useState({});
->>>>>>> e0b5e93a1f5185062974e57e4b2b691e070d1406
 
     const handleClose = () => setShowModal(false)
     const handleShow = () => setShowModal(true)
@@ -99,8 +96,6 @@ const BakeryDetails = () => {
             .catch(err => console.log(err))
     };
 
-<<<<<<< HEAD
-=======
     const handleEditComment = (commentId) => {
         setEditingCommentId(commentId);
         const commentToEdit = comments.find(comment => comment.id === commentId);
@@ -131,7 +126,6 @@ const BakeryDetails = () => {
             .catch(err => console.log(err))
     };
 
->>>>>>> e0b5e93a1f5185062974e57e4b2b691e070d1406
 
     if (!bakery) {
         return <Loader />
