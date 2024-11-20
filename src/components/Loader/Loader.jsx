@@ -15,14 +15,14 @@ const Loader = () => {
 
     return (
         <div
-            className="d-flex justify-content-center align-items-center vh-100 bg-dark"
+            className="d-flex justify-content-center align-items-center vh-100 bg-black"
             style={
                 {
                     position: 'fixed',
                     top: 0,
                     left: 0,
                     width: '100%',
-                    zIndex: 1050
+                    zIndex: 1050,
                 }}
         >
             <img

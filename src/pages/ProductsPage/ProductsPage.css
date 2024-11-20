@@ -11,19 +11,8 @@
 
 .products-title {
     text-align: center;
-    font-family: "Pacifico", Sans-serif;
-    font-weight: 400;
-    font-variation-settings: normal;
-    font-style: italic;
-    letter-spacing: -0.056rem;
-}
-
-.about-title-content {
-    font-family: "PT Sans", Sans-serif;
-    font-size: 18px;
-    font-variation-settings: normal;
-    font-style: italic;
-    text-align: justify
+    font-family: "Instrument Serif", serif;
+    font-weight: 500;
 }
 
 .separator-products {
@@ -45,11 +34,50 @@
     border: 1px solid #2c2c2c;
     border-radius: 5px;
     cursor: pointer;
-    text-transform: uppercase;
     transition: all 0.3s ease;
 }
 
 .product-new-button:hover {
     background-color: #2c2c2c;
     color: #fff;
+}
+
+.create-modal {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.dark-modal .modal-header {
+    background-color: #2b2b2b;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: none;
+    padding-top: 30px;
+}
+
+.dark-modal .modal-title {
+    margin-left: 20px;
+    color: #dadada;
+}
+
+.dark-modal .modal-body {
+    background-color: #2b2b2b;
+}
+
+.dark-modal .modal-dialog {
+    max-width: 60%;
+}
+
+.custom-button {
+    background: none;
+    border: none;
+    color: #dadada;
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+.custom-button:hover {
+    color: #FF5733;
+    background: none;
+    border: none;
 }

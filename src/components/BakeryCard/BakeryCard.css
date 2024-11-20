@@ -22,8 +22,7 @@
 }
 
 .BakeryCard .title-product {
-    font-family: "PT Sans", Sans-serif;
-    font-style: italic;
+    font-family: Helvetica, sans-serif;
     font-size: 18px;
     color: #000;
     text-decoration: none;
@@ -37,7 +36,7 @@
 }
 
 .BakeryCard .price-new {
-    font-family: "Pacifico", Sans-serif;
+    font-family: Helvetica, sans-serif;
     font-weight: 400;
     font-variation-settings: normal;
     font-style: italic;

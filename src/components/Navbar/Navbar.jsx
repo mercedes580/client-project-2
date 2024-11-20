@@ -111,7 +111,7 @@ const Navbar = () => {
                             <Button
                                 className="menu-button"
                                 onClick={() => setShowMenu(true)}>
-                                MENÚ
+                                MENU
                             </Button>
                         </nav>
 

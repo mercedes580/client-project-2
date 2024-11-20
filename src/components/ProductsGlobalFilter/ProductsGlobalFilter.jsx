@@ -40,7 +40,7 @@ const ProductsGlobalFilter = () => {
             <div className="searcher">
                 <Form.Control
                     type="text"
-                    placeholder="PRODUCTO"
+                    placeholder="PRODUCT"
                     value={filterValue}
                     onChange={handleFilterChange}
                 />
