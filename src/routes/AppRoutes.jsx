@@ -9,6 +9,7 @@ import HomePage from '../pages/HomePage/HomePage'
 import LoginForm from '../components/LoginForm/LoginForm'
 import NotFoundPage from '../pages/NotFoundPage/NotFoundPage'
 import ShopPage from '../components/ShopPage/ShopPage'
+import AdminPage from '../pages/AdminPage/AdminPage'
 
 const AppRoutes = () => {
 
@@ -26,6 +27,7 @@ const AppRoutes = () => {
                 <Route path='/productos/editar/:id' element={<EditProductForm />} />
                 <Route path='/login' element={<LoginForm />} />
                 <Route path='/shop/:id' element={<ShopPage />} />
+                <Route path='/admin' element={<AdminPage />} />
                 <Route path='*' element={<NotFoundPage />} />
             </Routes>
 
