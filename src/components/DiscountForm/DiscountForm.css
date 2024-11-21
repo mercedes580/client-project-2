@@ -2,54 +2,57 @@
     max-width: 500px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .discount-form div {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+}
+
+.discount-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.discount-form div {
+    margin-bottom: 15px;
 }
 
 .discount-form label {
     display: block;
     margin-bottom: 5px;
-    font-weight: bold;
-    color: #333;
 }
 
-.discount-form input[type="text"],
-.discount-form input[type="email"],
+.discount-form input,
 .discount-form textarea {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
+    padding: 8px;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 16px;
 }
 
 .discount-form textarea {
     height: 100px;
-    resize: vertical;
 }
 
 .submit-button {
-    background-color: #4CAF50;
+    background-color: #007bff;
     color: white;
-    padding: 12px 20px;
+    padding: 10px 15px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
 }
 
 .submit-button:hover {
-    background-color: #45a049;
+    background-color: #0056b3;
 }
 
-@media (max-width: 600px) {
-    .discount-form {
-        padding: 15px;
-    }
+.custom-toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+
 }
