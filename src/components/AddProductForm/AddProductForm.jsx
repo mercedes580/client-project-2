@@ -1,12 +1,12 @@
-import axios from "axios";
-import { useState } from "react";
-import "./AddProductForm.css";
-import { useNavigate } from "react-router-dom";
-import { Form, Row, Col, Button } from "react-bootstrap";
-
-const API_URL = "http://localhost:5005"
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { Form, Row, Col, Button } from "react-bootstrap"
+import axios from "axios"
+import "./AddProductForm.css"
 
 const AddProductForm = () => {
+
+    const API_URL = "http://localhost:5005"
 
     const navigate = useNavigate()
 
@@ -30,7 +30,7 @@ const AddProductForm = () => {
     const handleGalleryChange = (e, idx) => {
         const { value } = e.target
         const galleryCopy = [...productData.gallery]
-        galleryCopy[idx] = value;
+        galleryCopy[idx] = value
         setProductData({ ...productData, gallery: galleryCopy })
     }
 
@@ -49,7 +49,7 @@ const AddProductForm = () => {
     }
 
     const handleAllergensChange = (e, idx) => {
-        const { value } = e.target;
+        const { value } = e.target
         const allergensCopy = [...productData.allergens]
         allergensCopy[idx] = value
         setProductData({ ...productData, allergens: allergensCopy })
@@ -62,15 +62,17 @@ const AddProductForm = () => {
     }
 
     const removeAllergen = (idx) => {
+
         if (productData.allergens.length > 1) {
             const allergensCopy = [...productData.allergens]
             allergensCopy.splice(idx, 1)
             setProductData({ ...productData, allergens: allergensCopy })
         }
+
     }
 
     const handleIngredentChange = (e, idx) => {
-        const { value } = e.target;
+        const { value } = e.target
         const ingredientCopy = [...productData.ingredients]
         ingredientCopy[idx] = value
         setProductData({ ...productData, ingredients: ingredientCopy })
@@ -83,11 +85,13 @@ const AddProductForm = () => {
     }
 
     const removeIngredient = (idx) => {
+
         if (productData.ingredients.length > 1) {
             const ingredientCopy = [...productData.ingredients]
             ingredientCopy.splice(idx, 1)
             setProductData({ ...productData, ingredients: ingredientCopy })
         }
+
     }
 
     const handleFormSubmit = (e) => {
@@ -96,21 +100,25 @@ const AddProductForm = () => {
     }
 
     const fetchProducts = () => {
+
         axios
             .post(`${API_URL}/products`, productData)
             .then(response => {
                 navigate(`/productos/${response.data.id}`)
             })
             .catch(err => {
-                console.log(err);
-            });
+                console.log(err)
+            })
+
     }
 
 
     return (
+
         <div className="AddProductForm">
 
             <Form onSubmit={handleFormSubmit} className="form-container">
+                
                 <Row className="g-3">
 
                     <Form.Group controlId="productTitle">
@@ -274,8 +282,11 @@ const AddProductForm = () => {
                     </Button>
 
                 </Row>
+
             </Form>
+
         </div>
+        
     )
 
 }

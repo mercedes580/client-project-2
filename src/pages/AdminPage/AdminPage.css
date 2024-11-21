@@ -1,0 +1,19 @@
+.AdminPage {
+    flex-direction: column;
+    padding: 2rem;
+    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin-top: 70px;
+    margin-bottom: 50px;
+}
+
+.ag-select:not(.ag-cell-editor, .ag-label-align-top) {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .ag-paging-row-summary-panel {
+        display: none !important;
+    }
+}

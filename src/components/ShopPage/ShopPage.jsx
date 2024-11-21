@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { Container, Row, Col, Card, Button, Spinner } from "react-bootstrap"
+import { CartContext } from "../../contexts/Cart.Context"
 import toast from 'react-hot-toast'
 import axios from "axios"
 import "./ShopPage.css"
-import { CartContext } from "../../contexts/Cart.Context"
 
 const ShopPage = () => {
 
@@ -20,6 +20,7 @@ const ShopPage = () => {
     const navigate = useNavigate()
 
     const fetchCartDetails = () => {
+
         axios
             .get(`${API_URL}/shop/${id}`)
             .then((cartResponse) => {
@@ -55,17 +56,23 @@ const ShopPage = () => {
                 setLoading(false)
             })
             .catch(err => console.log(err))
+<<<<<<< HEAD
     };
+=======
+
+    }
+>>>>>>> diego
 
     useEffect(() => {
         fetchCartDetails()
     }, [id])
 
-    const { fetchCartNumber } = useContext(CartContext);
+    const { fetchCartNumber } = useContext(CartContext)
 
     const notify = () => toast.success('¡Pedido Tramitado!')
 
     const handleOrderProcessing = () => {
+
         axios
             .patch(`${API_URL}/shop/${id}`, {
                 status: "1",
@@ -77,6 +84,7 @@ const ShopPage = () => {
                 fetchCartNumber()
             })
             .catch(err => console.log(err))
+            
     }
 
     return (
