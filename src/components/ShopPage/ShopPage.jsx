@@ -56,12 +56,8 @@ const ShopPage = () => {
                 setLoading(false)
             })
             .catch(err => console.log(err))
-<<<<<<< HEAD
-    };
-=======
 
     }
->>>>>>> diego
 
     useEffect(() => {
         fetchCartDetails()
@@ -76,7 +72,8 @@ const ShopPage = () => {
         axios
             .patch(`${API_URL}/shop/${id}`, {
                 status: "1",
-                total: subtotal.toFixed(2)
+                total: subtotal.toFixed(2),
+                date: new Date().toISOString()
             })
             .then(() => {
                 notify()
