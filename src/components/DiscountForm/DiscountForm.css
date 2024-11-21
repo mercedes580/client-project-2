@@ -8,6 +8,16 @@
     margin-bottom: 15px;
 }
 
+.discount-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.discount-form div {
+    margin-bottom: 15px;
+}
+
 .discount-form label {
     display: block;
     margin-bottom: 5px;
@@ -44,14 +54,5 @@
     left: 50%;
     transform: translateX(-50%);
     z-index: 9999;
-    min-width: 250px;
-}
 
-.custom-toast .toast-header {
-    background-color: #007bff;
-    color: white;
-}
-
-.custom-toast .toast-body {
-    background-color: #f8f9fa;
 }

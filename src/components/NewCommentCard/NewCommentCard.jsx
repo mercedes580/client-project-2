@@ -1,4 +1,4 @@
-import { Card, Button, Form, Row, Col, Modal, Toast } from 'react-bootstrap';
+import { Card, Button, Form } from 'react-bootstrap';
 
 const NewCommentCard = ({ newRating, newComment, setNewRating, setNewComment, handleAddComment }) => {
 

@@ -22,6 +22,18 @@ const DiscountForm = () => {
 
     return (
         <div>
+
+            <Toast show={showToast} onClose={toggleToast} className="custom-toast">
+                <Toast.Header>
+                    <strong className="me-auto">Solicitud de Descuento</strong>
+                    <small>Ahora</small>
+                </Toast.Header>
+                <Toast.Body>
+                    Solicitud de descuento enviada por {name} ({email}) con el motivo: {reason}
+                </Toast.Body>
+            </Toast>
+
+
             <form onSubmit={handleSubmit} className="discount-form">
                 <div>
                     <label htmlFor="name">Nombre:</label>
@@ -54,16 +66,6 @@ const DiscountForm = () => {
                 </div>
                 <button type="submit" className="submit-button">Solicitar Descuento</button>
             </form>
-
-            <Toast show={showToast} onClose={toggleToast} className="custom toast">
-                <Toast.Header>
-                    <strong className="me-auto">Solicitud de Descuento</strong>
-                    <small>Ahora</small>
-                </Toast.Header>
-                <Toast.Body>
-                    Solicitud de descuento enviada por {name} ({email}) con el motivo: {reason}
-                </Toast.Body>
-            </Toast>
         </div>
     );
 };
