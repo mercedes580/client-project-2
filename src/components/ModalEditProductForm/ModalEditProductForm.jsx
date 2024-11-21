@@ -10,7 +10,7 @@ const ModalEditProductForm = ({ showModal, handleClose, fetchBakery, notify }) =
 
             <Modal.Header closeButton>
                 <Modal.Title>
-                    Editar Producto
+                    Editar productos
                 </Modal.Title>
             </Modal.Header>
 
