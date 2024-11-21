@@ -1,16 +1,15 @@
 import { useContext, useState } from 'react'
-import { Link, Navigate } from 'react-router-dom'
 import { Container, Row, Col, Button, Modal } from 'react-bootstrap'
+import { AuthContext } from '../../contexts/Auth.Context'
 import AddProductForm from '../../components/AddProductForm/AddProductForm'
 import BakeryList from '../../components/BakeryList/BakeryList'
 import './ProductsPage.css'
-
 import Loader from '../../components/Loader/Loader'
-import { AuthContext } from '../../contexts/Auth.Context'
+import ModalAddProduct from '../../components/ModalAddProduct/ModalAddProduct'
 
 const ProductsPage = () => {
-    const [showModal, setShowModal] = useState(false)
 
+    const [showModal, setShowModal] = useState(false)
     const handleClose = () => setShowModal(false)
     const handleShow = () => setShowModal(true)
     const { loggedUser } = useContext(AuthContext)
@@ -58,22 +57,7 @@ const ProductsPage = () => {
                 </Col>
             </Row>
 
-            <Modal
-                className="create-modal dark-modal"
-                show={showModal}
-                onHide={handleClose}
-            >
-                <Modal.Header>
-                    <Modal.Title>Add new product</Modal.Title>
-                    <Button
-                        className="custom-button">
-                        <i className='fa-solid fa-xmark'></i>
-                    </Button>
-                </Modal.Header>
-                <Modal.Body>
-                    <AddProductForm />
-                </Modal.Body>
-            </Modal>
+            <ModalAddProduct showModal={showModal} handleClose={handleClose} />
 
         </Container>
     )

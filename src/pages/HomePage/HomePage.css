@@ -4,6 +4,7 @@ body {
     font-family: Helvetica, sans-serif;
     color: #212121;
     background-color: #F5F4F0;
+    overflow-x: hidden;
 }
 
 .welcome-video {
@@ -86,20 +87,6 @@ body {
     padding-bottom: 100px;
 }
 
-.products {
-    position: relative;
-    top: 43vh;
-    width: 700px;
-    margin: auto;
-}
-
-.products img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
 @media (max-width: 991.98px) {
     .homepage-header {
         width: 80%;
@@ -131,12 +118,6 @@ body {
     .little-message3 {
         padding-left: 15px;
         padding-right: 15px;
-    }
-
-    .products {
-        left: 50%;
-        transform: translateX(-50%);
-        margin: 0 auto;
     }
 
     .little-message4 {

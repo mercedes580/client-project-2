@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Row, Col } from 'react-bootstrap';
 import * as IMAGE_PATHS from "../../consts/image-paths";
 import './HomePageGallery.css'
 
@@ -11,9 +12,9 @@ const HomePageGallery = () => {
         IMAGE_PATHS.PRODUCT5,
         IMAGE_PATHS.PRODUCT6,
         IMAGE_PATHS.PRODUCT7,
-    ];
+    ]
 
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -27,18 +28,19 @@ const HomePageGallery = () => {
 
     return (
         <section className="products">
-            <div className="gallery">
+            <Row className="gallery">
                 {images.map((image, index) => (
-                    <img
-                        key={index}
-                        src={image}
-                        alt={`Product ${index + 1}`}
-                        className={`gallery-image ${index === currentImageIndex ? 'fade-in' : ''}`}
-                    />
+                    <Col key={index} className="gallery-image-wrapper">
+                        <img
+                            src={image}
+                            alt={`Product ${index + 1}`}
+                            className={`gallery-image ${index === currentImageIndex ? 'fade-in' : ''}`}
+                        />
+                    </Col>
                 ))}
-            </div>
+            </Row>
         </section>
     )
 }
 
-export default HomePageGallery;
+export default HomePageGallery
