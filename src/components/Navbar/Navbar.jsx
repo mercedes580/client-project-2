@@ -1,61 +1,21 @@
 import { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
-import { AuthContext } from '../../components/Contexts/Auth.Context'
-import axios from 'axios'
+import { AuthContext } from '../../contexts/Auth.Context'
+import { CartContext } from '../../contexts/Cart.Context'
 import ProductsGlobalFilter from './../ProductsGlobalFilter/ProductsGlobalFilter'
 import * as IMAGE_PATHS from "../../consts/image-paths"
 import './Navbar.css'
 import MenuNavbar from '../MenuNavbar/MenuNavbar'
 
+
 const Navbar = () => {
-
-    const API_URL = "http://localhost:5005"
-
-    const [cartDetails, setCartDetails] = useState([])
-
-    const [productId, setProductId] = useState([])
 
     const [showMenu, setShowMenu] = useState(false)
 
-    const [isLoading, setIsLoading] = useState(false)
-
     const { loggedUser, logout } = useContext(AuthContext)
 
-    const fetchCartDetails = () => {
-
-        setIsLoading(true)
-
-        axios
-            .get(`${API_URL}/shop?status=0`)
-
-            .then(response => {
-
-                const data = response.data
-
-                if (Array.isArray(data) && data.length > 0) {
-                    setCartDetails(data[0].details)
-                    setProductId(data[0].id)
-                } else {
-                    setCartDetails([])
-                    setProductId([])
-                }
-
-                setIsLoading(false)
-
-            })
-
-            .catch(err => {
-
-                console.log(err)
-
-            })
-
-    }
-
-    useEffect(() => {
-        fetchCartDetails()
-    }, [])
+    const { cartDetails, productId, isLoading } = useContext(CartContext);
 
     return (
 
@@ -82,7 +42,7 @@ const Navbar = () => {
                                     <span>Cargando...</span>
                                 </button>
                             ) : (
-                                <Link to={`/shop/${productId}`}>
+                                <Link to={productId ? `/shop/${productId}` : "/productos"}>
                                     <button type="cartButton">
                                         <i className="fa-solid fa-cart-shopping"></i>
                                         <span>{cartDetails.length}</span>
