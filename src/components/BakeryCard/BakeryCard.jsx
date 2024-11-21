@@ -1,7 +1,7 @@
-import { Link } from 'react-router-dom';
-import { Card, Button } from 'react-bootstrap';
-import './BakeryCard.css';
-import { useState } from 'react';
+import { Link } from 'react-router-dom'
+import { Card, Button } from 'react-bootstrap'
+import { useState } from 'react'
+import './BakeryCard.css'
 
 const BakeryCard = ({ id, title, price, gallery }) => {
 
@@ -12,25 +12,34 @@ const BakeryCard = ({ id, title, price, gallery }) => {
     }
 
     return (
+
         <div className="BakeryCard">
+
             <Card className="product-card h-100">
+
                 <div className="position-relative">
+
                     <Link to={`/productos/${id}`}>
+
                         <Card.Img
                             variant="top"
                             src={gallery[0]}
                             alt={title}
                             className="image-content"
                         />
+                        
                     </Link>
 
                     <div className="hover-info">
+
                         <Card.Body>
+
                             <Card.Title>
                                 <Link to={`/productos/${id}`} className="title-product">
                                     {title}
                                 </Link>
                             </Card.Title>
+
                             <Card.Text className="price-rating">
                                 <div className="price">
                                     <span className="price-new">${price}</span>
@@ -42,10 +51,13 @@ const BakeryCard = ({ id, title, price, gallery }) => {
                                     <i className="fa-regular fa-star text-warning"></i>
                                 </div>
                             </Card.Text>
+
                         </Card.Body>
+
                     </div>
 
                     <div className="action-buttons">
+
                         <Button
                             variant="light"
                             title="Add to wishlist"
@@ -61,17 +73,22 @@ const BakeryCard = ({ id, title, price, gallery }) => {
                         >
                             <i className="fas fa-heart"></i>
                         </Button>
+
                         <Link to={`/productos/${id}`}>
                             <Button variant="light" title="Quickview" className="quickview-button">
                                 <i className="fas fa-eye"></i>
                             </Button>
                         </Link>
                     </div>
+
                 </div>
+
             </Card>
+
         </div>
 
     )
+
 }
 
 export default BakeryCard

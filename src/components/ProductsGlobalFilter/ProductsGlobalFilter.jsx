@@ -1,14 +1,14 @@
-
+import { useEffect, useState } from "react"
+import { ListGroup, Form } from "react-bootstrap"
+import axios from "axios"
 import './ProductsGlobalFilter.css'
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { ListGroup, Form } from "react-bootstrap";
-
-const API_URL = "http://localhost:5005"
 
 const ProductsGlobalFilter = () => {
 
+    const API_URL = "http://localhost:5005"
+
     const [filterValue, setFilterValue] = useState("")
+
     const [filterResult, setFilterResult] = useState([])
 
     const handleFilterChange = e => {
@@ -25,6 +25,7 @@ const ProductsGlobalFilter = () => {
     }, [filterValue])
 
     const fetchProductsData = () => {
+
         axios
             .get(`${API_URL}/products?title_like=${filterValue}`)
 
@@ -32,9 +33,11 @@ const ProductsGlobalFilter = () => {
                 setFilterResult(response.data)
             })
             .catch(err => console.log(err))
+
     }
 
     return (
+
         <div className="ProductsGlobalFilter">
 
             <div className="searcher">
@@ -56,6 +59,7 @@ const ProductsGlobalFilter = () => {
                 <ListGroup>
                     {
                         filterResult.map((elm, idx) => (
+
                             <ListGroup.Item key={idx}>
 
                                 <img src={elm.gallery[0]} alt={elm.title} />
@@ -63,11 +67,15 @@ const ProductsGlobalFilter = () => {
                                 <h7>{elm.title}</h7>
 
                             </ListGroup.Item>
+
                         ))
                     }
                 </ListGroup>
+
             </div>
+
         </div>
+
     )
 }
 
