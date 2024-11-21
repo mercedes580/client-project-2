@@ -1,0 +1,40 @@
+.create-modal {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.dark-modal .modal-header {
+    background-color: #161616;
+    display: flex;
+    justify-content: end;
+    border-bottom: none;
+    padding-top: 30px;
+    height: 70px;
+}
+
+.dark-modal .modal-title {
+    margin-left: 20px;
+    color: #dadada;
+}
+
+.dark-modal .modal-body {
+    background-color: #161616;
+}
+
+.dark-modal .modal-dialog {
+    max-width: 60%;
+}
+
+.custom-button {
+    background: none;
+    border: none;
+    color: #dadada;
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+.custom-button:hover {
+    color: #FF5733;
+    background: none;
+    border: none;
+}

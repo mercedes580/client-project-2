@@ -1,5 +1,6 @@
 import { Button, Modal } from "react-bootstrap"
 import AddProductForm from "../AddProductForm/AddProductForm"
+import './ModalAddProduct.css'
 
 const ModalAddProduct = ({ showModal, handleClose }) => {
 
@@ -10,9 +11,10 @@ const ModalAddProduct = ({ showModal, handleClose }) => {
             onHide={handleClose}
         >
             <Modal.Header>
-                <Modal.Title>Add new product</Modal.Title>
+
                 <Button
                     className="custom-button"
+                    onClick={handleClose}
                 >
                     <i className='fa-solid fa-xmark'></i>
                 </Button>

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { CartContext } from '../../contexts/Cart.Context'
 import axios from 'axios'
 import toast from 'react-hot-toast'
+import './DetailsCard.css'
 
 const DetailsCard = ({ bakery, handleBack, handleShow, handleShowToast }) => {
 
@@ -85,102 +86,68 @@ const DetailsCard = ({ bakery, handleBack, handleShow, handleShowToast }) => {
 
     return (
 
-        <Card className="mb-4">
-
+        <Card className="details-card mb-4">
             <Card.Body>
-
                 <Row>
-
                     <Col md={4}>
-                        <Card.Img
-                            variant="top"
-                            src={bakery.gallery[0]}
-                            alt={bakery.title}
-                        />
-                    </Col>
+                        <div className="back-button-container">
+                            <Button onClick={handleBack} className="back-button">
+                                <i className="fas fa-undo"></i>
+                            </Button>
+                            <span className="back-text">Back to products</span>
+                        </div>
 
+                        <Card.Img variant="top" src={bakery.gallery[0]} alt={bakery.title} className="product-image" />
+
+                        <div className="admin-buttons">
+                            <Button variant="warning" onClick={handleShow} className="edit-button">
+                                <i className="fas fa-pencil"></i>
+                            </Button>
+                            <Button variant="danger" onClick={handleShowToast} className="delete-button">
+                                <i className="fa fa-trash"></i>
+                            </Button>
+                        </div>
+                    </Col>
                     <Col md={8}>
-                        <Card.Title>
-                            <strong>{bakery.title}</strong>
-                        </Card.Title>
-                        <Card.Text>
-                            {bakery.description}
-                        </Card.Text>
-                        <Card.Text>
-                            <strong>Precio:</strong> ${bakery.price}
-                        </Card.Text>
-                        <Card.Text>
-                            <strong>Ingredientes:</strong> {bakery.ingredients.join(', ')}
-                        </Card.Text>
-                        <Card.Text>
-                            <strong>Alérgenos:</strong> {bakery.allergens.join(', ')}
-                        </Card.Text>
-                        <Card.Text>
-                            <strong>Disponibilidad:</strong> {bakery.stock} unidades
-                        </Card.Text>
-                        <Card.Text>
+                        <h3 className='little-message'>DELICIOUS</h3>
+                        <Card.Title className='cardTitle'><strong>{bakery.title}</strong></Card.Title>
+                        <Card.Text className='product-description'>{bakery.description}</Card.Text>
+                        <Card.Text
+                            className='product-details'>
+                            <strong>Price:</strong> ${bakery.price} <br />
+                            <strong>Ingredients:</strong> {bakery.ingredients.join(', ')}<br />
+                            <strong>Allergens:</strong> {bakery.allergens.join(', ')}<br />
+                            <strong>Available:</strong> {bakery.stock} units<br />
                             <strong>Gluten:</strong> {bakery.gluten ? "Contiene gluten" : "Sin gluten"}
                         </Card.Text>
 
-                        <div className="d-flex align-items-center mb-3">
-                            <Button
-                                variant="outline-secondary"
-                                onClick={decrement}
-                                disabled={quantity === 1}>
-                                -
-                            </Button>
+                        <div className="unit-component">
+                            <Button className='unit-button' onClick={decrement} disabled={quantity === 1}>-</Button>
                             <Form.Control
                                 type="number"
                                 value={quantity}
                                 onChange={handleQuantityChange}
-                                className="mx-2 text-center"
+                                className="unit-form"
                                 style={{ width: "60px" }}
                             />
-                            <Button variant="outline-secondary"
+                            <Button
+                                className='unit-button'
                                 onClick={increment}
                                 disabled={quantity === bakery.stock}>
                                 +
                             </Button>
-                        </div>
-
-                        <div className="d-flex">
-                            <Button
-                                variant="secondary"
-                                onClick={handleBack}
-                                className="m-1">
-                                <i className="fas fa-undo"></i>
-                                Regresar
-                            </Button>
-
-                            <Button variant="warning"
-                                onClick={handleShow}
-                                className="m-1">
-                                <i className="fas fa-pencil"></i>
-                                Editar
-                            </Button>
-
-                            <Button
-                                variant="danger"
-                                onClick={handleShowToast}
-                                className="m-1">
-                                <i className="fa fa-trash"></i>
-                                Eliminar
-                            </Button>
-
-                            <Button
-                                variant="success"
-                                onClick={handleAddToCart}
-                                className="m-1">
-                                <i className="fa fa-cart-plus"></i>
-                                Agregar al carrito
-                            </Button>
+                            <div className="cart-button-container">
+                                <Button
+                                    onClick={handleAddToCart}
+                                    className="cart-button">
+                                    <i className="fa fa-cart-plus"></i>
+                                    <h4>Add to cart</h4>
+                                </Button>
+                            </div>
                         </div>
                     </Col>
-
                 </Row>
-
             </Card.Body>
-
         </Card>
 
     )

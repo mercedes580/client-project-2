@@ -1,7 +1,6 @@
 import { useContext, useState } from 'react'
 import { Container, Row, Col, Button, Modal } from 'react-bootstrap'
 import { AuthContext } from '../../contexts/Auth.Context'
-import AddProductForm from '../../components/AddProductForm/AddProductForm'
 import BakeryList from '../../components/BakeryList/BakeryList'
 import './ProductsPage.css'
 import Loader from '../../components/Loader/Loader'
@@ -17,21 +16,45 @@ const ProductsPage = () => {
     return (
         <Container className="ProductsPage">
             <Loader />
-            <Row>
+
+            <section>
+                <Row className="little-message">
+                    <Col xs="auto">
+                        <h4>OUR PRODUCTS</h4>
+                    </Col>
+                    <Col xs="auto">
+                        <h4>( FRESHLY BAKED )</h4>
+                    </Col>
+                    <Col xs="auto">
+                        <h4>OUR PRODUCTS</h4>
+                    </Col>
+                </Row>
+            </section>
+
+            <Row className='products-cards'>
                 <Col>
-                    <div className="products-title">
-
-                        <h3>Our products</h3>
-
-                    </div>
 
                     <BakeryList />
 
                 </Col>
             </Row>
 
-            <Row className="mt-4">
-                <Col>
+            <section>
+                <Row className="little-message">
+                    <Col xs="auto">
+                        <h4>OUR PRODUCTS</h4>
+                    </Col>
+                    <Col xs="auto">
+                        <h4>( FRESHLY BAKED )</h4>
+                    </Col>
+                    <Col xs="auto">
+                        <h4>OUR PRODUCTS</h4>
+                    </Col>
+                </Row>
+            </section>
+
+            <Row className="mt-4 d-flex justify-content-start">
+                <Col xs="auto">
                     {
                         loggedUser &&
                         <>
@@ -40,20 +63,10 @@ const ProductsPage = () => {
                                 className="product-new-button"
                                 onClick={handleShow}
                             >
-                                <i className="fas fa-plus icon-margin"></i> Crear nuevo producto
+                                <i className="fas fa-plus icon-margin"></i> Add new product
                             </Button>
                         </>
                     }
-
-                    <Modal show={showModal} onHide={handleClose}>
-                        <Modal.Header closeButton>
-                            <Modal.Title>Añadir Producto</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <AddProductForm />
-                        </Modal.Body>
-                    </Modal>
-
                 </Col>
             </Row>
 

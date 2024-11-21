@@ -1,0 +1,243 @@
+/* Comentarios Modernos */
+.comments-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    /* Espaciado alrededor */
+    width: 100%;
+    /* Ocupa todo el ancho */
+    box-sizing: border-box;
+}
+
+/* Tarjetas de comentarios */
+.comments-wrapper {
+    width: 100%;
+    max-width: 100%;
+    /* Máximo ancho 100% */
+    border-radius: 20px;
+    background: #ffffff;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+    overflow: hidden;
+}
+
+/* Estilo individual de cada comentario */
+.comment-item {
+    margin-bottom: 1.8rem;
+    background: #fafafa;
+    /* Fondo claro */
+    border-radius: 20px;
+    padding: 1.4rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Transiciones suaves */
+}
+
+.comment-item:hover {
+    transform: translateY(-5px);
+    /* Efecto de elevar la tarjeta */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+    /* Sombra al hacer hover */
+}
+
+/* Encabezado de cada comentario */
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    color: #333;
+    font-weight: 600;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.comment-index {
+    font-size: 1rem;
+    color: #333;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    /* Alinea los botones a la derecha */
+    align-items: center;
+    width: 100%;
+    /* Asegura que los botones ocupen el espacio disponible */
+}
+
+/* Estilos Globales de Botones */
+.apple-button {
+    display: flex;
+    align-items: center;
+    /* Centrar verticalmente el contenido */
+    justify-content: center;
+    /* Centrar horizontalmente el contenido */
+    gap: 0.5rem;
+    /* Espacio entre el icono y el texto */
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.8rem 1.4rem;
+    /* Ajustar padding según necesidad */
+    transition: all 0.3s ease;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    height: auto;
+    /* Asegurar que el botón tenga una altura flexible */
+}
+
+/* Estilo de los iconos dentro de los botones */
+.apple-button i {
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
+    display: inline-block;
+    /* Asegura que el icono se comporte como un bloque en línea */
+    margin: 0;
+    /* Eliminar margen no deseado */
+}
+
+/* Botón de Guardar (con icono) */
+.apple-button-outline-save {
+    background-color: #34c759;
+    /* Verde de éxito */
+    color: white;
+    box-shadow: 0 2px 5px rgba(52, 199, 89, 0.2);
+}
+
+.apple-button-outline-save:hover {
+    background-color: #28a745;
+    /* Verde más oscuro */
+    box-shadow: 0 4px 10px rgba(52, 199, 89, 0.3);
+}
+
+.apple-button-outline-save i {
+    color: #ffffff;
+}
+
+/* Botón de Cancelar */
+.apple-button-outline-cancel {
+    background-color: #f0f0f5;
+    color: #8e8e93;
+    box-shadow: 0 2px 5px rgba(136, 138, 140, 0.2);
+}
+
+.apple-button-outline-cancel:hover {
+    background-color: #e1e1e6;
+    color: #007aff;
+    box-shadow: 0 4px 10px rgba(136, 138, 140, 0.3);
+}
+
+.apple-button-outline-cancel i {
+    color: #8e8e93;
+}
+
+/* Botón de Eliminar (con icono) */
+.apple-button-outline-danger {
+    background-color: #ff3b30;
+    color: white;
+    box-shadow: 0 2px 5px rgba(255, 59, 48, 0.2);
+}
+
+.apple-button-outline-danger:hover {
+    background-color: #e23629;
+    /* Rojo más oscuro */
+    box-shadow: 0 4px 10px rgba(255, 59, 48, 0.3);
+}
+
+.apple-button-outline-danger i {
+    color: white;
+}
+
+/* Botón de Editar (con icono) */
+.apple-button-outline-edit {
+    background-color: #007aff;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 122, 255, 0.2);
+}
+
+.apple-button-outline-edit:hover {
+    background-color: #005ac1;
+    box-shadow: 0 4px 10px rgba(0, 122, 255, 0.3);
+}
+
+.apple-button-outline-edit i {
+    color: white;
+}
+
+/* Efecto de foco suave en los botones */
+.apple-button:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 122, 255, 0.5);
+    /* Sombra al hacer foco */
+}
+
+
+/* Agregar espacio entre los comentarios */
+.comment-item {
+    margin-bottom: 1.8rem;
+}
+
+/* Contenido del comentario */
+.comment-content {
+    margin-top: 1.2rem;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Input y Textarea */
+.form-label {
+    font-weight: 500;
+    color: #333;
+}
+
+.form-input,
+.form-textarea {
+    border-radius: 12px;
+    padding: 0.8rem;
+    border: 1px solid #d1d1d6;
+    background-color: #f7f7f8;
+    width: 100%;
+    font-size: 1rem;
+    color: #333;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #007aff;
+}
+
+/* Pie de la tarjeta */
+.comment-footer {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #888;
+    text-align: right;
+}
+
+/* Fechas */
+.comment-footer small {
+    font-size: 0.85rem;
+    color: #a8a8a8;
+}
+
+/* Comentarios y puntuación */
+.comment-rating,
+.comment-text {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #444;
+}
+
+.comment-text {
+    font-weight: 400;
+}
+
+.comment-rating strong,
+.comment-text strong {
+    font-weight: 600;
+}

@@ -1,8 +1,8 @@
 import { useContext, useState } from "react"
 import { Form, Button } from "react-bootstrap"
-import './LoginForm.css'
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../../contexts/Auth.Context"
+import './LoginForm.css'
 
 const LoginForm = () => {
     const { login } = useContext(AuthContext)
@@ -48,12 +48,12 @@ const LoginForm = () => {
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="email">
                     <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" value={loginData.email} onChange={handleInputChange} name="email" />
+                    <Form.Control type="email" value={loginData.email} onChange={handleInputChange} name="email" className="form-control" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="password">
                     <Form.Label>Contraseña</Form.Label>
-                    <Form.Control type="password" value={loginData.password} onChange={handleInputChange} name="password" />
+                    <Form.Control type="password" value={loginData.password} onChange={handleInputChange} name="password" className="form-control" />
                 </Form.Group>
 
                 <div className="d-grid">

@@ -114,17 +114,16 @@ const AddProductForm = () => {
                 <Row className="g-3">
 
                     <Form.Group controlId="productTitle">
-                        <Form.Label>Producto</Form.Label>
                         <Form.Control
                             type="text"
                             value={productData.title}
                             onChange={handleProductChange}
                             name="title"
+                            placeholder="Product"
                         />
                     </Form.Group>
 
                     <Form.Group controlId="productImages">
-                        <Form.Label>Imagen/es</Form.Label>
                         {
                             productData.gallery.map((eachGallery, idx) => (
                                 <Form.Control
@@ -133,40 +132,38 @@ const AddProductForm = () => {
                                     value={eachGallery}
                                     onChange={(event) => handleGalleryChange(event, idx)}
                                     className="mb-2"
+                                    placeholder="Image/s"
                                 />
                             ))
                         }
                         <Button
-                            variant="secondary"
                             onClick={addNewImage}
-                            className="mt-2">
+                            className="add-button">
                             <i className="fas fa-plus"></i>
-                            &nbsp;Añadir otra imagen
+                            &nbsp;Add image
                         </Button>
 
                         <Button
-                            variant="danger"
                             onClick={removeImage}
-                            className="mt-2"
+                            className="remove-button"
                             style={{ marginLeft: '20px' }}>
 
                             <i className="fas fa-minus"></i>
-                            &nbsp;Eliminar campo
+                            &nbsp;Remove image
                         </Button>
                     </Form.Group>
 
                     <Form.Group controlId="productDescription">
-                        <Form.Label>Descripción</Form.Label>
                         <Form.Control
                             type="text"
                             value={productData.description}
                             onChange={handleProductChange}
                             name="description"
+                            placeholder="Description"
                         />
                     </Form.Group>
 
                     <Form.Group controlId="productIngredients">
-                        <Form.Label>Ingredientes</Form.Label>
                         {
                             productData.ingredients.map((eachIngredient, idx) => (
                                 <Form.Control
@@ -175,27 +172,26 @@ const AddProductForm = () => {
                                     value={eachIngredient}
                                     onChange={(event) => handleIngredentChange(event, idx)}
                                     className="mb-2"
+                                    placeholder="Ingredients"
                                 />
                             ))
                         }
 
                         <Button
-                            variant="secondary"
                             onClick={addNewIngredient}
-                            className="mt-2"
+                            className="add-button"
                         >
                             <i className="fas fa-plus"></i>
-                            &nbsp;Añadir otro ingrediente
+                            &nbsp;Add ingredient
                         </Button>
 
                         <Button
-                            variant="danger"
                             onClick={removeIngredient}
-                            className="mt-2"
+                            className="remove-button"
                             style={{ marginLeft: '20px' }}
                         >
                             <i className="fas fa-minus"></i>
-                            &nbsp;Eliminar campo
+                            &nbsp;Remove ingredient
                         </Button>
 
                     </Form.Group>
@@ -204,19 +200,20 @@ const AddProductForm = () => {
 
                         <Col md>
                             <Form.Group controlId="productPrice">
-                                <Form.Label>Precio</Form.Label>
+                                Price
                                 <Form.Control
                                     type="number"
                                     value={productData.price}
                                     onChange={handleProductChange}
                                     name="price"
+                                    placeholder="Precio"
                                 />
                             </Form.Group>
                         </Col>
 
                         <Col md>
                             <Form.Group controlId="productStock">
-                                <Form.Label>Stock</Form.Label>
+                                Stock
                                 <Form.Control
                                     type="number"
                                     value={productData.stock}
@@ -228,7 +225,6 @@ const AddProductForm = () => {
                     </Row>
 
                     <Form.Group controlId="productAllergens">
-                        <Form.Label>Alérgenos</Form.Label>
                         {
                             productData.allergens.map((eachAllergen, idx) => (
                                 <Form.Control
@@ -237,25 +233,24 @@ const AddProductForm = () => {
                                     value={eachAllergen}
                                     onChange={(event) => handleAllergensChange(event, idx)}
                                     className="mb-2"
+                                    placeholder="Allergens"
                                 />
                             ))
                         }
                         <Button
-                            variant="secondary"
                             onClick={addNewAllergen}
-                            className="mt-2">
+                            className="add-button">
                             <i className="fas fa-plus"></i>
-                            &nbsp;Añadir otro alérgeno
+                            &nbsp;Add allergen
                         </Button>
 
                         <Button
-                            variant="danger"
                             onClick={removeAllergen}
-                            className="mt-2"
+                            className="remove-button"
                             style={{ marginLeft: '20px' }}
                         >
                             <i className="fas fa-minus"></i>
-                            &nbsp;Eliminar campo
+                            &nbsp;Remove allergen
                         </Button>
                     </Form.Group>
 
@@ -269,12 +264,13 @@ const AddProductForm = () => {
                         />
                     </Form.Group>
 
-                    <Button type="submit" variant="success" className="rotate-container">
-                        <i className="fas fa-plus rotate-on-hover"></i>&nbsp;Crear nuevo producto
+                    <Button type="submit" className="rotate-container custom-button">
+                        <i className="fas fa-plus rotate-on-hover"></i>&nbsp;Add new product
                     </Button>
 
                 </Row>
             </Form>
+
         </div>
     )
 

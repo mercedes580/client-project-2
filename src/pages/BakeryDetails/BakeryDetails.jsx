@@ -1,6 +1,5 @@
-import './BakeryDetails.css'
-import axios from 'axios';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Col, Row } from 'react-bootstrap';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Loader from '../../components/Loader/Loader';
 import toast, { Toaster } from 'react-hot-toast';
@@ -9,6 +8,8 @@ import CommentsCard from '../../components/CommentsCard/CommentsCard';
 import NewCommentCard from '../../components/NewCommentCard/NewCommentCard';
 import DeleteToast from '../../components/DeleteToast/DeleteToast';
 import ModalEditProductForm from '../../components/ModalEditProductForm/ModalEditProductForm';
+import axios from 'axios';
+import './BakeryDetails.css'
 
 const notify = () => toast.success('¡Producto editado!')
 

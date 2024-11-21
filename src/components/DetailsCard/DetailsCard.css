@@ -1,0 +1,147 @@
+.details-card {
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: none;
+    border: none;
+    border-radius: 0;
+}
+
+.back-button-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.back-text {
+    margin-top: -30px;
+}
+
+.back-button {
+    background-color: black;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}
+
+.back-button:hover {
+    background-color: #FF5733;
+}
+
+.card-img-top {
+    border-radius: 5%;
+}
+
+.little-message {
+    font-size: 1em;
+    margin-top: 75px;
+}
+
+.product-details {
+    font-size: 1em;
+}
+
+.cardTitle {
+    margin-top: -5px;
+    font-size: 9em;
+    font-weight: 300;
+    font-family: "Instrument Serif", serif;
+    line-height: 1;
+}
+
+.product-description {
+    font-size: 2em;
+    font-weight: 100;
+    width: 70%;
+    margin-top: 10px;
+    line-height: 1.2;
+}
+
+.unit-component {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.unit-button {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: black;
+    border: none;
+}
+
+.unit-button:hover {
+    background-color: #FF5733;
+}
+
+.unit-button:disabled {
+    background-color: black;
+    border: none;
+}
+
+.unit-form {
+    height: 40px;
+    width: 60px;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.617);
+    border: none;
+}
+
+.unit-form::-webkit-outer-spin-button,
+.unit-form::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.unit-form[type='number'] {
+    -moz-appearance: textfield;
+}
+
+.cart-button {
+    background-color: #FF5733;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+}
+
+.cart-button h4 {
+    font-size: 1em;
+    margin: 0;
+}
+
+.cart-button {
+    background-color: black;
+    border: none;
+}
+
+.cart-button:hover {
+    background-color: #FF5733;
+    border: none;
+}
+
+.edit-button {
+    margin-top: 20px;
+    border-radius: 50%;
+    height: 40px;
+}
+
+.delete-button {
+    margin-left: 10px;
+    margin-top: 20px;
+    border-radius: 50%;
+    height: 40px;
+}

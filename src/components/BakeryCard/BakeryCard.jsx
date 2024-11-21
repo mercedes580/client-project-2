@@ -49,18 +49,12 @@ const BakeryCard = ({ id, title, price, gallery }) => {
                         <Button
                             variant="light"
                             title="Add to wishlist"
-                            className="wishlist-button"
+                            className={`wishlist-button ${isActive ? 'active' : ''}`}
                             onClick={handleFocus}
-                            style={{
-                                cursor: 'pointer',
-                                backgroundColor: isActive
-                                    ? 'rgba(217, 83, 79, 0.9)'
-                                    : 'rgba(255, 255, 255, 0.8)',
-                                color: isActive ? '#fff' : '#343a40'
-                            }}
                         >
-                            <i className="fas fa-heart"></i>
+                            <i className={`fas fa-heart ${isActive ? 'text-danger' : ''}`}></i>
                         </Button>
+
                         <Link to={`/productos/${id}`}>
                             <Button variant="light" title="Quickview" className="quickview-button">
                                 <i className="fas fa-eye"></i>

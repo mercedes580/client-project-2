@@ -3,6 +3,7 @@
     transition: transform 0.3s ease;
     position: relative;
     overflow: hidden;
+    border-radius: 20px;
 }
 
 .BakeryCard .product-card:hover {
@@ -10,9 +11,8 @@
 }
 
 .BakeryCard .image-content {
-    height: 400px;
+    height: 300px;
     object-fit: cover;
-    border-radius: 5px;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
@@ -76,6 +76,16 @@
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+.BakeryCard .action-buttons .wishlist-button.active {
+    background-color: #ffffff9a;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+.BakeryCard .action-buttons .wishlist-button .fa-heart.text-danger {
+    color: red;
+}
+
 .BakeryCard .product-card:hover .action-buttons {
     opacity: 1;
     transform: translateY(0);
@@ -83,7 +93,9 @@
 
 .BakeryCard .action-buttons .wishlist-button,
 .BakeryCard .action-buttons .quickview-button {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(182, 182, 182, 0.378);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     border: none;
     border-radius: 50%;
     width: 40px;

@@ -10,7 +10,7 @@ const MenuNavbar = ({ showMenu, setShowMenu }) => {
 
             <div className="menu-links">
                 <Link
-                    to={"/productos"}
+                    to={"/"}
                     onClick={() => setShowMenu(false)}>
                     <li>HOME</li>
                 </Link>
