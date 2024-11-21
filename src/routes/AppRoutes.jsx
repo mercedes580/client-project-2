@@ -1,15 +1,13 @@
 import { Routes, Route } from 'react-router-dom'
-import ProductsPage from '../pages/ProductsPage/ProductsPage'
+import HomePage from '../pages/HomePage/HomePage'
 import AboutPage from '../pages/AboutPage/AboutPage'
 import ContactPage from '../pages/ContactPage/ContactPage'
-import AddNewProductPage from '../pages/AddProductPage/AddProductPage'
 import BakeryDetails from '../pages/BakeryDetails/BakeryDetails'
-import EditProductForm from '../components/EditProductForm/EditProductForm'
-import HomePage from '../pages/HomePage/HomePage'
-import LoginForm from '../components/LoginForm/LoginForm'
-import NotFoundPage from '../pages/NotFoundPage/NotFoundPage'
-import ShopPage from '../components/ShopPage/ShopPage'
+import ProductsPage from '../pages/ProductsPage/ProductsPage'
+import LoginPage from '../pages/LoginPage/LoginPage'
 import AdminPage from '../pages/AdminPage/AdminPage'
+import NotFoundPage from '../pages/NotFoundPage/NotFoundPage'
+import ShopPage from '../pages/ShopPage/ShopPage'
 
 const AppRoutes = () => {
 
@@ -23,10 +21,8 @@ const AppRoutes = () => {
                 <Route path='/productos/:id' element={<BakeryDetails />} />
                 <Route path='/sobre-nosotros' element={<AboutPage />} />
                 <Route path='/contacto' element={<ContactPage />} />
-                <Route path='/productos/añadir' element={<AddNewProductPage />} />
-                <Route path='/productos/editar/:id' element={<EditProductForm />} />
-                <Route path='/login' element={<LoginForm />} />
                 <Route path='/shop/:id' element={<ShopPage />} />
+                <Route path='/login' element={<LoginPage />} />
                 <Route path='/admin' element={<AdminPage />} />
                 <Route path='*' element={<NotFoundPage />} />
             </Routes>

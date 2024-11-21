@@ -4,9 +4,9 @@ import { Container, Row, Col, Card, Button, Spinner } from "react-bootstrap"
 import { CartContext } from "../../contexts/Cart.Context"
 import toast from 'react-hot-toast'
 import axios from "axios"
-import "./ShopPage.css"
+import "./ShopDetails.css"
 
-const ShopPage = () => {
+const ShopDetails = () => {
 
     const API_URL = "http://localhost:5005"
 
@@ -209,4 +209,4 @@ const ShopPage = () => {
 
 }
 
-export default ShopPage
+export default ShopDetails
