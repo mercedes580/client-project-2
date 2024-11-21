@@ -3,12 +3,7 @@ import ContactForm from '../../components/ContactForm/ContactForm';
 import DiscountForm from '../../components/DiscountForm/DiscountForm';
 
 
-
 const ContactPage = () => {
-    const handleButtonClick = () => {
-        alert("¡Qué haces pulsando, curiosito!");
-    };
-
     return (
         <div className="contact-container">
             <div className="contact-content">
@@ -22,9 +17,6 @@ const ContactPage = () => {
                 <div className="contact-form">
                     <h2>Envíanos un mensaje</h2>
                     <ContactForm />
-                    <button onClick={handleButtonClick} className="small-button">
-                        Enviar Mensaje
-                    </button>
                 </div>
                 <div className="discount-form-section">
                     <h2>Solicita un Descuento</h2>
