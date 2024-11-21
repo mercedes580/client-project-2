@@ -1,8 +1,8 @@
 import { useContext, useState } from "react"
 import { Form, Button } from "react-bootstrap"
-import { AuthContext } from "../Contexts/Auth.Context"
 import './LoginForm.css'
 import { useNavigate } from "react-router-dom"
+import { AuthContext } from "../../contexts/Auth.Context"
 
 const LoginForm = () => {
     const { login } = useContext(AuthContext)

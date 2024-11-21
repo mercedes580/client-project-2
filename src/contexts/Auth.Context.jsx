@@ -1,6 +1,5 @@
 import { createContext, useState } from "react";
 
-
 const AuthContext = createContext()
 function AuthProviderWrapper(props) {
     const [loggedUser, setLoggedUser] = useState(null)

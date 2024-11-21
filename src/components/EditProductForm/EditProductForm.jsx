@@ -18,7 +18,7 @@ const EditProductForm = ({ fetchBakery, handleClose, notify }) => {
                 setLoading(false)
                 setBakery(response.data)
             })
-            .catch(error => console.error(error));
+            .catch(err => console.log(err))
     }, [id])
 
     const fetchProducts = () => {

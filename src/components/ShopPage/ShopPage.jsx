@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom"
+import { useContext, useEffect, useState } from "react"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import { Container, Row, Col, Card, Button, Spinner } from "react-bootstrap"
+import toast from 'react-hot-toast'
 import axios from "axios"
 import "./ShopPage.css"
+import { CartContext } from "../../contexts/Cart.Context"
 
 const ShopPage = () => {
 
@@ -16,40 +18,67 @@ const ShopPage = () => {
 
     const [subtotal, setSubtotal] = useState(0)
 
-    const fetchCartDetails = async () => {
+    const navigate = useNavigate()
 
-        const cartResponse = await axios.get(`${API_URL}/shop/${id}`)
-
-        const cartData = cartResponse.data
-
-        const productPromises = cartData.details.map((item) =>
-            axios
-                .get(`${API_URL}/products/${item.productId}`)
-                .then((res) => ({
-                    ...res.data,
-                    quantity: parseInt(item.quantity),
-                    total: parseFloat(res.data.price) * parseInt(item.quantity)
-                }))
-                .catch(error => console.error(error))
-        )
-
-        const fetchedProducts = await Promise.all(productPromises)
-
-        setProducts(fetchedProducts)
-
-        const calculatedSubtotal = fetchedProducts.reduce(
-            (acc, product) => acc + product.total,
-            0
-        )
-
-        setSubtotal(calculatedSubtotal)
-
-        setLoading(false)
-    }
+    const fetchCartDetails = () => {
+        axios
+            .get(`${API_URL}/shop/${id}`)
+            .then((cartResponse) => {
+                const cartData = cartResponse.data
+    
+                const productPromises = cartData.details.map((item) =>
+                    axios
+                        .get(`${API_URL}/products/${item.productId}`)
+                        .then((res) => ({
+                            ...res.data,
+                            quantity: parseInt(item.quantity),
+                            total: parseFloat(res.data.price) * parseInt(item.quantity),
+                        }))
+                        .catch((error) => {
+                            console.error(error)
+                            return null
+                        })
+                )
+    
+                return Promise.all(productPromises)
+            })
+            .then((fetchedProducts) => {
+                const validProducts = fetchedProducts.filter((product) => product !== null)
+    
+                setProducts(validProducts)
+    
+                const calculatedSubtotal = validProducts.reduce(
+                    (acc, product) => acc + product.total,
+                    0
+                )
+    
+                setSubtotal(calculatedSubtotal)
+                setLoading(false)
+            })
+            .catch(err => console.log(err))
+    };    
 
     useEffect(() => {
         fetchCartDetails()
     }, [id])
+
+    const { fetchCartNumber } = useContext(CartContext);
+
+    const notify = () => toast.success('¡Pedido Tramitado!')
+
+    const handleOrderProcessing = () => {
+        axios
+            .patch(`${API_URL}/shop/${id}`, {
+                status: "1",
+                total: subtotal.toFixed(2)
+            })
+            .then(() => {
+                notify()
+                navigate('/productos')
+                fetchCartNumber()
+            })
+            .catch(err => console.log(err))
+    }
 
     return (
 
@@ -112,7 +141,7 @@ const ShopPage = () => {
                                 <span className="float-end">${subtotal.toFixed(2)}</span>
                             </p>
                             <div className="text-center mt-3">
-                                <Button variant="success">Tramitar Pedido</Button>
+                                <Button variant="success" onClick={handleOrderProcessing}>Tramitar Pedido</Button>
                             </div>
                         </Card.Body>
 
