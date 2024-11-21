@@ -1,44 +1,59 @@
-import { Col, Row } from 'react-bootstrap';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import Loader from '../../components/Loader/Loader';
-import toast, { Toaster } from 'react-hot-toast';
-import DetailsCard from '../../components/DetailsCard/DetailsCard';
-import CommentsCard from '../../components/CommentsCard/CommentsCard';
-import NewCommentCard from '../../components/NewCommentCard/NewCommentCard';
-import DeleteToast from '../../components/DeleteToast/DeleteToast';
-import ModalEditProductForm from '../../components/ModalEditProductForm/ModalEditProductForm';
-import axios from 'axios';
+import { useNavigate, useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import Loader from '../../components/Loader/Loader'
+import toast from 'react-hot-toast'
+import DetailsCard from '../../components/DetailsCard/DetailsCard'
+import CommentsCard from '../../components/CommentsCard/CommentsCard'
+import NewCommentCard from '../../components/NewCommentCard/NewCommentCard'
+import DeleteToast from '../../components/DeleteToast/DeleteToast'
+import ModalEditProductForm from '../../components/ModalEditProductForm/ModalEditProductForm'
+import axios from 'axios'
 import './BakeryDetails.css'
 
-const notify = () => toast.success('¡Producto editado!')
-
-const API_URL = 'http://localhost:5005'
-
 const BakeryDetails = () => {
+
+    const API_URL = 'http://localhost:5005'
+
     const { id } = useParams()
+
     const [bakery, setBakery] = useState(null)
+
     const [comments, setComments] = useState([])
+
     const [newComment, setNewComment] = useState('')
+
     const [newRating, setNewRating] = useState(0)
+
     const [showModal, setShowModal] = useState(false)
+
     const [showToast, setShowToast] = useState(false)
 
-    const handleShowToast = () => setShowToast(true)
-    const handleCloseToast = () => setShowToast(false)
     const [editingCommentId, setEditingCommentId] = useState(null)
+
     const [editedComments, setEditedComments] = useState({})
 
+    const handleShowToast = () => setShowToast(true)
+
+    const handleCloseToast = () => setShowToast(false)
+
     const handleClose = () => setShowModal(false)
+
     const handleShow = () => setShowModal(true)
+
     const navigate = useNavigate()
 
+    const notify = () => toast.success('¡Producto editado!')
+
+
     useEffect(() => {
+
         fetchBakery()
         fetchBakeryComments()
+
     }, [])
 
     const fetchBakery = () => {
+
         axios
             .get(`${API_URL}/products/${id}`)
             .then(response => {
@@ -47,28 +62,35 @@ const BakeryDetails = () => {
                 }, 2000)
             })
             .catch(err => console.log(err))
+
     }
 
     const fetchBakeryComments = () => {
+
         axios
             .get(`${API_URL}/comments?productId=${id}`)
             .then((response) => {
                 setComments(response.data)
             })
             .catch(err => console.log(err))
+
     }
 
     const handleDelete = () => {
+
         axios
             .delete(`${API_URL}/products/${id}`)
             .then(() => {
                 navigate('/productos')
             })
             .catch(err => console.log(err))
+
     }
 
     const handleBack = () => {
+
         navigate('/productos')
+
     }
 
     const handleAddComment = e => {
@@ -85,7 +107,7 @@ const BakeryDetails = () => {
         axios
             .post(`${API_URL}/comments`, commentData)
             .then(() => {
-                alert("Comentario registrado con éxito")
+                toast.success('¡Comentario registrado con éxito!')
                 fetchBakeryComments()
                 setNewComment('')
                 setNewRating(0)
@@ -94,16 +116,19 @@ const BakeryDetails = () => {
     }
 
     const handleDeleteComment = (commentId) => {
+
         axios
             .delete(`${API_URL}/comments/${commentId}`)
             .then(() => {
-                alert("Comentario eliminado con éxito")
+                toast.success('¡Comentario Eliminado!')
                 fetchBakeryComments()
             })
             .catch(err => console.log(err))
+
     }
 
     const handleEditComment = (commentId) => {
+
         setEditingCommentId(commentId)
         const commentToEdit = comments.find(comment => comment.id === commentId)
         setEditedComments({
@@ -113,9 +138,11 @@ const BakeryDetails = () => {
                 comment: commentToEdit?.comment || '',
             }
         })
+
     }
 
     const handleSaveComment = (commentId) => {
+
         const updatedComment = {
             productId: id,
             rating: editedComments[commentId]?.rating,
@@ -126,57 +153,62 @@ const BakeryDetails = () => {
         axios
             .put(`${API_URL}/comments/${commentId}`, updatedComment)
             .then(() => {
-                alert("Comentario actualizado con éxito")
+                toast.success('¡Comentario actualizado con éxito!')
                 fetchBakeryComments()
                 setEditingCommentId(null)
             })
             .catch(err => console.log(err))
-    }
 
-    if (!bakery) {
-        return <Loader />
     }
 
     return (
-        <div className="BakeryDetails">
 
-            <Toaster />
+        bakery ? (
 
-            <DetailsCard
-                bakery={bakery}
-                handleBack={handleBack}
-                handleShow={handleShow}
-                handleShowToast={handleShowToast} />
+            <div className="BakeryDetails">
 
-            <CommentsCard
-                comments={comments}
-                editingCommentId={editingCommentId}
-                editedComments={editedComments}
-                handleEditComment={handleEditComment}
-                handleSaveComment={handleSaveComment}
-                handleDeleteComment={handleDeleteComment}
-                setEditingCommentId={setEditingCommentId}
-                setEditedComments={setEditedComments} />
+                <DetailsCard
+                    bakery={bakery}
+                    handleBack={handleBack}
+                    handleShow={handleShow}
+                    handleShowToast={handleShowToast} />
 
-            <NewCommentCard
-                newRating={newRating}
-                newComment={newComment}
-                setNewRating={setNewRating}
-                setNewComment={setNewComment}
-                handleAddComment={handleAddComment} />
+                <CommentsCard
+                    comments={comments}
+                    editingCommentId={editingCommentId}
+                    editedComments={editedComments}
+                    handleEditComment={handleEditComment}
+                    handleSaveComment={handleSaveComment}
+                    handleDeleteComment={handleDeleteComment}
+                    setEditingCommentId={setEditingCommentId}
+                    setEditedComments={setEditedComments} />
 
-            <DeleteToast
-                showToast={showToast}
-                handleCloseToast={handleCloseToast}
-                handleDelete={handleDelete} />
+                <NewCommentCard
+                    newRating={newRating}
+                    newComment={newComment}
+                    setNewRating={setNewRating}
+                    setNewComment={setNewComment}
+                    handleAddComment={handleAddComment} />
 
-            <ModalEditProductForm showModal={showModal}
-                handleClose={handleClose}
-                fetchBakery={fetchBakery}
-                notify={notify} />
+                <DeleteToast
+                    showToast={showToast}
+                    handleCloseToast={handleCloseToast}
+                    handleDelete={handleDelete} />
 
-        </div>
+                <ModalEditProductForm showModal={showModal}
+                    handleClose={handleClose}
+                    fetchBakery={fetchBakery}
+                    notify={notify} />
+
+            </div>
+
+        ) : (
+
+            <Loader />
+        )
+
     )
+
 }
 
 export default BakeryDetails
