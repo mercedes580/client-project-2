@@ -13,7 +13,6 @@ const ShopPage = () => {
     const { id } = useParams()
 
     const [products, setProducts] = useState([])
-
     const [loading, setLoading] = useState(true)
 
     const [subtotal, setSubtotal] = useState(0)
@@ -25,7 +24,7 @@ const ShopPage = () => {
             .get(`${API_URL}/shop/${id}`)
             .then((cartResponse) => {
                 const cartData = cartResponse.data
-    
+
                 const productPromises = cartData.details.map((item) =>
                     axios
                         .get(`${API_URL}/products/${item.productId}`)
@@ -39,24 +38,24 @@ const ShopPage = () => {
                             return null
                         })
                 )
-    
+
                 return Promise.all(productPromises)
             })
             .then((fetchedProducts) => {
                 const validProducts = fetchedProducts.filter((product) => product !== null)
-    
+
                 setProducts(validProducts)
-    
+
                 const calculatedSubtotal = validProducts.reduce(
                     (acc, product) => acc + product.total,
                     0
                 )
-    
+
                 setSubtotal(calculatedSubtotal)
                 setLoading(false)
             })
             .catch(err => console.log(err))
-    };    
+    };
 
     useEffect(() => {
         fetchCartDetails()

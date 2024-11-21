@@ -1,4 +1,5 @@
 .products {
+    top: 43vh;
     position: relative;
     width: 100%;
     height: 400px;
@@ -7,16 +8,21 @@
 
 .gallery {
     display: flex;
-    transition: opacity 1s ease-in-out;
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 .gallery-image {
     opacity: 0;
     position: absolute;
-    transition: opacity 1s ease-in-out;
+    top: 0;
+    left: 11.5px;
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
+    transition: opacity 1s ease-in-out;
+    object-position: center;
 }
 
 .gallery-image.fade-in {
