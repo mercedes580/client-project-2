@@ -2,16 +2,14 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import { Form, Row, Col, Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 
-const EditProductForm = ({ fetchBakery, handleClose }) => {
+const EditProductForm = ({ fetchBakery, handleClose, notify }) => {
 
     const API_URL = "http://localhost:5005"
 
     const { id } = useParams()
     const [bakery, setBakery] = useState([])
     const [isLoading, setLoading] = useState([true])
-    const Navigate = useNavigate()
 
 
     useEffect(() => {
@@ -20,13 +18,17 @@ const EditProductForm = ({ fetchBakery, handleClose }) => {
                 setLoading(false)
                 setBakery(response.data)
             })
-            .catch(error => console.error(error));
+            .catch(err => console.log(err))
     }, [id])
 
     const fetchProducts = () => {
         axios
             .put(`${API_URL}/products/${id}`, bakery)
-            .then(() => { fetchBakery(), handleClose() })
+            .then(() => {
+                fetchBakery()
+                handleClose()
+                notify()
+            })
             .catch(err => console.log(err))
     }
 
@@ -87,13 +89,12 @@ const EditProductForm = ({ fetchBakery, handleClose }) => {
                 <Row className="g-3">
 
                     <Form.Group className="mb-3">
-                        <Form.Label htmlFor="titleField">Producto</Form.Label>
+                        <Form.Label>Producto</Form.Label>
                         <Form.Control
                             type="text"
                             value={bakery.title}
                             onChange={handleProductChange}
                             name="title"
-                            id="titleField"
                         />
                     </Form.Group>
 
@@ -121,13 +122,12 @@ const EditProductForm = ({ fetchBakery, handleClose }) => {
                     </Form.Group>
 
                     <Form.Group className="mb-3">
-                        <Form.Label htmlFor="descriptionField">Descripción</Form.Label>
+                        <Form.Label>Descripción</Form.Label>
                         <Form.Control
                             type="text"
                             value={bakery.description}
                             onChange={handleProductChange}
                             name="description"
-                            id="description.field"
                         />
                     </Form.Group>
 
@@ -166,7 +166,6 @@ const EditProductForm = ({ fetchBakery, handleClose }) => {
                                     value={bakery.price}
                                     onChange={handleProductChange}
                                     name="price"
-                                    id="priceField"
                                 />
                             </Form.Group>
                         </Col>
@@ -179,7 +178,6 @@ const EditProductForm = ({ fetchBakery, handleClose }) => {
                                     value={bakery.stock}
                                     onChange={handleProductChange}
                                     name="stock"
-                                    id="stockField"
                                 />
                             </Form.Group>
                         </Col>
@@ -216,7 +214,6 @@ const EditProductForm = ({ fetchBakery, handleClose }) => {
                             checked={bakery.gluten}
                             onChange={handleProductChange}
                             name="gluten"
-                            id="glutenField"
                             label="Gluten"
                         />
                     </Form.Group>

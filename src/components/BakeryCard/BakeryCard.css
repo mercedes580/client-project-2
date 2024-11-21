@@ -1,29 +1,122 @@
 .BakeryCard .product-card {
     border: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
     position: relative;
+    overflow: hidden;
 }
 
 .BakeryCard .product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
 }
 
 .BakeryCard .image-content {
-    height: 200px;
+    height: 400px;
     object-fit: cover;
     border-radius: 5px;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.BakeryCard .image-content:hover {
-    opacity: 0.9;
+.BakeryCard .hover-info,
+.BakeryCard .action-buttons {
+    opacity: 0;
+    transform: translateY(20%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.BakeryCard .product-card:hover .hover-info,
+.BakeryCard .product-card:hover .action-buttons {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.BakeryCard .hover-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+    color: #fff;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(20%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.BakeryCard .product-card:hover .hover-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.BakeryCard .hover-info .title-product {
+    color: #fff;
+    text-decoration: none;
+}
+
+.BakeryCard .hover-info .price-new {
+    font-weight: bold;
+    font-style: normal;
+    color: #FF5733;
+}
+
+.BakeryCard .hover-info .rating i {
+    margin-right: 2px;
+}
+
+.BakeryCard .action-buttons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 5px;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(20%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.BakeryCard .product-card:hover .action-buttons {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.BakeryCard .action-buttons .wishlist-button,
+.BakeryCard .action-buttons .quickview-button {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+    font-size: 16px;
+    color: #343a40;
+}
+
+.BakeryCard .action-buttons .wishlist-button:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.BakeryCard .action-buttons .quickview-button:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.BakeryCard .action-buttons i {
+    transition: color 0.3s ease;
+}
+
+.BakeryCard .action-buttons .wishlist-button:hover i,
+.BakeryCard .action-buttons .quickview-button:hover i {
+    color: #fff;
 }
 
 .BakeryCard .title-product {
-    font-family: "PT Sans", Sans-serif;
-    font-style: italic;
+    font-family: Helvetica, sans-serif;
     font-size: 18px;
     color: #000;
     text-decoration: none;
@@ -37,51 +130,14 @@
 }
 
 .BakeryCard .price-new {
-    font-family: "Pacifico", Sans-serif;
-    font-weight: 400;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
     font-variation-settings: normal;
     font-style: italic;
-    font-weight: bold;
     color: #f09519;
     font-size: 1.2rem;
 }
 
 .BakeryCard .rating i {
     margin-right: 2px;
-}
-
-.BakeryCard .action-buttons {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    gap: 5px;
-    z-index: 10;
-}
-
-.BakeryCard .action-buttons .wishlist-button,
-.BakeryCard .action-buttons .quickview-button {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: inline-block;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    font-size: 16px;
-    color: #343a40;
-}
-
-.BakeryCard .action-buttons .wishlist-button:hover {
-    background-color: rgba(217, 83, 79, 0.9);
-    color: #fff;
-    transform: scale(1.1);
-}
-
-.BakeryCard .action-buttons .quickview-button:hover {
-    background-color: rgba(214, 214, 214, 0.9);
-    color: #fff;
-    transform: scale(1.1);
 }

@@ -1,6 +1,7 @@
 import "./HomePage.css"
-import * as IMAGE_PATHS from "../../consts/image-paths"
 import Loader from "../../components/Loader/Loader"
+import HomePageGallery from "../../components/HomePageGallery/HomePageGallery"
+import * as IMAGE_PATHS from "../../consts/image-paths"
 
 const HomePage = () => {
     return (
@@ -8,22 +9,22 @@ const HomePage = () => {
 
             <Loader />
 
-            {/* <section className="welcome-video">
+            <section className="welcome-video">
                 <video
-                    src="../../assets/videos/welcome.mov"
+                    src={IMAGE_PATHS.WELCOME_VIDEO}
                     autoPlay
                     loop
                     muted
                     playsInline
                 ></video>
-                
-            </section> */}
 
-            <section className="welcome-img">
+            </section>
+
+            {/* <section className="welcome-img">
                 <img
                     src={IMAGE_PATHS.WELCOME_IMAGE}
                     alt="welcome" />
-            </section>
+            </section> */}
 
             <section className="little-message1">
                 <h4>( BARCELONA ) <br />
@@ -50,14 +51,7 @@ const HomePage = () => {
                 <h4>NUESTRAS ESPECIALIDADES</h4>
             </section>
 
-            <section className="products">
-
-                <ul>
-                    <li>Brownies de suchard</li>
-                    <li>Cupcakes de fresa</li>
-                    <li>Tarta de zanahoria</li>
-                </ul>
-            </section>
+            <HomePageGallery />
 
             <section className="little-message4">
                 <h4>NUESTRAS ESPECIALIDADES</h4>

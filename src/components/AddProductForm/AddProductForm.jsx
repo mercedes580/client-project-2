@@ -40,6 +40,14 @@ const AddProductForm = () => {
         setProductData({ ...productData, gallery: galleryCopy })
     }
 
+    const removeImage = (idx) => {
+        if (productData.gallery.length > 1) {
+            const galleryCopy = [...productData.gallery]
+            galleryCopy.splice(idx, 1)
+            setProductData({ ...productData, gallery: galleryCopy })
+        }
+    }
+
     const handleAllergensChange = (e, idx) => {
         const { value } = e.target;
         const allergensCopy = [...productData.allergens]
@@ -51,6 +59,14 @@ const AddProductForm = () => {
         const allergensCopy = [...productData.allergens]
         allergensCopy.push("")
         setProductData({ ...productData, allergens: allergensCopy })
+    }
+
+    const removeAllergen = (idx) => {
+        if (productData.allergens.length > 1) {
+            const allergensCopy = [...productData.allergens]
+            allergensCopy.splice(idx, 1)
+            setProductData({ ...productData, allergens: allergensCopy })
+        }
     }
 
     const handleIngredentChange = (e, idx) => {
@@ -66,6 +82,14 @@ const AddProductForm = () => {
         setProductData({ ...productData, ingredients: ingredientCopy })
     }
 
+    const removeIngredient = (idx) => {
+        if (productData.ingredients.length > 1) {
+            const ingredientCopy = [...productData.ingredients]
+            ingredientCopy.splice(idx, 1)
+            setProductData({ ...productData, ingredients: ingredientCopy })
+        }
+    }
+
     const handleFormSubmit = (e) => {
         e.preventDefault()
         fetchProducts()
@@ -75,7 +99,7 @@ const AddProductForm = () => {
         axios
             .post(`${API_URL}/products`, productData)
             .then(response => {
-                fetchBakery
+                navigate(`/productos/${response.data.id}`)
             })
             .catch(err => {
                 console.log(err);
@@ -119,6 +143,16 @@ const AddProductForm = () => {
                             <i className="fas fa-plus"></i>
                             &nbsp;Añadir otra imagen
                         </Button>
+
+                        <Button
+                            variant="danger"
+                            onClick={removeImage}
+                            className="mt-2"
+                            style={{ marginLeft: '20px' }}>
+
+                            <i className="fas fa-minus"></i>
+                            &nbsp;Eliminar campo
+                        </Button>
                     </Form.Group>
 
                     <Form.Group controlId="productDescription">
@@ -152,6 +186,16 @@ const AddProductForm = () => {
                         >
                             <i className="fas fa-plus"></i>
                             &nbsp;Añadir otro ingrediente
+                        </Button>
+
+                        <Button
+                            variant="danger"
+                            onClick={removeIngredient}
+                            className="mt-2"
+                            style={{ marginLeft: '20px' }}
+                        >
+                            <i className="fas fa-minus"></i>
+                            &nbsp;Eliminar campo
                         </Button>
 
                     </Form.Group>
@@ -202,6 +246,16 @@ const AddProductForm = () => {
                             className="mt-2">
                             <i className="fas fa-plus"></i>
                             &nbsp;Añadir otro alérgeno
+                        </Button>
+
+                        <Button
+                            variant="danger"
+                            onClick={removeAllergen}
+                            className="mt-2"
+                            style={{ marginLeft: '20px' }}
+                        >
+                            <i className="fas fa-minus"></i>
+                            &nbsp;Eliminar campo
                         </Button>
                     </Form.Group>
 

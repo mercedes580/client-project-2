@@ -1,23 +1,20 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import './index.css'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
 import AppRoutes from './routes/AppRoutes'
-import React from 'react';
-import { AuthProviderWrapper } from './components/Contexts/Auth.Context';
-import Header from './components/Header/Header';
+import React from 'react'
+import { Toaster } from 'react-hot-toast'
 
 function App() {
   return (
-    <AuthProviderWrapper>
       <div className="App">
-        {/* < Header /> */}
         <Navbar />
+        <Toaster />
         <AppRoutes />
         <Footer />
       </div>
-    </AuthProviderWrapper>
   )
 }
 

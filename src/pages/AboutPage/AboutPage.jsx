@@ -2,12 +2,11 @@ import React from "react";
 import "./AboutPage.css";
 import { Link } from "react-router-dom";
 import * as IMAGE_PATHS from "../../consts/image-paths"
-import Loader from "../../components/Loader/Loader";
 
 const AboutPage = () => {
     return (
         <div className="AboutPage">
-            <Loader />
+
             <section className="about-container">
 
                 <div className="about-left">

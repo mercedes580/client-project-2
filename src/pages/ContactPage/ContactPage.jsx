@@ -1,12 +1,11 @@
 import './ContactPage.css';
 import ContactForm from '../../components/ContactForm/ContactForm';
-import DiscountForm from './DiscountForm';
-import Loader from '../../components/Loader/Loader';
+import DiscountForm from '../../components/DiscountForm/DiscountForm';
+
 
 const ContactPage = () => {
     return (
         <div className="contact-container">
-            <Loader />
             <div className="contact-content">
                 <div className="contact-info">
                     <h2>Información de contacto</h2>
