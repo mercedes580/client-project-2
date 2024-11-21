@@ -132,8 +132,13 @@ const BakeryDetails = () => {
             .catch(err => console.log(err))
     }
 
+    if (!bakery) {
+        return <Loader />
+    }
+
     return (
         <div className="BakeryDetails">
+
             <Toaster />
 
             <DetailsCard

@@ -14,7 +14,6 @@ const BakeryCard = ({ id, title, price, gallery }) => {
     return (
         <div className="BakeryCard">
             <Card className="product-card h-100">
-
                 <div className="position-relative">
                     <Link to={`/productos/${id}`}>
                         <Card.Img
@@ -25,6 +24,27 @@ const BakeryCard = ({ id, title, price, gallery }) => {
                         />
                     </Link>
 
+                    <div className="hover-info">
+                        <Card.Body>
+                            <Card.Title>
+                                <Link to={`/productos/${id}`} className="title-product">
+                                    {title}
+                                </Link>
+                            </Card.Title>
+                            <Card.Text className="price-rating">
+                                <div className="price">
+                                    <span className="price-new">${price}</span>
+                                </div>
+                                <div className="rating">
+                                    {[...Array(4)].map((_, index) => (
+                                        <i key={index} className="fa-solid fa-star text-warning"></i>
+                                    ))}
+                                    <i className="fa-regular fa-star text-warning"></i>
+                                </div>
+                            </Card.Text>
+                        </Card.Body>
+                    </div>
+
                     <div className="action-buttons">
                         <Button
                             variant="light"
@@ -33,48 +53,25 @@ const BakeryCard = ({ id, title, price, gallery }) => {
                             onClick={handleFocus}
                             style={{
                                 cursor: 'pointer',
-                                backgroundColor: isActive ? 'rgba(217, 83, 79, 0.9)' : 'rgba(255, 255, 255, 0.8)',
+                                backgroundColor: isActive
+                                    ? 'rgba(217, 83, 79, 0.9)'
+                                    : 'rgba(255, 255, 255, 0.8)',
                                 color: isActive ? '#fff' : '#343a40'
-                            }}>
-
+                            }}
+                        >
                             <i className="fas fa-heart"></i>
                         </Button>
-
                         <Link to={`/productos/${id}`}>
-                            <Button
-                                variant="light"
-                                title="Quickview"
-                                className="quickview-button">
+                            <Button variant="light" title="Quickview" className="quickview-button">
                                 <i className="fas fa-eye"></i>
                             </Button>
                         </Link>
                     </div>
                 </div>
-
-                <Card.Body>
-                    <Card.Title>
-                        <Link
-                            to={`/productos/${id}`}
-                            className="title-product">
-                            {title}
-                        </Link>
-                    </Card.Title>
-
-                    <Card.Text className="price-rating">
-                        <div className="price">
-                            <span className="price-new">${price}</span>
-                        </div>
-                        <div className="rating">
-                            {[...Array(4)].map((_, index) => (
-                                <i key={index} className="fa-solid fa-star text-warning"></i>
-                            ))}
-                            <i className="fa-regular fa-star text-warning"></i>
-                        </div>
-                    </Card.Text>
-                </Card.Body>
             </Card>
         </div>
-    );
-};
 
-export default BakeryCard;
+    )
+}
+
+export default BakeryCard

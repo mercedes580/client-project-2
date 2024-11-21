@@ -6,6 +6,7 @@ import axios from 'axios'
 import ProductsGlobalFilter from './../ProductsGlobalFilter/ProductsGlobalFilter'
 import * as IMAGE_PATHS from "../../consts/image-paths"
 import './Navbar.css'
+import MenuNavbar from '../MenuNavbar/MenuNavbar'
 
 const Navbar = () => {
 
@@ -133,69 +134,7 @@ const Navbar = () => {
 
             </div>
 
-            <div className={`menu-container ${showMenu ? 'active' : ''}`} >
-
-                <div className="menu-links">
-                    <Link
-                        to={"/productos"}
-                        onClick={() => setShowMenu(false)}>
-                        <li>PRODUCTOS</li>
-                    </Link>
-
-                    <Link
-                        to={"/sobre-nosotros"}
-                        onClick={() => setShowMenu(false)}>
-                        <li>SOBRE NOSOTROS</li>
-                    </Link>
-
-                    <Link
-                        to={"/contacto"}
-                        onClick={() => setShowMenu(false)}>
-                        <li>CONTACTO</li>
-                    </Link>
-                </div>
-
-                <div className="close-button-container"
-                    onClick={() => setShowMenu(false)}>
-                    <button className="close-button">CERRAR</button>
-                </div>
-
-                <div className="mobile-close-button-container">
-                    <Button
-                        className="mobile-close-button"
-                        style={{
-                            background: "none",
-                            border: "none",
-                        }}
-                        onClick={() => setShowMenu(false)}>
-                        <i className='fa-solid fa-xmark'></i>
-                    </Button>
-                </div>
-
-                <div className="logo-menu">
-                    <Link
-                        to={"/"}
-                        onClick={() => setShowMenu(false)}>
-                        <img src={IMAGE_PATHS.LOGO_WHITE} alt="logo" />
-                    </Link>
-                </div>
-
-                <div className="menu-footer">
-
-                    <div>
-                        <p>© 2024 3SOME BAKERY</p>
-                    </div>
-
-                    <div className="footer-section social-icons">
-                        <a href="#"><i className="fab fa-facebook"></i></a>
-                        <a href="#"><i className="fab fa-twitter"></i></a>
-                        <a href="#"><i className="fab fa-instagram"></i></a>
-                        <a href="#"><i className="fab fa-linkedin"></i></a>
-                    </div>
-
-                </div>
-
-            </div>
+            <MenuNavbar showMenu={showMenu} setShowMenu={setShowMenu} />
 
         </header>
 

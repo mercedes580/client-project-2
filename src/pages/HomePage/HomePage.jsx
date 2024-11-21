@@ -9,22 +9,22 @@ const HomePage = () => {
 
             <Loader />
 
-            {/* <section className="welcome-video">
+            <section className="welcome-video">
                 <video
-                    src="../../assets/videos/welcome.mov"
+                    src={IMAGE_PATHS.WELCOME_VIDEO}
                     autoPlay
                     loop
                     muted
                     playsInline
                 ></video>
-                
-            </section> */}
 
-            <section className="welcome-img">
+            </section>
+
+            {/* <section className="welcome-img">
                 <img
                     src={IMAGE_PATHS.WELCOME_IMAGE}
                     alt="welcome" />
-            </section>
+            </section> */}
 
             <section className="little-message1">
                 <h4>( BARCELONA ) <br />

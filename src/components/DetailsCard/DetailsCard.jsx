@@ -5,6 +5,7 @@ const DetailsCard = ({ bakery, handleBack, handleShow, handleShowToast }) => {
     return (
 
         <Card className="mb-4">
+
             <Card.Body>
                 <Row>
                     <Col md={4}>

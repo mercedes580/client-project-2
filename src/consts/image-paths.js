@@ -10,3 +10,4 @@ export const PRODUCT4 = "https://res.cloudinary.com/dbq56vg5g/image/upload/v1732
 export const PRODUCT5 = "https://res.cloudinary.com/dbq56vg5g/image/upload/v1732108360/assets/images/qdhyp8xnnfjbinzgkdzt.jpg"
 export const PRODUCT6 = "https://res.cloudinary.com/dbq56vg5g/image/upload/v1732108361/assets/images/dgf4fjbdnwhy973yrfew.png"
 export const PRODUCT7 = "https://res.cloudinary.com/dbq56vg5g/image/upload/v1732108360/assets/images/wseywaq3zpli6jcz3zzg.jpg"
+export const WELCOME_VIDEO = "https://res.cloudinary.com/dbq56vg5g/video/upload/v1732132905/assets/videos/vhq333nz7npvxmdhd1lp.mp4"

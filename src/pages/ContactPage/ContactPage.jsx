@@ -1,6 +1,7 @@
 import './ContactPage.css';
 import ContactForm from '../../components/ContactForm/ContactForm';
-import DiscountForm from './DiscountForm';
+import DiscountForm from '../../components/DiscountForm/DiscountForm';
+
 
 
 const ContactPage = () => {
