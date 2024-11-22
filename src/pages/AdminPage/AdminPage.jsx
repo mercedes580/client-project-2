@@ -10,26 +10,34 @@ const AdminPage = () => {
 
     return (
 
-        <Container fluid className="AdminPage">
+        <Container fluid className="AdminPage p-5">
 
             <Loader />
 
-            <Row className="my-4">
-                <Col>
-                    <Card className="shadow-sm border-light rounded">
-                        <Card.Body className="text-center">
-                            <h1 className="display-4 text-dark">Panel Administrativo</h1>
-                            <p className="lead text-muted">Monitoreo y gestión de productos y pedidos</p>
-                        </Card.Body>
-                    </Card>
-                </Col>
+            <Row>
+                {/* <section className="little-message-shop">
+                    <Row>
+                        <Col>
+                            <h4>( BARCELONA ) <br /> BAKERY DESIGN <br /> SHOP</h4>
+                        </Col>
+                    </Row>
+                </section> */}
+
+                <section className="about-title-shop">
+                    <Row>
+                        <Col>
+                            <h1>Administrative Panel!</h1>
+                            <span>Monitoring and management of products and orders</span>
+                        </Col>
+                    </Row>
+                </section>
             </Row>
 
             <Row className="my-4">
                 <Col lg={8} md={12} xs={12} className="p-2">
                     <Card className="shadow-sm border-light rounded">
                         <Card.Header className="bg-light text-dark text-center">
-                            <h5 className="m-0">Pedidos Recientes</h5>
+                            <h5 className="m-0 titleBold">Pedidos Recientes</h5>
                         </Card.Header>
                         <Card.Body>
                             <ShopGrid />
@@ -40,7 +48,7 @@ const AdminPage = () => {
                 <Col lg={4} md={12} xs={12} className="p-2">
                     <Card className="shadow-sm border-light rounded">
                         <Card.Header className="bg-light text-dark text-center">
-                            <h5 className="m-0">Gráfico de Pedidos</h5>
+                            <h5 className="m-0 titleBold">Gráfico de Pedidos</h5>
                         </Card.Header>
                         <Card.Body>
                             <ChartsAdmin />
@@ -53,7 +61,7 @@ const AdminPage = () => {
                 <Col lg={8} md={12} xs={12} className="p-2">
                     <Card className="shadow-sm border-light rounded">
                         <Card.Header className="bg-light text-dark text-center">
-                            <h5 className="m-0">Gestión de Productos</h5>
+                            <h5 className="m-0 titleBold">Gestión de Productos</h5>
                         </Card.Header>
                         <Card.Body>
                             <ProductGrid />
@@ -64,7 +72,7 @@ const AdminPage = () => {
                 <Col lg={4} md={12} xs={12} className="p-2">
                     <Card className="shadow-sm border-light rounded">
                         <Card.Header className="bg-light text-dark text-center">
-                            <h5 className="m-0">Gráfico de Productos</h5>
+                            <h5 className="m-0 titleBold">Gráfico de Productos</h5>
                         </Card.Header>
                         <Card.Body>
                             <TopRatedPie />
@@ -74,7 +82,7 @@ const AdminPage = () => {
             </Row>
 
         </Container>
-        
+
     )
 }
 
