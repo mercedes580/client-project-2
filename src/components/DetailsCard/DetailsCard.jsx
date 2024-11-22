@@ -5,10 +5,13 @@ import { CartContext } from '../../contexts/Cart.Context'
 import axios from 'axios'
 import toast from 'react-hot-toast'
 import './DetailsCard.css'
+import { AuthContext } from '../../contexts/Auth.Context'
 
 const DetailsCard = ({ bakery, handleBack, handleShow, handleShowToast }) => {
 
     const API_URL = 'http://localhost:5005'
+
+    const { loggedUser } = useContext(AuthContext)
 
     const [quantity, setQuantity] = useState(1)
 
@@ -100,12 +103,21 @@ const DetailsCard = ({ bakery, handleBack, handleShow, handleShowToast }) => {
                         <Card.Img variant="top" src={bakery.gallery[0]} alt={bakery.title} className="product-image" />
 
                         <div className="admin-buttons">
-                            <Button variant="warning" onClick={handleShow} className="edit-button">
-                                <i className="fas fa-pencil"></i>
-                            </Button>
-                            <Button variant="danger" onClick={handleShowToast} className="delete-button">
-                                <i className="fa fa-trash"></i>
-                            </Button>
+
+                            {
+                                loggedUser &&
+                                <>
+
+                                    <Button variant="warning" onClick={handleShow} className="edit-button">
+                                        <i className="fas fa-pencil"></i>
+                                    </Button>
+                                    <Button variant="danger" onClick={handleShowToast} className="delete-button">
+                                        <i className="fa fa-trash"></i>
+                                    </Button>
+                                    
+                                </>
+                            }
+
                         </div>
                     </Col>
                     <Col md={8}>
