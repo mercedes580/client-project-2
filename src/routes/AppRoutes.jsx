@@ -8,8 +8,12 @@ import LoginPage from '../pages/LoginPage/LoginPage'
 import AdminPage from '../pages/AdminPage/AdminPage'
 import NotFoundPage from '../pages/NotFoundPage/NotFoundPage'
 import ShopPage from '../pages/ShopPage/ShopPage'
+import { useContext } from 'react'
+import { AuthContext } from '../contexts/Auth.Context'
 
 const AppRoutes = () => {
+
+    const { loggedUser } = useContext(AuthContext)
 
     return (
 
@@ -23,8 +27,17 @@ const AppRoutes = () => {
                 <Route path='/contacto' element={<ContactPage />} />
                 <Route path='/shop/:id' element={<ShopPage />} />
                 <Route path='/login' element={<LoginPage />} />
-                <Route path='/admin' element={<AdminPage />} />
                 <Route path='*' element={<NotFoundPage />} />
+
+                {
+                    loggedUser &&
+                    <>
+
+                        <Route path='/admin' element={<AdminPage />} />
+
+                    </>
+                }
+
             </Routes>
 
         </div>

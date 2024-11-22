@@ -49,18 +49,72 @@ const LoginForm = () => {
 
             <Form onSubmit={handleSubmit}>
 
+                <div className="text-center mb-4">
+                    <img
+                        src="https://res.cloudinary.com/dbq56vg5g/image/upload/v1732008660/assets/images/upr8fyoh0m5nqih0c2ow.png"
+                        alt="Login Icon"
+                        style={{
+                            width: "150px",
+                            height: "80px",
+                            objectFit: "contain",
+                            borderRadius: "8px"
+                        }}
+                    />
+                </div>
+
                 <Form.Group className="mb-3" controlId="email">
+
                     <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" value={loginData.email} onChange={handleInputChange} name="email" className="form-control" />
+
+                    <Form.Control
+                        type="email"
+                        value={loginData.email}
+                        onChange={handleInputChange}
+                        name="email"
+                        className="form-control"
+                        autoComplete="off"
+                    />
+
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="password">
+
                     <Form.Label>Contraseña</Form.Label>
-                    <Form.Control type="password" value={loginData.password} onChange={handleInputChange} name="password" className="form-control" />
+
+                    <Form.Control
+                        type="password"
+                        value={loginData.password}
+                        onChange={handleInputChange}
+                        name="password"
+                        className="form-control"
+                        autoComplete="off"
+                    />
+
+                </Form.Group>
+
+                <Form.Group className="mb-3 p-2" controlId="rememberMe">
+
+                    <Form.Check
+                        type="checkbox"
+                        label="Remember me"
+                        name="rememberMe"
+                        onChange={handleInputChange}
+                    />
+                    
                 </Form.Group>
 
                 <div className="d-grid">
                     <Button variant="dark" type="submit">Sign in</Button>
+                </div>
+
+                <div className="text-center mt-3">
+                    <a
+                        href="#"
+                        className="text-decoration-none"
+                        style={{ color: "gray" }}
+                    >
+                        Forgot your password?
+                    </a>
                 </div>
 
             </Form>
