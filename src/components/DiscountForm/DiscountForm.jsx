@@ -3,41 +3,41 @@ import Toast from 'react-bootstrap/Toast';
 import './DiscountForm.css';
 
 const DiscountForm = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [reason, setReason] = useState('');
-    const [showToast, setShowToast] = useState(false);
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [reason, setReason] = useState('')
+    const [showToast, setShowToast] = useState(false)
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        setShowToast(true);
+        e.preventDefault()
+        setShowToast(true)
 
 
-        setName('');
-        setEmail('');
-        setReason('');
-    };
+        setName('')
+        setEmail('')
+        setReason('')
+    }
 
     const toggleToast = () => setShowToast(!showToast);
 
     return (
-        <div>
+        <div className='discount-form-container'>
 
             <Toast show={showToast} onClose={toggleToast} className="custom-toast">
                 <Toast.Header>
-                    <strong className="me-auto">Solicitud de Descuento</strong>
-                    <small>Ahora</small>
+                    <strong className="me-auto">Discount application</strong>
                 </Toast.Header>
                 <Toast.Body>
-                    Solicitud de descuento enviada por {name} ({email}) con el motivo: {reason}
+                    Discount application sent by {name} ({email}) with reason: {reason}
                 </Toast.Body>
             </Toast>
 
 
             <form onSubmit={handleSubmit} className="discount-form">
+                <h2 className='apply-text'>Apply for a discount</h2>
                 <div>
-                    <label htmlFor="name">Nombre:</label>
                     <input
+                        placeholder='Name'
                         type="text"
                         id="name"
                         value={name}
@@ -46,8 +46,8 @@ const DiscountForm = () => {
                     />
                 </div>
                 <div>
-                    <label htmlFor="email">Correo Electrónico:</label>
                     <input
+                        placeholder='Email'
                         type="email"
                         id="email"
                         value={email}
@@ -56,18 +56,18 @@ const DiscountForm = () => {
                     />
                 </div>
                 <div>
-                    <label htmlFor="reason">Razón para solicitar el descuento:</label>
                     <textarea
+                        placeholder='Reason for the discount'
                         id="reason"
                         value={reason}
                         onChange={(e) => setReason(e.target.value)}
                         required
                     ></textarea>
                 </div>
-                <button type="submit" className="submit-button">Solicitar Descuento</button>
+                <button type="submit" className="submit-button">Apply discount</button>
             </form>
         </div>
     );
 };
 
-export default DiscountForm;
+export default DiscountForm

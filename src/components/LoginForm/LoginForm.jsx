@@ -79,7 +79,7 @@ const LoginForm = () => {
 
                 <Form.Group className="mb-3" controlId="password">
 
-                    <Form.Label>Contraseña</Form.Label>
+                    <Form.Label>Password</Form.Label>
 
                     <Form.Control
                         type="password"
@@ -100,7 +100,7 @@ const LoginForm = () => {
                         name="rememberMe"
                         onChange={handleInputChange}
                     />
-                    
+
                 </Form.Group>
 
                 <div className="d-grid">

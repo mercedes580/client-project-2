@@ -85,6 +85,11 @@
     border: none;
 }
 
+.unit-button:focus {
+    background-color: #FF5733;
+    outline: none;
+}
+
 .unit-form {
     margin-top: 10px;
     height: 40px;

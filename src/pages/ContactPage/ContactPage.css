@@ -1,5 +1,5 @@
 .contact-container {
-    font-family: Arial, sans-serif;
+    font-family: "Helvetica", sans-serif;
     margin: 0 auto;
     padding: 40px;
     max-width: 1200px;
@@ -29,6 +29,7 @@
 }
 
 .contact-info {
+    margin-top: 32px;
     flex: 1;
     font-size: 1.1rem;
 }
@@ -39,11 +40,18 @@
     margin-bottom: 20px;
 }
 
+.apply-text {
+    font-size: 1.8rem;
+    color: #FF5733;
+    margin-bottom: 20px;
+}
+
 .contact-info p {
     margin-bottom: 15px;
 }
 
 .contact-form {
+    margin-top: 32px;
     flex: 1;
     max-width: 500px;
     line-height: 1.6;

@@ -10,7 +10,7 @@ ModuleRegistry.registerModules([ClientSideRowModelModule])
 
 const ProductGrid = () => {
 
-  const API_URL = "http://localhost:5005"
+  const API_URL = import.meta.env.VITE_APP_API_URL
 
   const [rowData, setRowData] = useState([])
 
@@ -58,7 +58,7 @@ const ProductGrid = () => {
       {loading ? (
 
         <p>Cargando datos...</p>
-        
+
       ) : (
 
         <AgGridReact

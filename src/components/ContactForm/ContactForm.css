@@ -75,17 +75,18 @@
 }
 
 .contact-form button {
-    background-color: #FF5733;
+    background-color: black;
     color: white;
     padding: 10px 20px;
     font-size: 1.1rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .contact-form button:hover {
-    background-color: #e04e28;
+    background-color: #FF5733;
 }
 
 .contact-map {

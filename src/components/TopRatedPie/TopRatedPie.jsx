@@ -4,7 +4,7 @@ import axios from 'axios'
 
 const TopRatedPie = () => {
 
-    const API_URL = "http://localhost:5005"
+    const API_URL = import.meta.env.VITE_APP_API_URL
 
     const [chartData, setChartData] = useState([])
 
@@ -57,7 +57,7 @@ const TopRatedPie = () => {
                 averageRating: avgRating,
                 percentage: (avgRating / 10) * 100
             }
-            
+
         })
 
         const topRatedProducts = avgRatings
@@ -97,7 +97,7 @@ const TopRatedPie = () => {
 
     return (
 
-        <div style={{ height: 350 , width:'100%' }}>
+        <div style={{ height: 350, width: '100%' }}>
 
             <ResponsivePie
                 data={chartData}

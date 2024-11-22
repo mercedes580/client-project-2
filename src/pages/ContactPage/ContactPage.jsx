@@ -8,23 +8,21 @@ const ContactPage = () => {
         <div className="contact-container">
             <div className="contact-content">
                 <div className="contact-info">
-                    <h2>Información de contacto</h2>
-                    <p><strong>Dirección:</strong> Calle Ficticia 123, Ciudad, País</p>
-                    <p><strong>Teléfono:</strong> +34 123 456 789</p>
+                    <h2>Contact information</h2>
+                    <p><strong>Address:</strong> Calle Ficticia 123, Ciudad, País</p>
+                    <p><strong>Phone:</strong> +34 123 456 789</p>
                     <p><strong>Email:</strong> contacto@empresa.com</p>
-                    <p><strong>Horario de atención:</strong> Lunes a Viernes de 9:00 a 18:00</p>
+                    <p><strong>Client service:</strong> Monday to Friday from 9:00 to 18:00</p>
                 </div>
                 <div className="contact-form">
-                    <h2>Envíanos un mensaje</h2>
                     <ContactForm />
                 </div>
-                <div className="discount-form-section">
-                    <h2>Solicita un Descuento</h2>
-                    <DiscountForm />
-                </div>
+
+                <DiscountForm />
+
             </div>
             <div className="contact-map">
-                <h2>Visítanos</h2>
+                <h2>Visit us</h2>
                 <div className="map-container">
                     <iframe
                         title="map"

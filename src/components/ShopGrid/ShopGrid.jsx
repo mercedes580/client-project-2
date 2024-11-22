@@ -10,7 +10,7 @@ ModuleRegistry.registerModules([ClientSideRowModelModule])
 
 const ShopGrid = () => {
 
-    const API_URL = "http://localhost:5005/shop"
+    const API_URL = import.meta.env.VITE_APP_API_URL
 
     const [rowData, setRowData] = useState([])
 
@@ -35,7 +35,7 @@ const ShopGrid = () => {
     }), [])
 
     useEffect(() => {
-        axios.get(API_URL)
+        axios.get(`${API_URL}/shop/`)
             .then(response => {
                 setRowData(response.data)
                 setLoading(false)
@@ -70,7 +70,7 @@ const ShopGrid = () => {
                 />
 
             )}
-            
+
         </div>
     )
 }

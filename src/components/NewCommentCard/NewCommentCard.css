@@ -70,7 +70,7 @@
 
 @media (max-width: 768px) {
     .new-comment-card {
-        margin: 10px;
+        margin: 15px;
     }
 
     .new-comment-card .card-body {

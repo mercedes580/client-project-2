@@ -5,7 +5,7 @@ const CartContext = createContext()
 
 function CartProviderWrapper(props) {
 
-    const API_URL = "http://localhost:5005"
+    const API_URL = import.meta.env.VITE_APP_API_URL
 
     const [cartDetails, setCartDetails] = useState([])
 
@@ -41,7 +41,7 @@ function CartProviderWrapper(props) {
         <CartContext.Provider value={{ cartDetails, productId, isLoading, fetchCartNumber }}>
             {props.children}
         </CartContext.Provider>
-        
+
     )
 }
 

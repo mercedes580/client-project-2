@@ -9,7 +9,7 @@ import { AuthContext } from '../../contexts/Auth.Context'
 
 const DetailsCard = ({ bakery, handleBack, handleShow, handleShowToast }) => {
 
-    const API_URL = 'http://localhost:5005'
+    const API_URL = import.meta.env.VITE_APP_API_URL
 
     const { loggedUser } = useContext(AuthContext)
 
@@ -114,7 +114,7 @@ const DetailsCard = ({ bakery, handleBack, handleShow, handleShowToast }) => {
                                     <Button variant="danger" onClick={handleShowToast} className="delete-button">
                                         <i className="fa fa-trash"></i>
                                     </Button>
-                                    
+
                                 </>
                             }
 

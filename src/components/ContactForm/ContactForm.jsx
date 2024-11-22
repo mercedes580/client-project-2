@@ -13,20 +13,23 @@ const ContactForm = () => {
         setFormData({
             ...formData,
             [name]: value
-        });
-    };
+        })
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(formData)
-    };
+    }
 
     return (
 
         <form onSubmit={handleSubmit}>
+
+            <h2>Contact with us</h2>
+
             <div className="form-group">
-                <label htmlFor="name">Nombre</label>
                 <input
+                    placeholder='Name'
                     type="text"
                     id="name"
                     name="name"
@@ -36,8 +39,8 @@ const ContactForm = () => {
                 />
             </div>
             <div className="form-group">
-                <label htmlFor="email">Email</label>
                 <input
+                    placeholder='Email'
                     type="email"
                     id="email"
                     name="email"
@@ -47,8 +50,8 @@ const ContactForm = () => {
                 />
             </div>
             <div className="form-group">
-                <label htmlFor="message">Mensaje</label>
                 <textarea
+                    placeholder='Message'
                     id="message"
                     name="message"
                     value={formData.message}
@@ -56,7 +59,7 @@ const ContactForm = () => {
                     required
                 />
             </div>
-            <button type="submit">Enviar</button>
+            <button type="submit">Send</button>
         </form>
     );
 };
