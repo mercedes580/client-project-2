@@ -42,7 +42,7 @@ const BakeryDetails = () => {
 
     const navigate = useNavigate()
 
-    const notify = () => toast.success('¡Producto editado!')
+    const notify = () => toast.success('Product edited!')
 
 
     useEffect(() => {
@@ -107,7 +107,7 @@ const BakeryDetails = () => {
         axios
             .post(`${API_URL}/comments`, commentData)
             .then(() => {
-                toast.success('¡Comentario registrado con éxito!')
+                toast.success('Comment added!')
                 fetchBakeryComments()
                 setNewComment('')
                 setNewRating(0)
@@ -120,7 +120,7 @@ const BakeryDetails = () => {
         axios
             .delete(`${API_URL}/comments/${commentId}`)
             .then(() => {
-                toast.success('¡Comentario Eliminado!')
+                toast.success('Comment deleted!')
                 fetchBakeryComments()
             })
             .catch(err => console.log(err))
@@ -153,7 +153,7 @@ const BakeryDetails = () => {
         axios
             .put(`${API_URL}/comments/${commentId}`, updatedComment)
             .then(() => {
-                toast.success('¡Comentario actualizado con éxito!')
+                toast.success('Comment updated!')
                 fetchBakeryComments()
                 setEditingCommentId(null)
             })
@@ -166,6 +166,8 @@ const BakeryDetails = () => {
         bakery ? (
 
             <div className="BakeryDetails">
+
+                <DeleteToast showToast={showToast} handleCloseToast={handleCloseToast} handleDelete={handleDelete} />
 
                 <DetailsCard
                     bakery={bakery}

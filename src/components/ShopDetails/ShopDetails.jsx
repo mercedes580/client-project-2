@@ -65,7 +65,7 @@ const ShopDetails = () => {
 
     const { fetchCartNumber } = useContext(CartContext)
 
-    const notify = () => toast.success('¡Pedido Tramitado!')
+    const notify = () => toast.success('Order comfirmed')
 
     const handleOrderProcessing = () => {
 

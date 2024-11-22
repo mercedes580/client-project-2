@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Toast from 'react-bootstrap/Toast';
+import toast from 'react-hot-toast'
 import './DiscountForm.css';
 
 const DiscountForm = () => {
@@ -10,7 +10,7 @@ const DiscountForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setShowToast(true)
+        toast.success("Application sent")
 
 
         setName('')
@@ -23,16 +23,6 @@ const DiscountForm = () => {
     return (
         <div className='discount-form-container'>
 
-            <Toast show={showToast} onClose={toggleToast} className="custom-toast">
-                <Toast.Header>
-                    <strong className="me-auto">Discount application</strong>
-                </Toast.Header>
-                <Toast.Body>
-                    Discount application sent by {name} ({email}) with reason: {reason}
-                </Toast.Body>
-            </Toast>
-
-
             <form onSubmit={handleSubmit} className="discount-form">
                 <h2 className='apply-text'>Apply for a discount</h2>
                 <div>
@@ -42,6 +32,7 @@ const DiscountForm = () => {
                         id="name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
+                        autoComplete='off'
                         required
                     />
                 </div>
@@ -52,6 +43,7 @@ const DiscountForm = () => {
                         id="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        autoComplete='off'
                         required
                     />
                 </div>
@@ -61,6 +53,7 @@ const DiscountForm = () => {
                         id="reason"
                         value={reason}
                         onChange={(e) => setReason(e.target.value)}
+                        autoComplete='off'
                         required
                     ></textarea>
                 </div>

@@ -128,6 +128,7 @@ const AddProductForm = () => {
                             onChange={handleProductChange}
                             name="title"
                             placeholder="Product"
+                            autoComplete='off'
                         />
                     </Form.Group>
 
@@ -141,6 +142,7 @@ const AddProductForm = () => {
                                     onChange={(event) => handleGalleryChange(event, idx)}
                                     className="mb-2"
                                     placeholder="Image/s"
+                                    autoComplete='off'
                                 />
                             ))
                         }
@@ -168,6 +170,7 @@ const AddProductForm = () => {
                             onChange={handleProductChange}
                             name="description"
                             placeholder="Description"
+                            autoComplete='off'
                         />
                     </Form.Group>
 
@@ -181,6 +184,7 @@ const AddProductForm = () => {
                                     onChange={(event) => handleIngredentChange(event, idx)}
                                     className="mb-2"
                                     placeholder="Ingredients"
+                                    autoComplete='off'
                                 />
                             ))
                         }
@@ -215,6 +219,7 @@ const AddProductForm = () => {
                                     onChange={handleProductChange}
                                     name="price"
                                     placeholder="Precio"
+                                    autoComplete='off'
                                 />
                             </Form.Group>
                         </Col>
@@ -227,6 +232,7 @@ const AddProductForm = () => {
                                     value={productData.stock}
                                     onChange={handleProductChange}
                                     name="stock"
+                                    autoComplete='off'
                                 />
                             </Form.Group>
                         </Col>
@@ -242,6 +248,7 @@ const AddProductForm = () => {
                                     onChange={(event) => handleAllergensChange(event, idx)}
                                     className="mb-2"
                                     placeholder="Allergens"
+                                    autoComplete='off'
                                 />
                             ))
                         }
@@ -269,6 +276,7 @@ const AddProductForm = () => {
                             onChange={handleProductChange}
                             name="gluten"
                             label="Gluten"
+                            autoComplete='off'
                         />
                     </Form.Group>
 

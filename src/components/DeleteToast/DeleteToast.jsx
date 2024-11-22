@@ -1,4 +1,5 @@
-import { Card, Button, Form, Row, Col, Modal, Toast } from 'react-bootstrap';
+import { Button, Toast } from 'react-bootstrap';
+import './DeleteToast.css'
 
 const DeleteToast = ({ showToast, handleCloseToast, handleDelete }) => {
 
@@ -10,23 +11,24 @@ const DeleteToast = ({ showToast, handleCloseToast, handleDelete }) => {
                 className="bg-dark text-white">
 
                 <Toast.Header
-                    closeButton className="bg-dark text-white"
+                    closeButton
+                    className="bg-dark text-white"
                     closeVariant="white">
                     <strong
                         className="me-auto">
-                        Eliminar producto
+                        Delete product
                     </strong>
                 </Toast.Header>
 
                 <Toast.Body>
-                    ¿Estás seguro que quieres borrar el producto?
+                    Are you sure you want to delete?
 
                     <div className="toast-buttons">
                         <div className="mt-3 text-center">
                             <Button
                                 variant="secondary"
                                 onClick={handleDelete}>
-                                Aceptar
+                                Accept
                             </Button>
                         </div>
 
@@ -34,7 +36,7 @@ const DeleteToast = ({ showToast, handleCloseToast, handleDelete }) => {
                             <Button
                                 variant="light"
                                 onClick={handleCloseToast}>
-                                Cancelar
+                                Cancel
                             </Button>
                         </div>
                     </div>

@@ -69,7 +69,7 @@ const DetailsCard = ({ bakery, handleBack, handleShow, handleShowToast }) => {
                     axios
                         .put(`${API_URL}/shop/${cart.id}`, cart)
                         .then(() => {
-                            toast.success('¡Producto agregado al carrito correctamente!')
+                            toast.success('Product added to cart!')
                             fetchCartNumber()
                             navigate('/productos')
                         })
@@ -78,7 +78,7 @@ const DetailsCard = ({ bakery, handleBack, handleShow, handleShowToast }) => {
                     axios
                         .post(`${API_URL}/shop`, cart)
                         .then(() => {
-                            toast.success('¡Carrito creado y producto agregado correctamente!')
+                            toast.success('Cart created!')
                             fetchCartNumber()
                             navigate('/productos')
                         })
@@ -90,6 +90,7 @@ const DetailsCard = ({ bakery, handleBack, handleShow, handleShowToast }) => {
     return (
 
         <Card className="details-card mb-4">
+
             <Card.Body>
                 <Row>
                     <Col md={4}>
@@ -159,6 +160,7 @@ const DetailsCard = ({ bakery, handleBack, handleShow, handleShowToast }) => {
                         </div>
                     </Col>
                 </Row>
+
             </Card.Body>
         </Card>
 

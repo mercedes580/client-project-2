@@ -17,7 +17,7 @@ const ShopGrid = () => {
     const [loading, setLoading] = useState(true)
 
     const [columnDefs] = useState([
-        { field: 'id', headerName: 'ID Orden', filter: 'agTextColumnFilter' },
+        // { field: 'id', headerName: 'ID Orden', filter: 'agTextColumnFilter' },
         { field: 'date', headerName: 'Fecha', filter: 'agDateColumnFilter', valueFormatter: ({ value }) => new Date(value).toLocaleString() },
         { field: 'total', headerName: 'Total ($)', filter: 'agNumberColumnFilter', valueFormatter: ({ value }) => `$${parseFloat(value).toFixed(2)}` },
         {

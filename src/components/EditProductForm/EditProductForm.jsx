@@ -96,6 +96,7 @@ const EditProductForm = ({ fetchBakery, handleClose, notify }) => {
                             value={bakery.title}
                             onChange={handleProductChange}
                             name="title"
+                            autoComplete='off'
                         />
                     </Form.Group>
 
@@ -110,6 +111,7 @@ const EditProductForm = ({ fetchBakery, handleClose, notify }) => {
                                     type="text"
                                     value={bakery.gallery[idx]}
                                     onChange={(event) => handleGalleryChange(event, idx)}
+                                    autoComplete='off'
                                 />
                             ))
                         )}
@@ -129,6 +131,7 @@ const EditProductForm = ({ fetchBakery, handleClose, notify }) => {
                             value={bakery.description}
                             onChange={handleProductChange}
                             name="description"
+                            autoComplete='off'
                         />
                     </Form.Group>
 
@@ -144,6 +147,7 @@ const EditProductForm = ({ fetchBakery, handleClose, notify }) => {
                                     type="text"
                                     value={bakery.ingredients[idx]}
                                     onChange={(event) => handleIngredentChange(event, idx)}
+                                    autoComplete='off'
                                 />
                             ))
                         )}
@@ -167,6 +171,7 @@ const EditProductForm = ({ fetchBakery, handleClose, notify }) => {
                                     value={bakery.price}
                                     onChange={handleProductChange}
                                     name="price"
+                                    autoComplete='off'
                                 />
                             </Form.Group>
                         </Col>
@@ -179,6 +184,7 @@ const EditProductForm = ({ fetchBakery, handleClose, notify }) => {
                                     value={bakery.stock}
                                     onChange={handleProductChange}
                                     name="stock"
+                                    autoComplete='off'
                                 />
                             </Form.Group>
                         </Col>
