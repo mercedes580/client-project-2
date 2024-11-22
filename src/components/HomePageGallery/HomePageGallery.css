@@ -1,4 +1,4 @@
-.products {
+.homepage-products {
     top: 43vh;
     position: relative;
     width: 100%;
@@ -6,14 +6,14 @@
     overflow: hidden;
 }
 
-.gallery {
+.home-pagegallery {
     display: flex;
     position: relative;
     width: 100%;
     height: 100%;
 }
 
-.gallery-image {
+.homepage-gallery-image {
     opacity: 0;
     position: absolute;
     top: 0;
@@ -25,6 +25,6 @@
     object-position: center;
 }
 
-.gallery-image.fade-in {
+.homepage-gallery-image.fade-in {
     opacity: 1;
 }

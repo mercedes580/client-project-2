@@ -27,8 +27,8 @@ const HomePageGallery = () => {
     }, [images.length])
 
     return (
-        <section className="products">
-            <Row className="gallery">
+        <section className="homepage-products" >
+            <Row className="homepage-gallery">
                 {images.map((image, index) => (
                     <Col key={index} className="gallery-image-wrapper">
                         <img

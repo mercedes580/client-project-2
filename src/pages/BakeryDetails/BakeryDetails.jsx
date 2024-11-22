@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-import { useNavigate, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
-import * as IMAGE_PATHS from "../../consts/image-paths";
-import Loader from '../../components/Loader/Loader';
-import DetailsCard from '../../components/DetailsCard/DetailsCard';
-import CommentsCard from '../../components/CommentsCard/CommentsCard';
-import NewCommentCard from '../../components/NewCommentCard/NewCommentCard';
-import DeleteToast from '../../components/DeleteToast/DeleteToast';
-import ModalEditProductForm from '../../components/ModalEditProductForm/ModalEditProductForm';
-import axios from 'axios';
-=======
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import Loader from '../../components/Loader/Loader'
@@ -21,7 +8,6 @@ import NewCommentCard from '../../components/NewCommentCard/NewCommentCard'
 import DeleteToast from '../../components/DeleteToast/DeleteToast'
 import ModalEditProductForm from '../../components/ModalEditProductForm/ModalEditProductForm'
 import axios from 'axios'
->>>>>>> e33fdd60fe409a395e698f95a94985547e1fa884
 import './BakeryDetails.css'
 
 const BakeryDetails = () => {
