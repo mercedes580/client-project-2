@@ -86,124 +86,145 @@ const ShopDetails = () => {
 
     return (
 
-        <Container className="ShopPage">
+        <div className="ShopPage">
 
-            <Row>
+            <Card className="details-card p-3">
 
-                <Col md={6}>
+                <Card.Body>
 
-                    <Card>
+                    <Row>
 
-                        <Card.Header>
-                            <h5>Carrito De Compras</h5>
-                        </Card.Header>
+                        <section className="little-message-shop">
+                            <Row>
+                                <Col>
+                                    <h4>( BARCELONA ) <br /> BAKERY DESIGN <br /> SHOP</h4>
+                                </Col>
+                            </Row>
+                        </section>
 
-                        <Card.Body>
-                            {loading ? (
-                                <Spinner animation="border" />
-                            ) : products.length > 0 ? (
-                                products.map((product, index) => (
-                                    <div key={index} className="mb-3">
-                                        <h6>{product.title}</h6>
-                                        <span className="text-muted">{product.description}</span>
-                                        <p>
-                                            Cantidad: {product.quantity} | Precio: ${product.price} |{" "}
-                                            Total: ${product.total}
-                                        </p>
+                        <section className="about-title-shop">
+                            <Row>
+                                <Col>
+                                    <h1>Your selected products!</h1>
+                                </Col>
+                            </Row>
+                        </section>
+
+                        <Col md={6} className="mb-2">
+
+                            <Card className="shop-wrapper">
+
+                                <Card.Body>
+                                    {loading ? (
+                                        <Spinner animation="border" />
+                                    ) : products.length > 0 ? (
+                                        products.map((product, index) => (
+                                            <div key={index} className="mb-3">
+                                                <h6 className="product-description card-text">{product.title}</h6>
+                                                <span className="product-details card-text">{product.description}</span>
+                                                <p className="product-details card-text">
+                                                    Cantidad: {product.quantity} | Precio: ${product.price} |{" "}
+                                                    Total: ${product.total}
+                                                </p>
+                                            </div>
+                                        ))
+                                    ) : (
+                                        <p>No hay más artículos en tu carrito</p>
+                                    )}
+                                </Card.Body>
+
+                            </Card>
+
+                        </Col>
+
+                        <Col md={6} className="mb-2">
+
+                            <Card className="shop-wrapper">
+
+                                <Card.Body>
+                                    <p className="mb-1 product-details card-text">
+                                        Products
+                                        <span className="float-end">{products.length} selected</span>
+                                    </p>
+                                    <hr />
+                                    <p className="mb-1 product-details card-text">
+                                        Subtotal
+                                        <span className="float-end">${subtotal.toFixed(2)}</span>
+                                    </p>
+                                    <p className="mb-1 product-details card-text">
+                                        Total
+                                        <span className="float-end">${subtotal.toFixed(2)}</span>
+                                    </p>
+                                    <div className="text-center mt-3">
+                                        <Button className="cart-button"
+                                            onClick={handleOrderProcessing}>
+                                            <i class="fa fa-truck" aria-hidden="true"></i>
+                                            &nbsp;Processing order</Button>
                                     </div>
-                                ))
-                            ) : (
-                                <p>No hay más artículos en tu carrito</p>
-                            )}
-                        </Card.Body>
+                                </Card.Body>
 
-                        <Card.Footer>
-                            <Link to="/productos" className="text-decoration-none">
-                                &larr; Seguir comprando
-                            </Link>
-                        </Card.Footer>
+                            </Card>
 
-                    </Card>
+                        </Col>
 
-                </Col>
+                    </Row>
 
-                <Col md={6}>
+                    <Row className="mt-4">
 
-                    <Card>
+                        <Col md={4} className="mb-2">
 
-                        <Card.Body>
-                            <p className="mb-1">
-                                <strong>{products.length} artículos</strong>
-                            </p>
-                            <hr />
-                            <p className="mb-1">
-                                Subtotal
-                                <span className="float-end">${subtotal.toFixed(2)}</span>
-                            </p>
-                            <p className="mb-1">
-                                Total
-                                <span className="float-end">${subtotal.toFixed(2)}</span>
-                            </p>
-                            <div className="text-center mt-3">
-                                <Button variant="success" onClick={handleOrderProcessing}>Tramitar Pedido</Button>
-                            </div>
-                        </Card.Body>
+                            <Card className="shop-wrapper">
 
-                    </Card>
+                                <Card.Body>
+                                    <Card.Title>Security policy</Card.Title>
+                                    <Card.Text>
+                                        Your data is protected with industry-leading encryption and secure protocols.
+                                    </Card.Text>
+                                </Card.Body>
 
-                </Col>
+                            </Card>
+                        </Col>
 
-            </Row>
+                        <Col md={4} className="mb-2">
 
-            <Row className="mt-4">
+                            <Card className="shop-wrapper">
 
-                <Col md={4}>
+                                <Card.Body>
+                                    <Card.Title>Delivery policy</Card.Title>
+                                    <Card.Text>
+                                        Fast and reliable delivery with real-time tracking for your convenience.
+                                    </Card.Text>
+                                </Card.Body>
 
-                    <Card>
+                            </Card>
 
-                        <Card.Body>
-                            <Card.Title>Security policy</Card.Title>
-                            <Card.Text>
-                                Your data is protected with industry-leading encryption and secure protocols.
-                            </Card.Text>
-                        </Card.Body>
+                        </Col>
 
-                    </Card>
-                </Col>
+                        <Col md={4} className="mb-2">
 
-                <Col md={4}>
+                            <Card className="shop-wrapper">
 
-                    <Card>
+                                <Card.Body>
+                                    <Card.Title>Return policy</Card.Title>
+                                    <Card.Text>
+                                        Hassle-free returns within 30 days for a worry-free shopping experience.
+                                    </Card.Text>
+                                </Card.Body>
 
-                        <Card.Body>
-                            <Card.Title>Delivery policy</Card.Title>
-                            <Card.Text>
-                                Fast and reliable delivery with real-time tracking for your convenience.
-                            </Card.Text>
-                        </Card.Body>
+                            </Card>
 
-                    </Card>
+                        </Col>
 
-                </Col>
 
-                <Col md={4}>
+                    </Row>
 
-                    <Card>
+                </Card.Body>
 
-                        <Card.Body>
-                            <Card.Title>Return policy</Card.Title>
-                            <Card.Text>
-                                Hassle-free returns within 30 days for a worry-free shopping experience.
-                            </Card.Text>
-                        </Card.Body>
+            </Card>
 
-                    </Card>
 
-                </Col>
 
-            </Row>
-
-        </Container>
+        </div>
 
     )
 
