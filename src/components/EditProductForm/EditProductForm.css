@@ -1,49 +1,62 @@
-.AddProductForm {
+.EditProductForm {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.AddProductForm .form-container {
+.EditProductForm .form-container {
     background-color: #1f1f1f;
     padding: 20px;
     border-radius: 10px;
     color: rgb(224, 224, 224);
 }
 
-.AddProductForm .form-container input {
+.EditProductForm .form-container input,
+.EditProductForm .form-container select,
+.EditProductForm .form-container textarea {
     background-color: #282727;
     color: white;
     border: none;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
 }
 
-.form-container .form-control:focus {
+.EditProductForm .form-container input::placeholder,
+.EditProductForm .form-container textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.EditProductForm .form-control:focus {
     background-color: #282727;
     color: #ffffff;
     border-color: #FF5733;
     box-shadow: 0 0 0 0.1em #FF5733;
 }
 
-.AddProductForm .form-container input::placeholder {
-    color: rgba(255, 255, 255, 0.6);
-}
-
-.AddProductForm .custom-button {
+.EditProductForm .custom-button {
     background-color: #000000;
     color: white;
 }
 
-.AddProductForm .custom-button:hover {
+.EditProductForm .custom-button:hover {
     background-color: #FF5733;
     color: white;
 }
 
-.rotate-on-hover {
-    transition: transform 0.3s ease;
+.edit-form-button {
+    background-color: #000000;
+    color: white;
+    border: none;
 }
 
-.rotate-container:hover .rotate-on-hover {
-    transform: rotate(90deg);
+.edit-form-button i {
+    background-color: transparent;
+}
+
+.edit-form-button:hover {
+    background-color: #FF5733;
+    color: white;
 }
 
 .form-check {
@@ -53,6 +66,7 @@
     margin-top: 15px;
     gap: 10px;
     margin-bottom: 10px;
+    font-size: .8em;
 }
 
 .form-check input[type="checkbox"] {
@@ -80,18 +94,41 @@
     box-shadow: none;
 }
 
-.AddProductForm .add-button,
-.AddProductForm .remove-button {
+.EditProductForm .add-button,
+.EditProductForm .remove-button {
     margin-top: 15px;
     background-color: black;
     color: white;
     border: none;
 }
 
-.AddProductForm .add-button:hover,
-.AddProductForm .remove-button:hover {
+.EditProductForm .add-button:hover,
+.EditProductForm .remove-button:hover {
     transition: background-color 0.3s;
     background-color: #101010;
     color: white;
     border: none;
+}
+
+.EditProductForm .btn-secondary {
+    background-color: #000000;
+    color: white;
+    border: none;
+}
+
+.EditProductForm .btn-secondary:hover {
+    background-color: #FF5733;
+    color: white;
+}
+
+.EditProductForm .form-container label {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.EditProductForm .form-container input,
+.EditProductForm .form-container select,
+.EditProductForm .form-container textarea {
+    margin-bottom: 15px;
 }

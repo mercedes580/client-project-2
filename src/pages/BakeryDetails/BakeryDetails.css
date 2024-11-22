@@ -7,3 +7,12 @@
     margin-top: 70px;
     margin-bottom: 50px;
 }
+
+.sticker {
+    position: absolute;
+    top: 45vh;
+    right: 37vh;
+    width: 140px;
+    height: auto;
+    z-index: 10;
+}

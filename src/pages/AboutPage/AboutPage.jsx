@@ -1,99 +1,87 @@
 import React from "react";
 import "./AboutPage.css";
-import { Link } from "react-router-dom";
-import * as IMAGE_PATHS from "../../consts/image-paths"
+import AboutPageGallery from "../../components/AboutPageGallery/AboutPageGallery"
+import { Col, Row } from "react-bootstrap";
 
 const AboutPage = () => {
     return (
         <div className="AboutPage">
 
+            <AboutPageGallery />
+
+            <section className="little-message1">
+                <Row>
+                    <Col>
+                        <h4>( BARCELONA ) <br /> BAKERY DESIGN <br /> SHOP</h4>
+                    </Col>
+                </Row>
+            </section>
+
+            <section className="about-title">
+                <Row>
+                    <Col>
+                        <h1>We are 3SOME!</h1>
+                    </Col>
+                </Row>
+            </section>
+
+            <section className="little-message2">
+                <Row>
+                    <Col>
+                        <h4>( BARCELONA ) <br /> BAKERY DESIGN <br /> SHOP</h4>
+                    </Col>
+                </Row>
+            </section>
+
             <section className="about-container">
+                <Row>
+                    <Col>
 
-                <div className="about-left">
+                        <p>
+                            At 3SOME, we are dedicated to creating bakery and
+                            pastry products that combine tradition and creativity.
+                            Our ingredients are fresh, our recipes authentic, and
+                            every bite is designed to delight your senses.
+                        </p>
 
-                    <img
-                        src={IMAGE_PATHS.ABOUT_BUSSINNES}
-                        alt="Delicious Bread"
-                        className="about-image"
-                    />
+                        <br />
 
-                    <Link to={'/productos'}>
-                        <button className="about-button">
+                        <p>
+                            We invite you to explore our menu of specialties,
+                            from rustic breads to unique cakes that transform
+                            any occasion into a special moment.
+                        </p>
 
-                            <i className="fas fa-search"></i>
-                            &nbsp;NUESTROS PRODUCTOS
-
-                        </button>
-                    </Link>
-
-                </div>
-
-                <div className="about-right">
-
-                    <h1 className="about-title">
-                        Somos 3SOME!
-                    </h1>
-
-                    <p className="about-title-content-up">
-                        ¡Una panaderia artesanal en tu ciudad!
-                    </p>
-
-                    <div class="separator-about"></div>
-
-
-                    <p className="about-title-content">
-                        En 3some, nos dedicamos a crear productos de panadería y pastelería que combinan
-                        tradición y creatividad. Nuestros ingredientes son frescos, nuestras recetas
-                        auténticas, y cada bocado está diseñado para deleitar tus sentidos.
-                    </p>
-
-                    <p className="about-title-content">
-                        Te invitamos a explorar nuestro menú de especialidades, desde panes rústicos hasta
-                        pasteles únicos que transforman cualquier ocasión en un momento especial.
-                    </p>
-
-                </div>
+                    </Col>
+                </Row>
 
             </section>
 
-            <section className="slider-container">
-                <h2 className="about-title">Lo que dicen nuestros clientes</h2>
+            <section className="about-container2">
+                <Row>
+                    <Col>
 
-                <div class="separator-comment"></div>
+                        <p>
+                            At 3SOME, we are passionate about crafting bakery and
+                            pastry products that seamlessly merge tradition with creativity.
+                            We use only the freshest ingredients, following authentic recipes
+                            to ensure every bite is a delightful experience.
 
-                <div className="slider p-3">
-                    <div className="slider-item">
-                        <img
-                            src={IMAGE_PATHS.USER_COMMENT}
-                            alt="Cliente María L."
-                            className="slider-image"
-                        />
-                        <p>"¡El mejor pan que he probado! Definitivamente un lugar para visitar regularmente."</p>
-                        <span>- Ana G.</span>
-                    </div>
-                    <div className="slider-item">
-                        <img
-                            src={IMAGE_PATHS.USER_COMMENT}
-                            alt="Cliente María L."
-                            className="slider-image"
-                        />
-                        <p>"Sus pasteles son una obra de arte, además de deliciosos y con una historia fantasticas."</p>
-                        <span>- Juan R.</span>
-                    </div>
-                    <div className="slider-item">
-                        <img
-                            src={IMAGE_PATHS.USER_COMMENT}
-                            alt="Cliente María L."
-                            className="slider-image"
-                        />
-                        <p>"La atención y calidad son insuperables. ¡Altamente recomendado!"</p>
-                        <span>- María L.</span>
-                    </div>
-                </div>
+                        </p>
+
+                        <p>
+                            Our menu features a wide range of specialties, from rustic
+                            breads to unique cakes, each designed to transform any occasion
+                            into something truly memorable.
+                        </p>
+                    </Col>
+                </Row>
+
             </section>
+
 
         </div>
-    );
-};
+    )
+}
 
 export default AboutPage;

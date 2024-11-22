@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import { Form, Row, Col, Button } from "react-bootstrap";
+import './EditProductForm.css'
 
 const EditProductForm = ({ fetchBakery, handleClose, notify }) => {
 
@@ -220,9 +221,8 @@ const EditProductForm = ({ fetchBakery, handleClose, notify }) => {
 
                     <Button
                         type="submit"
-                        variant="warning"
-                        className="rotate-container">
-                        <i className="fas fa-pen rotate-on-hover"></i>
+                        className="edit-form-button">
+                        <i className="fas fa-pen edit-form-button"></i>
                         &nbsp;Editar producto
                     </Button>
                 </Row>

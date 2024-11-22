@@ -109,7 +109,7 @@ const DetailsCard = ({ bakery, handleBack, handleShow, handleShowToast }) => {
                         </div>
                     </Col>
                     <Col md={8}>
-                        <h3 className='little-message'>DELICIOUS</h3>
+                        <h3 className='delicious-message'>DELICIOUS</h3>
                         <Card.Title className='cardTitle'><strong>{bakery.title}</strong></Card.Title>
                         <Card.Text className='product-description'>{bakery.description}</Card.Text>
                         <Card.Text

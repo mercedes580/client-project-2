@@ -81,7 +81,7 @@ const ShopDetails = () => {
                 fetchCartNumber()
             })
             .catch(err => console.log(err))
-            
+
     }
 
     return (
@@ -164,7 +164,7 @@ const ShopDetails = () => {
                         <Card.Body>
                             <Card.Title>Security policy</Card.Title>
                             <Card.Text>
-                                (edit with the Customer Reassurance module)
+                                Your data is protected with industry-leading encryption and secure protocols.
                             </Card.Text>
                         </Card.Body>
 
@@ -178,7 +178,7 @@ const ShopDetails = () => {
                         <Card.Body>
                             <Card.Title>Delivery policy</Card.Title>
                             <Card.Text>
-                                (edit with the Customer Reassurance module)
+                                Fast and reliable delivery with real-time tracking for your convenience.
                             </Card.Text>
                         </Card.Body>
 
@@ -193,7 +193,7 @@ const ShopDetails = () => {
                         <Card.Body>
                             <Card.Title>Return policy</Card.Title>
                             <Card.Text>
-                                (edit with the Customer Reassurance module)
+                                Hassle-free returns within 30 days for a worry-free shopping experience.
                             </Card.Text>
                         </Card.Body>
 

@@ -1,5 +1,6 @@
 .create-modal {
-    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.654);
+    backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(10px);
 }
 

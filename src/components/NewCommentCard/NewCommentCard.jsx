@@ -1,17 +1,15 @@
 import { Card, Button, Form } from 'react-bootstrap';
+import './NewCommentCard.css'
 
 const NewCommentCard = ({ newRating, newComment, setNewRating, setNewComment, handleAddComment }) => {
 
     return (
-        <Card className="mb-4">
+        <Card className="new-comment-card mb-4">
             <Card.Body>
-                <Card.Title>Agregar un nuevo comentario</Card.Title>
+                <Card.Title>Add new comment</Card.Title>
 
                 <Form onSubmit={handleAddComment}>
-                    <Form.Group
-                        className="mb-3"
-                        controlId="newRating">
-
+                    <Form.Group className="mb-3" controlId="newRating">
                         <Form.Label>Rating (0-10)</Form.Label>
                         <Form.Control
                             type="number"
@@ -21,17 +19,14 @@ const NewCommentCard = ({ newRating, newComment, setNewRating, setNewComment, ha
                             onChange={(e) => setNewRating(e.target.value)}
                         />
                     </Form.Group>
-                    <Form.Group
-                        className="mb-3"
-                        controlId="newComment">
-
-                        <Form.Label>Comentario</Form.Label>
+                    <Form.Group className="mb-3" controlId="newComment">
+                        <Form.Label>Comment</Form.Label>
                         <Form.Control
                             as="textarea"
                             rows={3}
                             value={newComment}
                             onChange={(e) => setNewComment(e.target.value)}
-                            placeholder="Escribe tu comentario..."
+                            placeholder="Write your comment..."
                         />
                     </Form.Group>
 
@@ -39,14 +34,12 @@ const NewCommentCard = ({ newRating, newComment, setNewRating, setNewComment, ha
                         variant="success"
                         type="submit"
                         className="rotate-container">
-                        <i className="fas fa-plus rotate-on-hover">
-                        </i>&nbsp;Agregar Comentario
+                        <i className="fas fa-plus rotate-on-hover"></i>&nbsp;Add comment
                     </Button>
-
                 </Form>
             </Card.Body>
         </Card>
     )
 }
 
-export default NewCommentCard
+export default NewCommentCard;

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../../contexts/Auth.Context"
 import './LoginForm.css'
 
+
 const LoginForm = () => {
 
     const { login } = useContext(AuthContext)
@@ -59,7 +60,7 @@ const LoginForm = () => {
                 </Form.Group>
 
                 <div className="d-grid">
-                    <Button variant="dark" type="submit">Acceder</Button>
+                    <Button variant="dark" type="submit">Sign in</Button>
                 </div>
 
             </Form>
@@ -67,7 +68,7 @@ const LoginForm = () => {
         </div>
 
     )
-    
+
 }
 
 export default LoginForm

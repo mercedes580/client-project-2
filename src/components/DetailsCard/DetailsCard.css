@@ -1,7 +1,6 @@
 .details-card {
     background-color: transparent;
     box-shadow: none;
-    border-radius: none;
     border: none;
     border-radius: 0;
 }
@@ -35,9 +34,9 @@
     border-radius: 5%;
 }
 
-.little-message {
+.delicious-message {
     font-size: 1em;
-    margin-top: 75px;
+    margin-top: 110px;
 }
 
 .product-details {
@@ -87,9 +86,9 @@
 }
 
 .unit-form {
+    margin-top: 10px;
     height: 40px;
     width: 60px;
-    padding: 0;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -137,6 +136,18 @@
     margin-top: 20px;
     border-radius: 50%;
     height: 40px;
+    border-color: #007aff;
+    background-color: #007aff;
+    transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+    background-color: #0163cb;
+    border-color: #0163cb;
+}
+
+.details-card .edit-button i {
+    color: white;
 }
 
 .delete-button {
@@ -144,4 +155,68 @@
     margin-top: 20px;
     border-radius: 50%;
     height: 40px;
+}
+
+@media (max-width: 991.98px) {
+
+    .cardTitle {
+        font-size: 6em;
+    }
+
+    .product-description {
+        font-size: 1.5em;
+        width: 80%;
+    }
+
+    .unit-form {
+        width: 50px;
+    }
+
+    .cart-button {
+        padding: 10px;
+    }
+
+    .delicious-message {
+        font-size: 0.9em;
+        margin-top: 110px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cardTitle {
+        font-size: 4em;
+    }
+
+    .product-description {
+        font-size: 1em;
+        width: 100%;
+    }
+
+    .unit-button {
+        height: 30px;
+        width: 30px;
+    }
+
+    .unit-form {
+        width: 40px;
+        height: 30px;
+    }
+
+    .cart-button {
+        padding: 6px 12px;
+    }
+
+    .back-button {
+        height: 30px;
+        width: 30px;
+    }
+
+    .delicious-message {
+        font-size: 0.7em;
+        margin-top: 50px;
+    }
+
+    .product-details {
+        font-size: 0.9em;
+    }
 }

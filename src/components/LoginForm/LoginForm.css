@@ -57,6 +57,5 @@
 @media (max-width: 768px) {
     .LoginForm {
         max-width: 90%;
-        margin: 30px auto;
     }
 }

@@ -118,7 +118,7 @@ const AddProductForm = () => {
         <div className="AddProductForm">
 
             <Form onSubmit={handleFormSubmit} className="form-container">
-                
+
                 <Row className="g-3">
 
                     <Form.Group controlId="productTitle">
@@ -281,7 +281,7 @@ const AddProductForm = () => {
             </Form>
 
         </div>
-        
+
     )
 
 }

@@ -1,8 +1,8 @@
-import { Col, Row } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import Loader from '../../components/Loader/Loader';
 import toast, { Toaster } from 'react-hot-toast';
+import * as IMAGE_PATHS from "../../consts/image-paths";
+import Loader from '../../components/Loader/Loader';
 import DetailsCard from '../../components/DetailsCard/DetailsCard';
 import CommentsCard from '../../components/CommentsCard/CommentsCard';
 import NewCommentCard from '../../components/NewCommentCard/NewCommentCard';
@@ -141,6 +141,8 @@ const BakeryDetails = () => {
         <div className="BakeryDetails">
 
             <Toaster />
+
+            <img className="sticker" src={IMAGE_PATHS.STICKER} alt="Sticker" />
 
             <DetailsCard
                 bakery={bakery}

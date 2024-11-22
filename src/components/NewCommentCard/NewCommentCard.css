@@ -1,0 +1,95 @@
+.new-comment-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.new-comment-card .card-body {
+    padding: 20px;
+}
+
+.new-comment-card .card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1c1e21;
+    margin-bottom: 20px;
+}
+
+.new-comment-card .form-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #5e5e5e;
+}
+
+.new-comment-card .form-control {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 12px;
+    border: 1px solid #d1d8e0;
+    background-color: #f8f8f8;
+    color: #333;
+    transition: border 0.3s ease;
+}
+
+.new-comment-card .form-control:focus {
+    border-color: #252525;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 122, 255, 0.2);
+}
+
+.new-comment-card .rotate-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.new-comment-card .rotate-on-hover {
+    transition: transform 0.3s ease;
+}
+
+.new-comment-card .rotate-container:hover .rotate-on-hover {
+    transform: rotate(90deg);
+}
+
+.new-comment-card .btn-success {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 24px;
+    border-color: black;
+    background-color: black;
+    color: #ffffff;
+}
+
+.new-comment-card .btn-success:hover {
+    background-color: #FF5733;
+    border-color: #FF5733;
+}
+
+@media (max-width: 768px) {
+    .new-comment-card {
+        margin: 10px;
+    }
+
+    .new-comment-card .card-body {
+        padding: 15px;
+    }
+
+    .new-comment-card .card-title {
+        font-size: 16px;
+    }
+
+    .new-comment-card .form-label {
+        font-size: 13px;
+    }
+
+    .new-comment-card .form-control {
+        font-size: 14px;
+    }
+
+    .new-comment-card .btn-success {
+        font-size: 14px;
+    }
+}

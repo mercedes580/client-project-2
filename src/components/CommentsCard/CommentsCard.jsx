@@ -18,37 +18,37 @@ const CommentsCard = ({
                     {comments.map((comment, idx) => (
                         <Card key={comment.id} className="comment-item">
                             <Card.Header className="comment-header">
-                                <span className="comment-index">Comentario #{idx + 1}</span>
+                                <span className="comment-index">Comment #{idx + 1}</span>
                                 <div className="comment-actions">
                                     {editingCommentId === comment.id ? (
                                         <>
                                             <Button
                                                 variant="outline-primary"
-                                                className="apple-button apple-button-outline"
+                                                className="save-button"
                                                 onClick={() => handleSaveComment(comment.id)}
                                             >
-                                                Guardar
+                                                Save
                                             </Button>
                                             <Button
                                                 variant="outline-secondary"
-                                                className="apple-button apple-button-outline-secondary"
+                                                className="cancel-button"
                                                 onClick={() => setEditingCommentId(null)}
                                             >
-                                                Cancelar
+                                                Cancel
                                             </Button>
                                         </>
                                     ) : (
                                         <>
                                             <Button
-                                                variant="outline-primary"
-                                                className="apple-button apple-button-outline"
+                                                variant="warning"
+                                                className="edit-button"
                                                 onClick={() => handleEditComment(comment.id)}
                                             >
                                                 <i className="fas fa-pencil-alt"></i>
                                             </Button>
                                             <Button
                                                 variant="outline-danger"
-                                                className="apple-button apple-button-outline-danger"
+                                                className="delete-button"
                                                 onClick={() => handleDeleteComment(comment.id)}
                                             >
                                                 <i className="fas fa-trash"></i>
@@ -62,7 +62,7 @@ const CommentsCard = ({
                                 {editingCommentId === comment.id ? (
                                     <>
                                         <Form.Group className="mb-4">
-                                            <Form.Label className="form-label">Puntuación (0-10)</Form.Label>
+                                            <Form.Label className="form-label">Raiting (0-10)</Form.Label>
                                             <Form.Control
                                                 type="number"
                                                 min="0"
@@ -82,7 +82,7 @@ const CommentsCard = ({
                                         </Form.Group>
 
                                         <Form.Group className="mb-4">
-                                            <Form.Label className="form-label">Comentario</Form.Label>
+                                            <Form.Label className="form-label">Comment</Form.Label>
                                             <Form.Control
                                                 as="textarea"
                                                 rows={3}
@@ -104,10 +104,10 @@ const CommentsCard = ({
                                 ) : (
                                     <>
                                         <Card.Text className="comment-rating">
-                                            <strong>Puntuación:</strong> {comment.rating}/10
+                                            <strong>Raiting:</strong> {comment.rating}/10
                                         </Card.Text>
                                         <Card.Text className="comment-text">
-                                            <strong>Comentario:</strong> {comment.comment}
+                                            <strong>Comment:</strong> {comment.comment}
                                         </Card.Text>
                                     </>
                                 )}
@@ -115,7 +115,7 @@ const CommentsCard = ({
 
                             <Card.Footer className="comment-footer">
                                 <small className="text-muted">
-                                    Fecha de Registro: {new Date(comment.date).toLocaleDateString()}
+                                    Date: {new Date(comment.date).toLocaleDateString()}
                                 </small>
                             </Card.Footer>
                         </Card>
